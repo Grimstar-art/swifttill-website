@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwiftTill POS | Ultimate Business Management Solution</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --primary-blue: #1a56db;
+        --secondary-blue: #3b82f6;
+        --accent-blue: #60a5fa;
+        --dark-blue: #1e3a8a;
+        --light-blue: #dbeafe;
+        --gradient-blue: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+        --gradient-dark: linear-gradient(135deg, #1e3a8a, #1e40af);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        color: #f1f5f9;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 10% 20%,
+            rgba(59, 130, 246, 0.1) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 90% 30%,
+            rgba(30, 64, 175, 0.15) 0%,
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 50% 80%,
+            rgba(96, 165, 250, 0.1) 0%,
+            transparent 30%
+          );
+        z-index: -1;
+      }
+
+      /* ==================== GLOWING ORB ANIMATION ==================== */
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.4;
+        z-index: -1;
+      }
+
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+        top: -200px;
+        right: -200px;
+        animation: float-orb 25s infinite ease-in-out;
+      }
+
+      .orb-2 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, #1e40af 0%, transparent 70%);
+        bottom: -150px;
+        left: -150px;
+        animation: float-orb 30s infinite ease-in-out reverse;
+      }
+
+      @keyframes float-orb {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          transform: translate(30px, -30px) rotate(120deg);
+        }
+        66% {
+          transform: translate(-20px, 20px) rotate(240deg);
+        }
+      }
+
+      /* ==================== PARTICLE BACKGROUND ==================== */
+      .particles-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -2;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(96, 165, 250, 0.3);
+        animation: float-particle 20s infinite linear;
+      }
+
+      @keyframes float-particle {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+        }
+      }
+
+      /* ==================== HEADER & NAVIGATION ==================== */
+      .main-header {
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .main-header.scrolled {
+        background: rgba(15, 23, 42, 0.95);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .logo {
+        font-weight: 900;
+        font-size: 1.8rem;
+        background: linear-gradient(90deg, #60a5fa, #3b82f6, #1e40af);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: -0.5px;
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* ==================== HERO SECTION ==================== */
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        line-height: 1.1;
+        background: linear-gradient(90deg, #f1f5f9, #60a5fa, #3b82f6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: #cbd5e1;
+        max-width: 600px;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .hero-stats {
+        display: flex;
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* ==================== FEATURE HIGHLIGHTS ==================== */
+      .features-section {
+        padding: 6rem 0;
+        position: relative;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 1rem;
+        background: linear-gradient(90deg, #f1f5f9, #60a5fa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: #94a3b8;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+        font-size: 1.1rem;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: rgba(30, 41, 59, 0.6);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.1),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .feature-card:hover::before {
+        opacity: 1;
+      }
+
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #1e40af, #3b82f6);
+        color: white;
+        box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+      }
+
+      .feature-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #f1f5f9;
+      }
+
+      /* ==================== VISUAL SHOWCASE ==================== */
+      .showcase-section {
+        padding: 6rem 0;
+        position: relative;
+      }
+
+      .showcase-container {
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        overflow: hidden;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .showcase-header {
+        background: linear-gradient(90deg, #1e40af, #3b82f6);
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .showcase-tabs {
+        display: flex;
+        gap: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.5rem;
+        border-radius: 12px;
+      }
+
+      .showcase-tab {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        background: transparent;
+        border: none;
+        color: #cbd5e1;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .showcase-tab.active {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+
+      .showcase-content {
+        padding: 3rem;
+        min-height: 500px;
+      }
+
+      .showcase-pane {
+        display: none;
+      }
+
+      .showcase-pane.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ==================== INTEGRATIONS ==================== */
+      .integrations-section {
+        padding: 6rem 0;
+      }
+
+      .integration-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .integration-card {
+        background: rgba(30, 41, 59, 0.6);
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .integration-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .integration-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #60a5fa;
+      }
+
+      /* ==================== PRICING ==================== */
+      .pricing-section {
+        padding: 6rem 0;
+      }
+
+      .pricing-card {
+        background: rgba(15, 23, 42, 0.8);
+        border-radius: 24px;
+        padding: 3rem 2rem;
+        border: 2px solid rgba(59, 130, 246, 0.2);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-card.popular {
+        border-color: #3b82f6;
+        transform: scale(1.05);
+        background: rgba(30, 41, 59, 0.9);
+      }
+
+      .pricing-card.popular::before {
+        content: "MOST POPULAR";
+        position: absolute;
+        top: 20px;
+        right: -35px;
+        background: linear-gradient(90deg, #1e40af, #3b82f6);
+        color: white;
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .pricing-card:hover {
+        border-color: #60a5fa;
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .pricing-card.popular:hover {
+        transform: translateY(-10px) scale(1.05);
+      }
+
+      .price {
+        font-size: 3.5rem;
+        font-weight: 900;
+        background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        line-height: 1;
+      }
+
+      /* ==================== TESTIMONIALS ==================== */
+      .testimonials-section {
+        padding: 6rem 0;
+      }
+
+      .testimonial-card {
+        background: rgba(30, 41, 59, 0.6);
+        border-radius: 20px;
+        padding: 2.5rem;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        border-color: rgba(59, 130, 246, 0.4);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1e40af, #3b82f6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* ==================== CTA SECTION ==================== */
+      .cta-section {
+        padding: 8rem 0;
+        background: linear-gradient(
+          135deg,
+          rgba(30, 58, 138, 0.8),
+          rgba(30, 64, 175, 0.9)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 50%
+          );
+      }
+
+      .cta-title {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+        color: white;
+      }
+
+      /* ==================== FOOTER ==================== */
+      .main-footer {
+        background: #0f172a;
+        padding: 4rem 0 2rem;
+        border-top: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .footer-links a {
+        color: #cbd5e1;
+        transition: color 0.3s ease;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links a:hover {
+        color: #60a5fa;
+      }
+
+      /* ==================== BUTTONS ==================== */
+      .btn-primary {
+        background: linear-gradient(90deg, #1e40af, #3b82f6);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(30, 64, 175, 0.4);
+      }
+
+      .btn-primary:hover::before {
+        left: 100%;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #60a5fa;
+        padding: 1rem 2.5rem;
+        border-radius: 12px;
+        font-weight: 600;
+        border: 2px solid rgba(96, 165, 250, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(96, 165, 250, 0.1);
+        transform: translateY(-3px);
+        border-color: #60a5fa;
+      }
+
+      /* ==================== ANIMATIONS ==================== */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ==================== RESPONSIVE ==================== */
+      @media (max-width: 1024px) {
+        .hero-title {
+          font-size: 3rem;
+        }
+
+        .pricing-card.popular {
+          transform: scale(1);
+        }
+
+        .pricing-card.popular:hover {
+          transform: translateY(-10px) scale(1);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+
+        .showcase-tabs {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+
+        .cta-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Glowing Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Particle Background -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Header -->
+    <header class="main-header" id="header">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="logo">SwiftTill POS</div>
+          <nav class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#showcase" class="nav-link">Showcase</a>
+            <a href="#integrations" class="nav-link">Integrations</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+          <div class="flex items-center space-x-4">
+            <button
+              class="btn-secondary hidden md:inline-block"
+              onclick="scrollToContact()"
+            >
+              <i class="fas fa-headset"></i> Support
+            </button>
+            <button class="btn-primary" onclick="scrollToPricing()">
+              <i class="fas fa-rocket"></i> Get Started
+            </button>
+            <button class="md:hidden text-2xl text-blue-300" id="mobileMenuBtn">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden mt-4 hidden" id="mobileMenu">
+          <div class="flex flex-col space-y-4">
+            <a href="#home" class="nav-link py-2">Home</a>
+            <a href="#features" class="nav-link py-2">Features</a>
+            <a href="#showcase" class="nav-link py-2">Showcase</a>
+            <a href="#integrations" class="nav-link py-2">Integrations</a>
+            <a href="#pricing" class="nav-link py-2">Pricing</a>
+            <a href="#contact" class="nav-link py-2">Contact</a>
+            <button class="btn-secondary w-full" onclick="scrollToContact()">
+              <i class="fas fa-headset"></i> Support
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
+            <h1 class="hero-title">
+              Transform Your Business Operations with SwiftTill POS
+            </h1>
+            <p class="hero-subtitle">
+              The all-in-one business management platform designed to streamline
+              operations, boost sales, and provide actionable insights for
+              retail stores, restaurants, and service businesses.
+            </p>
+            <div class="flex flex-wrap gap-4 mt-8">
+              <button class="btn-primary" onclick="scrollToFeatures()">
+                <i class="fas fa-chart-line"></i> Explore Features
+              </button>
+              <button class="btn-secondary" onclick="openContactModal()">
+                <i class="fas fa-calendar-alt"></i> Book a Demo
+              </button>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-number">5,000+</div>
+                <div class="stat-label">Businesses Trust Us</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Uptime</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support</div>
+              </div>
+            </div>
+          </div>
+          <div class="fade-in">
+            <div class="relative">
+              <div
+                class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-xl opacity-30"
+              ></div>
+              <div
+                class="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-slate-700 shadow-2xl"
+              >
+                <div class="flex items-center justify-between mb-6">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                  </div>
+                  <div class="text-sm text-slate-400">
+                    SwiftTill POS Dashboard
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                  <div class="bg-slate-800 rounded-lg p-4">
+                    <div class="text-slate-400 text-sm mb-1">Today's Sales</div>
+                    <div class="text-2xl font-bold text-green-400">
+                      $8,425.60
+                    </div>
+                    <div class="text-xs text-green-500 mt-1">
+                      ↑ 12.5% from yesterday
+                    </div>
+                  </div>
+                  <div class="bg-slate-800 rounded-lg p-4">
+                    <div class="text-slate-400 text-sm mb-1">Transactions</div>
+                    <div class="text-2xl font-bold text-blue-400">142</div>
+                    <div class="text-xs text-blue-500 mt-1">
+                      ↑ 8.2% from yesterday
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-lg p-4">
+                  <div class="flex justify-between items-center mb-3">
+                    <div class="text-slate-400 text-sm">Top Products Today</div>
+                    <div class="text-xs text-blue-400">View All →</div>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center">
+                        <div
+                          class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center mr-3"
+                        >
+                          <i class="fas fa-mobile-alt text-xs"></i>
+                        </div>
+                        <div>
+                          <div class="text-sm font-medium">Smartphone X</div>
+                          <div class="text-xs text-slate-500">12 sold</div>
+                        </div>
+                      </div>
+                      <div class="text-sm font-bold">$899.99</div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <div class="flex items-center">
+                        <div
+                          class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mr-3"
+                        >
+                          <i class="fas fa-headphones text-xs"></i>
+                        </div>
+                        <div>
+                          <div class="text-sm font-medium">
+                            Wireless Headphones
+                          </div>
+                          <div class="text-xs text-slate-500">8 sold</div>
+                        </div>
+                      </div>
+                      <div class="text-sm font-bold">$129.99</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Highlights -->
+    <section class="features-section" id="features">
+      <div class="container mx-auto px-6">
+        <h2 class="section-title fade-in">
+          Revolutionary Features for Modern Businesses
+        </h2>
+        <p class="section-subtitle fade-in">
+          SwiftTill POS combines cutting-edge technology with intuitive design
+          to deliver unparalleled business management capabilities.
+        </p>
+
+        <div class="feature-grid mt-12">
+          <!-- Feature 1 -->
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3 class="feature-title">Lightning-Fast Transactions</h3>
+            <p class="text-slate-300">
+              Process sales in seconds with our optimized checkout system.
+              Support for barcode scanning, touch screen, and keyboard shortcuts
+              for maximum efficiency.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>One-touch product lookup</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Split payments & custom discounts</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Customer loyalty programs</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-chart-network"></i>
+            </div>
+            <h3 class="feature-title">Advanced Analytics Dashboard</h3>
+            <p class="text-slate-300">
+              Gain deep insights into your business performance with real-time
+              analytics, predictive trends, and customizable reports.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Real-time sales tracking</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Inventory forecasting</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Customer behavior analysis</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <h3 class="feature-title">Smart Cloud Sync</h3>
+            <p class="text-slate-300">
+              Access your business data from anywhere with secure cloud
+              synchronization. Multi-store management and automatic backups.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Multi-store synchronization</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Automatic daily backups</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Mobile app access</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3 class="feature-title">AI-Powered Insights</h3>
+            <p class="text-slate-300">
+              Leverage artificial intelligence to predict sales trends, optimize
+              inventory, and personalize customer experiences.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Predictive inventory management</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Personalized customer recommendations</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Automated reordering suggestions</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="feature-title">Enterprise-Grade Security</h3>
+            <p class="text-slate-300">
+              Protect your business data with bank-level encryption, role-based
+              access controls, and comprehensive audit trails.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>End-to-end encryption</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Role-based permission system</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>PCI DSS compliance</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="feature-title">Customizable Workflows</h3>
+            <p class="text-slate-300">
+              Tailor SwiftTill to your specific business needs with customizable
+              workflows, receipt templates, and reporting formats.
+            </p>
+            <ul class="mt-4 space-y-2">
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Custom receipt templates</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Adaptable workflow designer</span>
+              </li>
+              <li class="flex items-center text-slate-300">
+                <i class="fas fa-check-circle text-blue-400 mr-2"></i>
+                <span>Branded customer communications</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Showcase -->
+    <section class="showcase-section" id="showcase">
+      <div class="container mx-auto px-6">
+        <h2 class="section-title fade-in">Experience the Power of SwiftTill</h2>
+        <p class="section-subtitle fade-in">
+          Explore how SwiftTill transforms every aspect of your business
+          operations.
+        </p>
+
+        <div class="showcase-container mt-12 fade-in">
+          <div class="showcase-header">
+            <div class="text-xl font-bold">
+              <i class="fas fa-eye mr-2"></i> SwiftTill Interactive Showcase
+            </div>
+            <div class="showcase-tabs">
+              <button class="showcase-tab active" data-tab="dashboard">
+                <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+              </button>
+              <button class="showcase-tab" data-tab="inventory">
+                <i class="fas fa-boxes mr-2"></i> Inventory
+              </button>
+              <button class="showcase-tab" data-tab="analytics">
+                <i class="fas fa-chart-bar mr-2"></i> Analytics
+              </button>
+              <button class="showcase-tab" data-tab="reports">
+                <i class="fas fa-file-alt mr-2"></i> Reports
+              </button>
+            </div>
+          </div>
+
+          <div class="showcase-content">
+            <!-- Dashboard Pane -->
+            <div class="showcase-pane active" id="dashboard-pane">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="text-2xl font-bold mb-4">
+                    Real-Time Business Dashboard
+                  </h3>
+                  <p class="text-slate-300 mb-6">
+                    Monitor your business performance at a glance with our
+                    comprehensive dashboard. Track sales, inventory, customer
+                    metrics, and more in real-time.
+                  </p>
+                  <ul class="space-y-3">
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span
+                        >Live sales tracking with minute-by-minute updates</span
+                      >
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Inventory alerts for low stock items</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Staff performance metrics</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Customer traffic analytics</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 border border-slate-700"
+                >
+                  <div class="flex items-center justify-between mb-6">
+                    <div class="text-lg font-bold">Today's Overview</div>
+                    <div class="text-sm text-slate-400">Live Data</div>
+                  </div>
+                  <div class="space-y-4">
+                    <div
+                      class="flex justify-between items-center p-3 bg-slate-800 rounded-lg"
+                    >
+                      <div class="text-slate-400">Total Sales</div>
+                      <div class="text-xl font-bold text-green-400">
+                        $12,847.32
+                      </div>
+                    </div>
+                    <div
+                      class="flex justify-between items-center p-3 bg-slate-800 rounded-lg"
+                    >
+                      <div class="text-slate-400">Transactions</div>
+                      <div class="text-xl font-bold text-blue-400">214</div>
+                    </div>
+                    <div
+                      class="flex justify-between items-center p-3 bg-slate-800 rounded-lg"
+                    >
+                      <div class="text-slate-400">Average Basket</div>
+                      <div class="text-xl font-bold text-purple-400">
+                        $60.03
+                      </div>
+                    </div>
+                    <div
+                      class="flex justify-between items-center p-3 bg-slate-800 rounded-lg"
+                    >
+                      <div class="text-slate-400">Top Product</div>
+                      <div class="text-xl font-bold text-yellow-400">
+                        Smartphone X
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Inventory Pane -->
+            <div class="showcase-pane" id="inventory-pane">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="text-2xl font-bold mb-4">
+                    Intelligent Inventory Management
+                  </h3>
+                  <p class="text-slate-300 mb-6">
+                    Take control of your stock with our advanced inventory
+                    system. Track products, set reorder points, and manage
+                    suppliers effortlessly.
+                  </p>
+                  <ul class="space-y-3">
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Barcode scanning for quick inventory updates</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Batch and expiry date tracking</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Automated purchase orders when stock is low</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Multi-location inventory tracking</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 border border-slate-700"
+                >
+                  <div class="flex items-center justify-between mb-6">
+                    <div class="text-lg font-bold">Inventory Status</div>
+                    <div class="text-sm text-slate-400">Smart Alerts</div>
+                  </div>
+                  <div class="space-y-4">
+                    <div class="p-3 bg-slate-800 rounded-lg">
+                      <div class="flex justify-between items-center mb-2">
+                        <div class="font-medium">Smartphone X</div>
+                        <div
+                          class="text-sm px-2 py-1 bg-blue-900 text-blue-300 rounded"
+                        >
+                          In Stock
+                        </div>
+                      </div>
+                      <div class="text-sm text-slate-400">
+                        42 units remaining
+                      </div>
+                    </div>
+                    <div class="p-3 bg-slate-800 rounded-lg">
+                      <div class="flex justify-between items-center mb-2">
+                        <div class="font-medium">Wireless Headphones</div>
+                        <div
+                          class="text-sm px-2 py-1 bg-yellow-900 text-yellow-300 rounded"
+                        >
+                          Low Stock
+                        </div>
+                      </div>
+                      <div class="text-sm text-slate-400">
+                        8 units remaining • Reorder suggested
+                      </div>
+                    </div>
+                    <div class="p-3 bg-slate-800 rounded-lg">
+                      <div class="flex justify-between items-center mb-2">
+                        <div class="font-medium">Laptop Pro</div>
+                        <div
+                          class="text-sm px-2 py-1 bg-red-900 text-red-300 rounded"
+                        >
+                          Out of Stock
+                        </div>
+                      </div>
+                      <div class="text-sm text-slate-400">
+                        0 units • Purchase order generated
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Analytics Pane -->
+            <div class="showcase-pane" id="analytics-pane">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="text-2xl font-bold mb-4">
+                    Advanced Business Analytics
+                  </h3>
+                  <p class="text-slate-300 mb-6">
+                    Make data-driven decisions with our comprehensive analytics
+                    suite. Visualize trends, forecast sales, and identify growth
+                    opportunities.
+                  </p>
+                  <ul class="space-y-3">
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span
+                        >Sales trends analysis with predictive forecasting</span
+                      >
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Customer segmentation and behavior analysis</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span
+                        >Profit margin analysis by product and category</span
+                      >
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Staff performance and productivity metrics</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 border border-slate-700"
+                >
+                  <div class="flex items-center justify-between mb-6">
+                    <div class="text-lg font-bold">Analytics Overview</div>
+                    <div class="text-sm text-slate-400">30-Day Trend</div>
+                  </div>
+                  <div class="space-y-4">
+                    <div>
+                      <div
+                        class="flex justify-between text-sm text-slate-400 mb-1"
+                      >
+                        <span>Sales Growth</span>
+                        <span>+18.2%</span>
+                      </div>
+                      <div
+                        class="h-2 bg-slate-700 rounded-full overflow-hidden"
+                      >
+                        <div
+                          class="h-full bg-green-500 rounded-full"
+                          style="width: 82%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="flex justify-between text-sm text-slate-400 mb-1"
+                      >
+                        <span>Customer Retention</span>
+                        <span>+12.7%</span>
+                      </div>
+                      <div
+                        class="h-2 bg-slate-700 rounded-full overflow-hidden"
+                      >
+                        <div
+                          class="h-full bg-blue-500 rounded-full"
+                          style="width: 74%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="flex justify-between text-sm text-slate-400 mb-1"
+                      >
+                        <span>Inventory Turnover</span>
+                        <span>+9.4%</span>
+                      </div>
+                      <div
+                        class="h-2 bg-slate-700 rounded-full overflow-hidden"
+                      >
+                        <div
+                          class="h-full bg-purple-500 rounded-full"
+                          style="width: 68%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="flex justify-between text-sm text-slate-400 mb-1"
+                      >
+                        <span>Profit Margins</span>
+                        <span>+5.8%</span>
+                      </div>
+                      <div
+                        class="h-2 bg-slate-700 rounded-full overflow-hidden"
+                      >
+                        <div
+                          class="h-full bg-yellow-500 rounded-full"
+                          style="width: 62%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reports Pane -->
+            <div class="showcase-pane" id="reports-pane">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="text-2xl font-bold mb-4">
+                    Comprehensive Reporting System
+                  </h3>
+                  <p class="text-slate-300 mb-6">
+                    Generate detailed reports for every aspect of your business.
+                    Customize, schedule, and export reports with ease.
+                  </p>
+                  <ul class="space-y-3">
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span
+                        >Sales reports by date, product, category, and
+                        staff</span
+                      >
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span
+                        >Inventory valuation and stock movement reports</span
+                      >
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Customer purchase history and loyalty reports</span>
+                    </li>
+                    <li class="flex items-center">
+                      <i class="fas fa-check text-green-400 mr-3"></i>
+                      <span>Financial statements and tax reports</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 border border-slate-700"
+                >
+                  <div class="flex items-center justify-between mb-6">
+                    <div class="text-lg font-bold">Report Templates</div>
+                    <div class="text-sm text-slate-400">Ready to Use</div>
+                  </div>
+                  <div class="space-y-4">
+                    <div
+                      class="p-3 bg-slate-800 rounded-lg flex items-center justify-between"
+                    >
+                      <div>
+                        <div class="font-medium">Daily Sales Summary</div>
+                        <div class="text-sm text-slate-400">
+                          PDF, Excel, CSV
+                        </div>
+                      </div>
+                      <button class="text-blue-400 hover:text-blue-300">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </div>
+                    <div
+                      class="p-3 bg-slate-800 rounded-lg flex items-center justify-between"
+                    >
+                      <div>
+                        <div class="font-medium">Monthly Profit & Loss</div>
+                        <div class="text-sm text-slate-400">PDF, Excel</div>
+                      </div>
+                      <button class="text-blue-400 hover:text-blue-300">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </div>
+                    <div
+                      class="p-3 bg-slate-800 rounded-lg flex items-center justify-between"
+                    >
+                      <div>
+                        <div class="font-medium">Inventory Valuation</div>
+                        <div class="text-sm text-slate-400">PDF, CSV</div>
+                      </div>
+                      <button class="text-blue-400 hover:text-blue-300">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </div>
+                    <div
+                      class="p-3 bg-slate-800 rounded-lg flex items-center justify-between"
+                    >
+                      <div>
+                        <div class="font-medium">Customer Analytics</div>
+                        <div class="text-sm text-slate-400">PDF, Excel</div>
+                      </div>
+                      <button class="text-blue-400 hover:text-blue-300">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="integrations-section" id="integrations">
+      <div class="container mx-auto px-6">
+        <h2 class="section-title fade-in">Seamless Integrations</h2>
+        <p class="section-subtitle fade-in">
+          SwiftTill connects with the tools you already use to create a unified
+          business ecosystem.
+        </p>
+
+        <div class="integration-grid">
+          <div class="integration-card fade-in">
+            <div class="integration-icon">
+              <i class="fab fa-cc-stripe"></i>
+            </div>
+            <h4 class="font-bold mb-2">Payment Processors</h4>
+            <p class="text-slate-400 text-sm">Stripe, PayPal, Square, M-Pesa</p>
+          </div>
+
+          <div class="integration-card fade-in">
+            <div class="integration-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h4 class="font-bold mb-2">E-commerce Platforms</h4>
+            <p class="text-slate-400 text-sm">Shopify, WooCommerce, Magento</p>
+          </div>
+
+          <div class="integration-card fade-in">
+            <div class="integration-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h4 class="font-bold mb-2">Accounting Software</h4>
+            <p class="text-slate-400 text-sm">QuickBooks, Xero, Sage</p>
+          </div>
+
+          <div class="integration-card fade-in">
+            <div class="integration-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h4 class="font-bold mb-2">Shipping & Logistics</h4>
+            <p class="text-slate-400 text-sm">FedEx, DHL, UPS, ShipStation</p>
+          </div>
+
+          <div class="integration-card fade-in">
+            <div class="integration-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h4 class="font-bold mb-2">Marketing Tools</h4>
+            <p class="text-slate-400 text-sm">Mailchimp, Klaviyo, HubSpot</p>
+          </div>
+
+          <div class="integration-card fade-in">
+            <div class="integration-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h4 class="font-bold mb-2">ERP Systems</h4>
+            <p class="text-slate-400 text-sm">
+              SAP, Oracle, Microsoft Dynamics
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section" id="pricing">
+      <div class="container mx-auto px-6">
+        <h2 class="section-title fade-in">Simple, Transparent Pricing</h2>
+        <p class="section-subtitle fade-in">
+          Choose the plan that fits your business. No hidden fees, cancel
+          anytime.
+        </p>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto"
+        >
+          <!-- Starter Plan -->
+          <div class="pricing-card fade-in">
+            <h3 class="text-2xl font-bold mb-2">Starter</h3>
+            <p class="text-slate-400 mb-6">Perfect for small businesses</p>
+            <div class="price mb-6">
+              $29<span class="text-lg text-slate-400">/month</span>
+            </div>
+
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Up to 2 registers</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Basic inventory management</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Sales reporting</span>
+              </li>
+              <li class="flex items-center text-slate-500">
+                <i class="fas fa-times mr-3"></i>
+                <span>Advanced analytics</span>
+              </li>
+              <li class="flex items-center text-slate-500">
+                <i class="fas fa-times mr-3"></i>
+                <span>Multi-store sync</span>
+              </li>
+              <li class="flex items-center text-slate-500">
+                <i class="fas fa-times mr-3"></i>
+                <span>API access</span>
+              </li>
+            </ul>
+
+            <button
+              class="btn-secondary w-full"
+              onclick="openContactModal('Starter Plan')"
+            >
+              Get Started
+            </button>
+          </div>
+
+          <!-- Professional Plan -->
+          <div class="pricing-card popular fade-in">
+            <h3 class="text-2xl font-bold mb-2">Professional</h3>
+            <p class="text-slate-400 mb-6">Best for growing businesses</p>
+            <div class="price mb-6">
+              $79<span class="text-lg text-slate-400">/month</span>
+            </div>
+
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Up to 10 registers</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Advanced inventory</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Multi-user access</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Customer management</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Multi-store sync</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Priority support</span>
+              </li>
+            </ul>
+
+            <button
+              class="btn-primary w-full"
+              onclick="openContactModal('Professional Plan')"
+            >
+              Get Professional
+            </button>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="pricing-card fade-in">
+            <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+            <p class="text-slate-400 mb-6">For large businesses</p>
+            <div class="price mb-6">Custom</div>
+
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Unlimited registers</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Full customization</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>API access</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>Dedicated account manager</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>On-premise deployment</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check text-green-400 mr-3"></i>
+                <span>24/7 phone support</span>
+              </li>
+            </ul>
+
+            <button
+              class="btn-secondary w-full"
+              onclick="openContactModal('Enterprise Plan')"
+            >
+              Contact Sales
+            </button>
+          </div>
+        </div>
+
+        <div class="text-center mt-12 fade-in">
+          <p class="text-slate-400">
+            All plans include a
+            <span class="font-bold text-green-400">30-day free trial</span> with
+            no credit card required.
+          </p>
+          <p class="text-slate-400 mt-2">
+            Need help choosing?
+            <a
+              href="#contact"
+              class="text-blue-400 font-medium hover:text-blue-300"
+              >Contact our sales team</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+      <div class="container mx-auto px-6">
+        <h2 class="section-title fade-in">Trusted by 5,000+ Businesses</h2>
+        <p class="section-subtitle fade-in">
+          See what business owners are saying about SwiftTill POS.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-avatar">JD</div>
+            <p class="text-slate-300 italic mb-4">
+              "SwiftTill has transformed our retail operations. Inventory
+              management that used to take hours now happens automatically.
+              Sales have increased by 35% since implementation."
+            </p>
+            <div>
+              <h4 class="font-bold">John Doe</h4>
+              <p class="text-slate-500 text-sm">Owner, TechGadget Store</p>
+            </div>
+            <div class="flex text-yellow-400 mt-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-avatar">SM</div>
+            <p class="text-slate-300 italic mb-4">
+              "The reporting features alone are worth the investment. I can now
+              make data-driven decisions that have significantly improved our
+              profit margins. The support team is exceptional."
+            </p>
+            <div>
+              <h4 class="font-bold">Sarah Mitchell</h4>
+              <p class="text-slate-500 text-sm">Manager, Urban Bistro</p>
+            </div>
+            <div class="flex text-yellow-400 mt-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-avatar">RT</div>
+            <p class="text-slate-300 italic mb-4">
+              "Managing 3 stores used to be a nightmare. With SwiftTill's
+              multi-store sync, I can monitor all locations from one dashboard.
+              The AI-powered inventory forecasting has saved us thousands."
+            </p>
+            <div>
+              <h4 class="font-bold">Robert Taylor</h4>
+              <p class="text-slate-500 text-sm">
+                CEO, Taylor Electronics Chain
+              </p>
+            </div>
+            <div class="flex text-yellow-400 mt-4">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="cta-title fade-in">Ready to Transform Your Business?</h2>
+        <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-10 fade-in">
+          Join thousands of successful businesses using SwiftTill POS to
+          streamline operations, increase sales, and gain valuable insights.
+        </p>
+
+        <div
+          class="flex flex-col md:flex-row gap-6 justify-center items-center fade-in"
+        >
+          <button
+            class="btn-primary px-10 py-4 text-lg"
+            onclick="openContactModal('CTA Button')"
+          >
+            <i class="fas fa-calendar-check mr-3"></i> Book a Free Demo
+          </button>
+          <button
+            class="btn-secondary px-10 py-4 text-lg"
+            onclick="showContactInfo()"
+          >
+            <i class="fas fa-phone-alt mr-3"></i> Call Us Now
+          </button>
+        </div>
+
+        <div
+          class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+        >
+          <div class="fade-in">
+            <div class="text-3xl text-blue-300 mb-3">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h4 class="font-bold text-lg mb-2">Call Us</h4>
+            <p class="text-blue-100">+254 723 795 977</p>
+          </div>
+
+          <div class="fade-in">
+            <div class="text-3xl text-blue-300 mb-3">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h4 class="font-bold text-lg mb-2">Email Us</h4>
+            <p class="text-blue-100">swiftilltechnologies@gmail.com</p>
+          </div>
+
+          <div class="fade-in">
+            <div class="text-3xl text-blue-300 mb-3">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h4 class="font-bold text-lg mb-2">Support Hours</h4>
+            <p class="text-blue-100">24/7 Support Available</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="logo text-2xl mb-4">SwiftTill POS</div>
+            <p class="text-slate-400 mb-6">
+              The ultimate business management solution for modern retailers,
+              restaurants, and service providers.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-900 transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-900 transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-900 transition"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-900 transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white text-lg font-bold mb-6">Product</h4>
+            <div class="footer-links">
+              <a href="#features">Features</a>
+              <a href="#showcase">Showcase</a>
+              <a href="#integrations">Integrations</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#" onclick="openContactModal('Footer Link')"
+                >Request a Demo</a
+              >
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white text-lg font-bold mb-6">Company</h4>
+            <div class="footer-links">
+              <a href="#">About Us</a>
+              <a href="#contact">Contact</a>
+              <a href="#">Careers</a>
+              <a href="#">Blog</a>
+              <a href="#">Press</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white text-lg font-bold mb-6">Resources</h4>
+            <div class="footer-links">
+              <a href="#">Help Center</a>
+              <a href="#">Documentation</a>
+              <a href="#">Video Tutorials</a>
+              <a href="#">API Documentation</a>
+              <a href="#">System Status</a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500"
+        >
+          <p>
+            &copy; 2025 SwiftTill Technologies. All rights reserved. Phone: 0723
+            795 977 | Email: swiftilltechnologies@gmail.com
+          </p>
+          <p class="mt-2">Nairobi, Kenya | Serving businesses worldwide</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div
+      id="contactModal"
+      class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden"
+    >
+      <div
+        class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 max-w-lg w-full mx-4 border border-slate-700"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-2xl font-bold">Request a Demo</h3>
+          <button
+            onclick="closeContactModal()"
+            class="text-slate-400 hover:text-white text-2xl"
+          >
+            &times;
+          </button>
+        </div>
+
+        <form id="contactForm">
+          <div class="mb-4">
+            <label class="block text-slate-300 mb-2">Full Name</label>
+            <input
+              type="text"
+              class="w-full p-3 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-slate-300 mb-2">Business Email</label>
+            <input
+              type="email"
+              class="w-full p-3 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-slate-300 mb-2">Phone Number</label>
+            <input
+              type="tel"
+              class="w-full p-3 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-slate-300 mb-2">Business Type</label>
+            <select
+              class="w-full p-3 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="" disabled selected>
+                Select your business type
+              </option>
+              <option value="retail">Retail Store</option>
+              <option value="restaurant">Restaurant/Cafe</option>
+              <option value="supermarket">Supermarket</option>
+              <option value="pharmacy">Pharmacy</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-primary w-full">
+            <i class="fas fa-paper-plane mr-2"></i> Submit Request
+          </button>
+
+          <div class="text-center mt-4">
+            <p class="text-slate-500 text-sm">
+              We'll contact you within 24 hours to schedule your personalized
+              demo.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Create particle background
+      function createParticles() {
+        const container = document.getElementById("particles");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+
+          const size = Math.random() * 5 + 1;
+          const left = Math.random() * 100;
+          const duration = Math.random() * 20 + 10;
+          const delay = Math.random() * 5;
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${left}%`;
+          particle.style.animationDuration = `${duration}s`;
+          particle.style.animationDelay = `${delay}s`;
+          particle.style.opacity = Math.random() * 0.5 + 0.1;
+
+          container.appendChild(particle);
+        }
+      }
+
+      // Header scroll effect
+      function updateHeader() {
+        const header = document.getElementById("header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      }
+
+      // Showcase tabs functionality
+      function initShowcaseTabs() {
+        const tabs = document.querySelectorAll(".showcase-tab");
+        const panes = document.querySelectorAll(".showcase-pane");
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const tabId = tab.getAttribute("data-tab");
+
+            // Update active tab
+            tabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            // Show corresponding pane
+            panes.forEach((pane) => {
+              pane.classList.remove("active");
+              if (pane.id === `${tabId}-pane`) {
+                pane.classList.add("active");
+              }
+            });
+          });
+        });
+      }
+
+      // Scroll animations
+      function checkFadeIn() {
+        const fadeElements = document.querySelectorAll(".fade-in");
+
+        fadeElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementTop < windowHeight - 100) {
+            element.classList.add("visible");
+          }
+        });
+      }
+
+      // Modal functions
+      function openContactModal(plan = "") {
+        document.getElementById("contactModal").classList.remove("hidden");
+        if (plan) {
+          console.log(`Interested in: ${plan}`);
+        }
+      }
+
+      function closeContactModal() {
+        document.getElementById("contactModal").classList.add("hidden");
+      }
+
+      function showContactInfo() {
+        alert(
+          "Contact Information:\n\nPhone: +254 723 795 977\nEmail: swiftilltechnologies@gmail.com\n\nWe're available 24/7 to assist you!"
+        );
+      }
+
+      // Navigation functions
+      function scrollToFeatures() {
+        document
+          .getElementById("features")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function scrollToPricing() {
+        document
+          .getElementById("pricing")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function scrollToContact() {
+        document
+          .getElementById("contact")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Mobile menu toggle
+      document
+        .getElementById("mobileMenuBtn")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobileMenu");
+          menu.classList.toggle("hidden");
+        });
+
+      // Form submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Thank you! Your demo request has been submitted. We will contact you within 24 hours."
+          );
+          closeContactModal();
+          this.reset();
+        });
+
+      // Notification function
+      function showNotification(message, type = "success") {
+        const notification = document.createElement("div");
+        notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white z-50 transform transition-all duration-300 ${
+          type === "error" ? "bg-red-600" : "bg-green-600"
+        }`;
+        notification.textContent = message;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.style.opacity = "0";
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 300);
+        }, 3000);
+      }
+
+      // Initialize everything
+      document.addEventListener("DOMContentLoaded", function () {
+        createParticles();
+        initShowcaseTabs();
+        checkFadeIn();
+
+        // Add scroll listeners
+        window.addEventListener("scroll", () => {
+          updateHeader();
+          checkFadeIn();
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll("#mobileMenu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            document.getElementById("mobileMenu").classList.add("hidden");
+          });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+          });
+        });
+      });
+
+      // Close modal when clicking outside
+      document
+        .getElementById("contactModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeContactModal();
+          }
+        });
+    </script>
+  </body>
+</html>
