@@ -3,25 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SwiftTill POS | Ultimate Business Management Solution</title>
+    <title>
+      SwiftTill POS | All-in-One Business Management Solution for Kenya
+    </title>
+    <meta
+      name="description"
+      content="SwiftTill POS - Complete business management system for retail stores, restaurants, and service businesses in Kenya. Streamline operations, boost sales, and gain insights."
+    />
+    <meta
+      name="keywords"
+      content="POS system Kenya, business management, retail software, restaurant POS, inventory management, Kenyan businesses"
+    />
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta
+      property="og:title"
+      content="SwiftTill POS | Transform Your Business Operations"
+    />
+    <meta
+      property="og:description"
+      content="All-in-one business management platform designed for Kenyan businesses. Streamline operations, boost sales, and gain valuable insights."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💰</text></svg>"
+    />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!-- CSS Libraries -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- EmailJS for form submission -->
+
+    <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <style>
       :root {
-        --primary-blue: #2563eb;
-        --secondary-blue: #3b82f6;
-        --accent-blue: #60a5fa;
+        --primary-blue: #1e40af;
+        --secondary-blue: #2563eb;
+        --accent-blue: #3b82f6;
         --light-blue: #eff6ff;
-        --gradient-blue: linear-gradient(135deg, #2563eb, #3b82f6, #60a5fa);
+        --success-green: #10b981;
+        --warning-orange: #f59e0b;
+        --gradient-blue: linear-gradient(135deg, #1e40af, #2563eb, #3b82f6);
         --gradient-light: linear-gradient(135deg, #f0f9ff, #e0f2fe);
       }
 
@@ -32,11 +70,30 @@
         font-family: "Inter", sans-serif;
       }
 
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
       body {
         background-color: #ffffff;
         color: #1f2937;
         overflow-x: hidden;
         position: relative;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* ==================== PERFORMANCE OPTIMIZATIONS ==================== */
+      .orb {
+        will-change: transform;
+        pointer-events: none;
+      }
+
+      .feature-card,
+      .testimonial-card,
+      .integration-card {
+        will-change: transform;
       }
 
       /* ==================== GLOWING ORB ANIMATION ==================== */
@@ -44,32 +101,44 @@
         position: fixed;
         border-radius: 50%;
         filter: blur(60px);
-        opacity: 0.15;
+        opacity: 0.1;
         z-index: 0;
       }
 
       .orb-1 {
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+        width: min(500px, 80vw);
+        height: min(500px, 80vw);
+        background: radial-gradient(
+          circle,
+          var(--accent-blue) 0%,
+          transparent 70%
+        );
         top: -250px;
         right: -200px;
         animation: float-orb 25s infinite ease-in-out;
       }
 
       .orb-2 {
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, #60a5fa 0%, transparent 70%);
+        width: min(400px, 70vw);
+        height: min(400px, 70vw);
+        background: radial-gradient(
+          circle,
+          var(--secondary-blue) 0%,
+          transparent 70%
+        );
         bottom: -200px;
         left: -150px;
         animation: float-orb 30s infinite ease-in-out reverse;
       }
 
       .orb-3 {
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(circle, #93c5fd 0%, transparent 70%);
+        width: min(300px, 60vw);
+        height: min(300px, 60vw);
+        background: radial-gradient(
+          circle,
+          var(--primary-blue) 0%,
+          transparent 70%
+        );
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -93,12 +162,13 @@
       .main-header {
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(209, 213, 219, 0.5);
         position: fixed;
         top: 0;
         width: 100%;
         z-index: 1000;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       }
 
@@ -110,11 +180,19 @@
       .logo {
         font-weight: 900;
         font-size: 1.8rem;
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        background: var(--gradient-blue);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .logo::before {
+        content: "💰";
+        font-size: 1.5rem;
       }
 
       .nav-link {
@@ -123,10 +201,11 @@
         color: #4b5563;
         transition: all 0.3s ease;
         padding: 8px 0;
+        text-decoration: none;
       }
 
       .nav-link:hover {
-        color: #2563eb;
+        color: var(--primary-blue);
       }
 
       .nav-link::after {
@@ -136,7 +215,7 @@
         left: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        background: var(--gradient-blue);
         transition: width 0.3s ease;
       }
 
@@ -159,7 +238,7 @@
         font-size: clamp(2rem, 5vw, 3.5rem);
         font-weight: 900;
         line-height: 1.1;
-        background: linear-gradient(90deg, #1f2937, #2563eb);
+        background: linear-gradient(90deg, #1f2937, var(--primary-blue));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -184,15 +263,17 @@
       .stat-item {
         text-align: center;
         min-width: 100px;
+        position: relative;
       }
 
       .stat-number {
         font-size: 2.5rem;
         font-weight: 800;
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        background: var(--gradient-blue);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
+        position: relative;
       }
 
       .stat-label {
@@ -200,9 +281,10 @@
         color: #6b7280;
         text-transform: uppercase;
         letter-spacing: 1px;
+        font-weight: 500;
       }
 
-      /* ==================== FEATURE HIGHLIGHTS ==================== */
+      /* ==================== FEATURES ==================== */
       .features-section {
         padding: clamp(3rem, 5vw, 6rem) 0;
         position: relative;
@@ -214,7 +296,7 @@
         font-weight: 800;
         text-align: center;
         margin-bottom: 1rem;
-        background: linear-gradient(90deg, #1f2937, #2563eb);
+        background: linear-gradient(90deg, #1f2937, var(--primary-blue));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -227,6 +309,7 @@
         margin: 0 auto clamp(2rem, 4vw, 4rem);
         font-size: clamp(0.9rem, 2vw, 1.1rem);
         padding: 0 1rem;
+        line-height: 1.6;
       }
 
       .feature-grid {
@@ -238,7 +321,6 @@
 
       .feature-card {
         background: #ffffff;
-        backdrop-filter: blur(10px);
         border-radius: 20px;
         padding: 2rem 1.5rem;
         border: 1px solid #e5e7eb;
@@ -248,30 +330,10 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       }
 
-      .feature-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(37, 99, 235, 0.05),
-          transparent
-        );
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-
       .feature-card:hover {
         transform: translateY(-10px);
-        border-color: #3b82f6;
+        border-color: var(--accent-blue);
         box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
-      }
-
-      .feature-card:hover::before {
-        opacity: 1;
       }
 
       .feature-icon {
@@ -283,7 +345,7 @@
         justify-content: center;
         font-size: 1.5rem;
         margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        background: var(--gradient-blue);
         color: white;
         box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
       }
@@ -295,7 +357,7 @@
         color: #1f2937;
       }
 
-      /* ==================== VISUAL SHOWCASE ==================== */
+      /* ==================== SHOWCASE ==================== */
       .showcase-section {
         padding: clamp(3rem, 5vw, 6rem) 0;
         position: relative;
@@ -304,7 +366,6 @@
 
       .showcase-container {
         background: #ffffff;
-        backdrop-filter: blur(10px);
         border-radius: 24px;
         border: 1px solid #e5e7eb;
         overflow: hidden;
@@ -313,7 +374,7 @@
       }
 
       .showcase-header {
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        background: var(--gradient-blue);
         padding: 1.5rem 1rem;
         display: flex;
         flex-direction: column;
@@ -336,6 +397,7 @@
         padding: 0.5rem;
         border-radius: 12px;
         flex-wrap: wrap;
+        justify-content: center;
       }
 
       .showcase-tab {
@@ -396,7 +458,7 @@
       .integration-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
-        gap: 1rem;
+        gap: 1.5rem;
         margin-top: 3rem;
         padding: 0 1rem;
       }
@@ -409,18 +471,24 @@
         border: 1px solid #e5e7eb;
         transition: all 0.3s ease;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .integration-card:hover {
         transform: translateY(-5px);
-        border-color: #3b82f6;
+        border-color: var(--accent-blue);
         box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
       }
 
       .integration-icon {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: #2563eb;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       /* ==================== PRICING ==================== */
@@ -433,7 +501,7 @@
         background: #ffffff;
         border-radius: 24px;
         padding: 2rem 1.5rem;
-        border: 2px solid #2563eb;
+        border: 2px solid var(--primary-blue);
         transition: all 0.4s ease;
         position: relative;
         overflow: hidden;
@@ -442,10 +510,24 @@
         margin: 0 auto;
       }
 
+      .pricing-card::before {
+        content: "MOST POPULAR";
+        position: absolute;
+        top: 20px;
+        right: -40px;
+        background: var(--success-green);
+        color: white;
+        padding: 5px 40px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+        letter-spacing: 1px;
+      }
+
       .price {
         font-size: 3rem;
         font-weight: 900;
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        background: var(--gradient-blue);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -471,10 +553,11 @@
         border: 1px solid #e5e7eb;
         transition: all 0.3s ease;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        height: 100%;
       }
 
       .testimonial-card:hover {
-        border-color: #3b82f6;
+        border-color: var(--accent-blue);
         transform: translateY(-5px);
         box-shadow: 0 15px 35px rgba(37, 99, 235, 0.1);
       }
@@ -483,7 +566,7 @@
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        background: var(--gradient-blue);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -496,7 +579,7 @@
       /* ==================== CTA SECTION ==================== */
       .cta-section {
         padding: clamp(4rem, 8vw, 8rem) 0;
-        background: linear-gradient(135deg, #2563eb, #3b82f6);
+        background: var(--gradient-blue);
         position: relative;
         overflow: hidden;
       }
@@ -518,6 +601,7 @@
             rgba(255, 255, 255, 0.1) 0%,
             transparent 50%
           );
+        pointer-events: none;
       }
 
       .cta-title {
@@ -539,7 +623,8 @@
         color: #d1d5db;
         transition: color 0.3s ease;
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
+        text-decoration: none;
       }
 
       .footer-links a:hover {
@@ -548,7 +633,7 @@
 
       /* ==================== BUTTONS ==================== */
       .btn-primary {
-        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        background: var(--gradient-blue);
         color: white;
         padding: 1rem 2rem;
         border-radius: 12px;
@@ -564,22 +649,8 @@
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         font-size: 1rem;
-      }
-
-      .btn-primary::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        transition: left 0.5s ease;
+        text-decoration: none;
+        white-space: nowrap;
       }
 
       .btn-primary:hover {
@@ -587,42 +658,22 @@
         box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
       }
 
-      .btn-primary:hover::before {
-        left: 100%;
-      }
-
       .btn-secondary {
         background: transparent;
-        color: #2563eb;
+        color: var(--primary-blue);
         padding: 1rem 2rem;
         border-radius: 12px;
         font-weight: 600;
-        border: 2px solid #2563eb;
+        border: 2px solid var(--primary-blue);
         cursor: pointer;
         transition: all 0.3s ease;
+        text-decoration: none;
       }
 
       .btn-secondary:hover {
         background: rgba(37, 99, 235, 0.05);
         transform: translateY(-3px);
-        border-color: #3b82f6;
-      }
-
-      .btn-outline {
-        background: transparent;
-        color: #4b5563;
-        padding: 1rem 2rem;
-        border-radius: 12px;
-        font-weight: 600;
-        border: 2px solid #d1d5db;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .btn-outline:hover {
-        background: #f9fafb;
-        transform: translateY(-3px);
-        border-color: #9ca3af;
+        border-color: var(--accent-blue);
       }
 
       /* ==================== ANIMATIONS ==================== */
@@ -672,7 +723,7 @@
       }
 
       .metric-card:hover {
-        border-color: #3b82f6;
+        border-color: var(--accent-blue);
         transform: translateY(-2px);
       }
 
@@ -685,6 +736,7 @@
         height: 100%;
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         z-index: 9999;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
@@ -713,7 +765,7 @@
       .loading-spinner {
         display: none;
         border: 3px solid #f3f3f3;
-        border-top: 3px solid #2563eb;
+        border-top: 3px solid var(--primary-blue);
         border-radius: 50%;
         width: 20px;
         height: 20px;
@@ -727,6 +779,69 @@
         100% {
           transform: rotate(360deg);
         }
+      }
+
+      /* ==================== BADGES ==================== */
+      .badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .badge-blue {
+        background-color: var(--light-blue);
+        color: var(--primary-blue);
+      }
+
+      .badge-green {
+        background-color: #d1fae5;
+        color: var(--success-green);
+      }
+
+      .badge-orange {
+        background-color: #fef3c7;
+        color: var(--warning-orange);
+      }
+
+      /* ==================== FORM STYLES ==================== */
+      .form-input {
+        width: 100%;
+        padding: 0.875rem;
+        border-radius: 12px;
+        border: 1px solid #d1d5db;
+        background-color: #f9fafb;
+        color: #1f2937;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        background-color: white;
+      }
+
+      /* ==================== SCROLL BAR ==================== */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent-blue);
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-blue);
       }
 
       /* ==================== RESPONSIVE ==================== */
@@ -760,7 +875,7 @@
         }
 
         .testimonial-card {
-          margin: 0 0.5rem;
+          margin: 0;
         }
       }
 
@@ -769,11 +884,55 @@
         .btn-secondary {
           padding: 0.875rem 1.5rem;
           font-size: 0.875rem;
+          width: 100%;
+          justify-content: center;
         }
 
         .showcase-tab {
           padding: 0.5rem;
           font-size: 0.75rem;
+          flex: 1;
+          min-width: 120px;
+        }
+
+        .hero-title {
+          font-size: 1.75rem;
+        }
+
+        .pricing-card::before {
+          font-size: 0.625rem;
+          right: -45px;
+          top: 15px;
+        }
+      }
+
+      /* ==================== PRINT STYLES ==================== */
+      @media print {
+        .main-header,
+        .mobile-menu,
+        .btn-primary,
+        .btn-secondary,
+        .orb,
+        .cta-section,
+        .main-footer,
+        #contactModal,
+        #successModal {
+          display: none !important;
+        }
+
+        body {
+          padding: 20px;
+        }
+
+        .container {
+          max-width: 100%;
+        }
+
+        .feature-card,
+        .testimonial-card,
+        .pricing-card {
+          break-inside: avoid;
+          page-break-inside: avoid;
         }
       }
     </style>
@@ -799,15 +958,21 @@
           </nav>
           <div class="flex items-center space-x-4">
             <button
-              class="btn-secondary hidden md:inline-block"
-              onclick="scrollToContact()"
+              class="btn-secondary hidden md:inline-flex"
+              onclick="showContactInfo()"
             >
-              <i class="fas fa-headset"></i> Support
+              <i class="fas fa-phone-alt"></i>
+              <span class="ml-2">+254 723 795 977</span>
             </button>
-            <button class="btn-primary" onclick="openContactModal()">
-              <i class="fas fa-rocket"></i> Get Started
+            <button class="btn-primary" onclick="openContactModal('header')">
+              <i class="fas fa-rocket"></i>
+              <span>Get Started</span>
             </button>
-            <button class="md:hidden text-2xl text-blue-600" id="mobileMenuBtn">
+            <button
+              class="md:hidden text-2xl text-blue-600 focus:outline-none"
+              id="mobileMenuBtn"
+              aria-label="Open menu"
+            >
               <i class="fas fa-bars"></i>
             </button>
           </div>
@@ -817,18 +982,46 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#home" onclick="closeMobileMenu()">Home</a>
-      <a href="#features" onclick="closeMobileMenu()">Features</a>
-      <a href="#showcase" onclick="closeMobileMenu()">Showcase</a>
-      <a href="#integrations" onclick="closeMobileMenu()">Integrations</a>
-      <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
-      <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-      <button
-        class="btn-secondary mt-4"
-        onclick="closeMobileMenu(); scrollToContact();"
-      >
-        <i class="fas fa-headset"></i> Support
-      </button>
+      <div class="container">
+        <button
+          class="absolute top-6 right-4 text-3xl text-gray-600"
+          onclick="closeMobileMenu()"
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
+        <a href="#home" class="nav-link" onclick="closeMobileMenu()">Home</a>
+        <a href="#features" class="nav-link" onclick="closeMobileMenu()"
+          >Features</a
+        >
+        <a href="#showcase" class="nav-link" onclick="closeMobileMenu()"
+          >Showcase</a
+        >
+        <a href="#integrations" class="nav-link" onclick="closeMobileMenu()"
+          >Integrations</a
+        >
+        <a href="#pricing" class="nav-link" onclick="closeMobileMenu()"
+          >Pricing</a
+        >
+        <a href="#contact" class="nav-link" onclick="closeMobileMenu()"
+          >Contact</a
+        >
+        <button
+          class="btn-primary mt-8"
+          onclick="closeMobileMenu(); openContactModal('mobile');"
+        >
+          <i class="fas fa-rocket"></i>
+          Get Started
+        </button>
+        <div class="mt-6 pt-6 border-t border-gray-200">
+          <div class="flex items-center space-x-4">
+            <a href="tel:+254723795977" class="text-blue-600">
+              <i class="fas fa-phone-alt"></i>
+              <span class="ml-2">+254 723 795 977</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Hero Section -->
@@ -838,20 +1031,36 @@
           class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
         >
           <div class="fade-in">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="badge badge-green">
+                <i class="fas fa-bolt mr-1"></i> Made for Kenya
+              </span>
+              <span class="badge badge-blue">
+                <i class="fas fa-check-circle mr-1"></i> Trusted by 500+
+                Businesses
+              </span>
+            </div>
+
             <h1 class="hero-title">
               Transform Your Business Operations with SwiftTill POS
             </h1>
             <p class="hero-subtitle">
               The all-in-one business management platform designed to streamline
               operations, boost sales, and provide actionable insights for
-              retail stores, restaurants, and service businesses in Kenya.
+              retail stores, restaurants, and service businesses across Kenya.
             </p>
+
             <div class="flex flex-wrap gap-4 mt-8">
-              <button class="btn-primary" onclick="scrollToFeatures()">
-                <i class="fas fa-chart-line"></i> Explore Features
+              <button
+                class="btn-primary"
+                onclick="openContactModal('hero_demo')"
+              >
+                <i class="fas fa-calendar-check"></i>
+                <span>Book SwiftTill POS</span>
               </button>
-              <button class="btn-secondary" onclick="openContactModal()">
-                <i class="fas fa-calendar-alt"></i> Book a Demo
+              <button class="btn-secondary" onclick="scrollToPricing()">
+                <i class="fas fa-tag"></i>
+                <span>View Pricing</span>
               </button>
             </div>
 
@@ -870,6 +1079,7 @@
               </div>
             </div>
           </div>
+
           <div class="fade-in">
             <div class="dashboard-preview">
               <div class="dashboard-header">
@@ -913,9 +1123,12 @@
                     <div class="text-gray-600 text-sm font-medium">
                       Top Products Today
                     </div>
-                    <div class="text-xs text-blue-600 cursor-pointer">
+                    <button
+                      class="text-xs text-blue-600 hover:text-blue-800 transition"
+                      onclick="openContactModal('view_products')"
+                    >
                       View All →
-                    </div>
+                    </button>
                   </div>
                   <div class="space-y-3">
                     <div class="flex items-center justify-between">
@@ -974,10 +1187,10 @@
           <span
             class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
           >
-            <i class="fas fa-star mr-2"></i>FEATURES
+            <i class="fas fa-star mr-2"></i>REVOLUTIONARY FEATURES
           </span>
           <h2 class="section-title fade-in">
-            Revolutionary Features for Modern Businesses
+            Everything You Need to Grow Your Business
           </h2>
           <p class="section-subtitle fade-in">
             SwiftTill POS combines cutting-edge technology with intuitive design
@@ -994,8 +1207,8 @@
             <h3 class="feature-title">Lightning-Fast Transactions</h3>
             <p class="text-gray-600">
               Process sales in seconds with our optimized checkout system.
-              Support for barcode scanning, touch screen, and keyboard shortcuts
-              for maximum efficiency.
+              Support for barcode scanning, touch screen, and keyboard
+              shortcuts.
             </p>
             <ul class="mt-4 space-y-2">
               <li class="flex items-center text-gray-600">
@@ -1004,7 +1217,7 @@
               </li>
               <li class="flex items-center text-gray-600">
                 <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Split payments & custom discounts</span>
+                <span>Split payments & discounts</span>
               </li>
               <li class="flex items-center text-gray-600">
                 <i class="fas fa-check-circle text-blue-500 mr-2"></i>
@@ -1082,11 +1295,11 @@
               </li>
               <li class="flex items-center text-gray-600">
                 <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Personalized customer recommendations</span>
+                <span>Personalized recommendations</span>
               </li>
               <li class="flex items-center text-gray-600">
                 <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Automated reordering suggestions</span>
+                <span>Automated reordering</span>
               </li>
             </ul>
           </div>
@@ -1108,7 +1321,7 @@
               </li>
               <li class="flex items-center text-gray-600">
                 <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Role-based permission system</span>
+                <span>Role-based permissions</span>
               </li>
               <li class="flex items-center text-gray-600">
                 <i class="fas fa-check-circle text-blue-500 mr-2"></i>
@@ -1138,7 +1351,7 @@
               </li>
               <li class="flex items-center text-gray-600">
                 <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Branded customer communications</span>
+                <span>Branded communications</span>
               </li>
             </ul>
           </div>
@@ -1160,7 +1373,7 @@
           </h2>
           <p class="section-subtitle fade-in">
             Explore how SwiftTill transforms every aspect of your business
-            operations.
+            operations with intuitive interfaces and powerful features.
           </p>
         </div>
 
@@ -1291,7 +1504,7 @@
                     </li>
                     <li class="flex items-center text-gray-700">
                       <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Automated purchase orders when stock is low</span>
+                      <span>Automated purchase orders</span>
                     </li>
                     <li class="flex items-center text-gray-700">
                       <i class="fas fa-check text-green-500 mr-3"></i>
@@ -1358,6 +1571,166 @@
                 </div>
               </div>
             </div>
+
+            <!-- Analytics Pane -->
+            <div class="showcase-pane" id="analytics-pane">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold mb-4 text-gray-900">
+                    Advanced Business Analytics
+                  </h3>
+                  <p class="text-gray-600 mb-6">
+                    Make data-driven decisions with powerful analytics tools
+                    that reveal insights about sales patterns, customer
+                    behavior, and operational efficiency.
+                  </p>
+                  <ul class="space-y-3">
+                    <li class="flex items-center text-gray-700">
+                      <i class="fas fa-check text-green-500 mr-3"></i>
+                      <span>Sales trend analysis and forecasting</span>
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                      <i class="fas fa-check text-green-500 mr-3"></i>
+                      <span>Customer segmentation and profiling</span>
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                      <i class="fas fa-check text-green-500 mr-3"></i>
+                      <span>Profit margin analysis by product/category</span>
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                      <i class="fas fa-check text-green-500 mr-3"></i>
+                      <span>Comparative period analysis</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
+                >
+                  <div
+                    class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+                  >
+                    <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
+                      Performance Insights
+                    </div>
+                    <div class="text-sm text-gray-500">Last 30 Days</div>
+                  </div>
+                  <div class="space-y-4">
+                    <div>
+                      <div
+                        class="flex justify-between text-sm text-gray-600 mb-1"
+                      >
+                        <span>Electronics</span>
+                        <span>42% growth</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          class="bg-blue-600 h-2 rounded-full"
+                          style="width: 75%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="flex justify-between text-sm text-gray-600 mb-1"
+                      >
+                        <span>Clothing</span>
+                        <span>18% growth</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          class="bg-green-600 h-2 rounded-full"
+                          style="width: 45%"
+                        ></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div
+                        class="flex justify-between text-sm text-gray-600 mb-1"
+                      >
+                        <span>Accessories</span>
+                        <span>28% growth</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div
+                          class="bg-purple-600 h-2 rounded-full"
+                          style="width: 60%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reports Pane -->
+            <div class="showcase-pane" id="reports-pane">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="text-xl md:text-2xl font-bold mb-4 text-gray-900">
+                    Comprehensive Reporting Suite
+                  </h3>
+                  <p class="text-gray-600 mb-6">
+                    Generate detailed reports for every aspect of your business
+                    with our customizable reporting engine. Export to PDF,
+                    Excel, or share directly.
+                  </p>
+                  <ul class="space-y-3">
+                    <li class="flex items-center text-gray-700">
+                      <i class="fas fa-check text-green-500 mr-3"></i>
+                      <span>Daily, weekly, monthly sales reports</span>
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                      <i class="fas fa-check text-green-500 mr-3"></i>
+                      <span>Inventory valuation reports</span>
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                      <i class="fas fa-check text-green-500 mr-3"></i>
+                      <span>Customer purchase history</span>
+                    </li>
+                    <li class="flex items-center text-gray-700">
+                      <i class="fas fa-check text-green-500 mr-3"></i>
+                      <span>Tax and compliance reports</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
+                >
+                  <div
+                    class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+                  >
+                    <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
+                      Available Reports
+                    </div>
+                    <div class="text-sm text-gray-500">Customizable</div>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="p-3 bg-blue-50 rounded-lg">
+                      <i class="fas fa-chart-line text-blue-600 mb-2"></i>
+                      <div class="font-medium text-gray-900">Sales Report</div>
+                    </div>
+                    <div class="p-3 bg-green-50 rounded-lg">
+                      <i class="fas fa-boxes text-green-600 mb-2"></i>
+                      <div class="font-medium text-gray-900">
+                        Inventory Report
+                      </div>
+                    </div>
+                    <div class="p-3 bg-purple-50 rounded-lg">
+                      <i class="fas fa-users text-purple-600 mb-2"></i>
+                      <div class="font-medium text-gray-900">
+                        Customer Report
+                      </div>
+                    </div>
+                    <div class="p-3 bg-yellow-50 rounded-lg">
+                      <i
+                        class="fas fa-file-invoice-dollar text-yellow-600 mb-2"
+                      ></i>
+                      <div class="font-medium text-gray-900">Tax Report</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1370,9 +1743,11 @@
           <span
             class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
           >
-            <i class="fas fa-plug mr-2"></i>CONNECTIONS
+            <i class="fas fa-plug mr-2"></i>SEAMLESS INTEGRATIONS
           </span>
-          <h2 class="section-title fade-in">Seamless Integrations</h2>
+          <h2 class="section-title fade-in">
+            Connect With Your Favorite Tools
+          </h2>
           <p class="section-subtitle fade-in">
             SwiftTill connects with the tools you already use to create a
             unified business ecosystem.
@@ -1382,34 +1757,54 @@
         <div class="integration-grid">
           <div class="integration-card fade-in">
             <div class="integration-icon">
-              <!-- Using a mobile icon for M-Pesa -->
               <i
                 class="fas fa-mobile-alt"
                 style="color: #2bbf60; font-size: 36px"
               ></i>
             </div>
-
-            <h4 class="font-bold mb-2 text-gray-900">M-Pesa Payments</h4>
-
+            <h4 class="font-bold mb-2 text-gray-900">M-Pesa Integration</h4>
             <p class="text-gray-600 text-sm">
-              Accept secure mobile payments via Safaricom M-Pesa.
+              Accept secure mobile payments via Safaricom M-Pesa with automatic
+              reconciliation.
             </p>
           </div>
 
           <div class="integration-card fade-in">
             <div class="integration-icon">
-              <!-- Using a bullhorn icon to represent marketing/promotion -->
+              <i class="fas fa-sms" style="color: #ff9800; font-size: 36px"></i>
+            </div>
+            <h4 class="font-bold mb-2 text-gray-900">SMS Marketing</h4>
+            <p class="text-gray-600 text-sm">
+              Send bulk SMS campaigns, order alerts, and customer notifications
+              directly.
+            </p>
+          </div>
+
+          <div class="integration-card fade-in">
+            <div class="integration-icon">
               <i
-                class="fas fa-bullhorn"
-                style="color: #ff9800; font-size: 36px"
+                class="fas fa-file-invoice-dollar"
+                style="color: #3b82f6; font-size: 36px"
               ></i>
             </div>
-
-            <h4 class="font-bold mb-2 text-gray-900">Marketing Tools</h4>
-
+            <h4 class="font-bold mb-2 text-gray-900">QuickBooks Online</h4>
             <p class="text-gray-600 text-sm">
-              Bulk SMS campaigns, automated email promotions, and customer
-              engagement tools.
+              Sync sales, expenses, and inventory data with QuickBooks for
+              seamless accounting.
+            </p>
+          </div>
+
+          <div class="integration-card fade-in">
+            <div class="integration-icon">
+              <i
+                class="fas fa-truck"
+                style="color: #10b981; font-size: 36px"
+              ></i>
+            </div>
+            <h4 class="font-bold mb-2 text-gray-900">Delivery Services</h4>
+            <p class="text-gray-600 text-sm">
+              Integrate with local delivery services for seamless order
+              fulfillment.
             </p>
           </div>
         </div>
@@ -1423,7 +1818,7 @@
           <span
             class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
           >
-            <i class="fas fa-tag mr-2"></i>PRICING
+            <i class="fas fa-tag mr-2"></i>STRAIGHTFORWARD PRICING
           </span>
           <h2 class="section-title fade-in">Simple, One-Time Payment</h2>
           <p class="section-subtitle fade-in">
@@ -1443,8 +1838,9 @@
               </p>
             </div>
             <div class="price mb-6 text-center">Ksh 20,000<span>*</span></div>
-            <p class="text-center text-gray-600 mb-6">
-              *One-time payment. No recurring fees.
+            <p class="text-center text-gray-600 mb-6 text-sm">
+              *One-time payment. No recurring fees. Hardware available
+              separately.
             </p>
 
             <ul class="space-y-3 mb-8">
@@ -1478,21 +1874,25 @@
               </li>
               <li class="flex items-center text-gray-700">
                 <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>On-site training</span>
+                <span>On-site training included</span>
               </li>
             </ul>
 
             <button
               class="btn-primary w-full"
-              onclick="openContactModal('Complete Package')"
+              onclick="openContactModal('pricing')"
             >
               <i class="fas fa-shopping-cart mr-2"></i> Get SwiftTill Now
             </button>
 
-            <div class="text-center mt-4">
-              <p class="text-sm text-gray-600">
-                Hardware available separately. Contact us for packages.
-              </p>
+            <div class="text-center mt-6">
+              <a
+                href="#"
+                onclick="showHardwarePackages()"
+                class="text-blue-600 hover:text-blue-800 text-sm font-medium"
+              >
+                <i class="fas fa-laptop mr-1"></i> View Hardware Packages →
+              </a>
             </div>
           </div>
         </div>
@@ -1501,11 +1901,19 @@
           <div
             class="bg-green-50 border border-green-200 rounded-xl p-6 max-w-2xl mx-auto"
           >
-            <h4 class="font-bold text-green-800 mb-2">What's Included:</h4>
-            <p class="text-green-700">
-              • Software License • Installation & Setup • Basic Training • 6
-              Months Support • 1 Year Updates
-            </p>
+            <div class="flex items-start">
+              <i class="fas fa-info-circle text-green-600 mt-1 mr-3"></i>
+              <div>
+                <h4 class="font-bold text-green-800 mb-1">
+                  What's Included in Your Investment:
+                </h4>
+                <p class="text-green-700 text-sm">
+                  Software License • Installation & Setup • Basic Training • 6
+                  Months Support • 1 Year Updates • Tax Compliance Features •
+                  Multi-Location Support
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1518,11 +1926,12 @@
           <span
             class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
           >
-            <i class="fas fa-comment-alt mr-2"></i>TESTIMONIALS
+            <i class="fas fa-comment-alt mr-2"></i>SUCCESS STORIES
           </span>
           <h2 class="section-title fade-in">Trusted by Kenyan Businesses</h2>
           <p class="section-subtitle fade-in">
-            See what business owners are saying about SwiftTill POS.
+            See what business owners across Kenya are saying about SwiftTill
+            POS.
           </p>
         </div>
 
@@ -1605,16 +2014,22 @@
           class="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center fade-in"
         >
           <button
-            class="btn-primary px-6 md:px-10 py-3 md:py-4 text-lg bg-white text-blue-600 hover:bg-gray-50 border-2 border-white"
-            onclick="openContactModal('CTA Button')"
+            class="btn-secondary px-6 md:px-10 py-3 md:py-4 text-lg bg-transparent text-white border-2 border-white hover:bg-white/10"
+            onclick="openContactModal('cta_demo')"
           >
-            <i class="fas fa-calendar-check mr-3"></i> Book a Free Demo
+            <i class="fas fa-calendar-check mr-3"></i> Book SwiftTill Software
           </button>
           <button
             class="btn-secondary px-6 md:px-10 py-3 md:py-4 text-lg bg-transparent text-white border-2 border-white hover:bg-white/10"
             onclick="showContactInfo()"
           >
             <i class="fas fa-phone-alt mr-3"></i> Call Us Now
+          </button>
+          <button
+            class="btn-secondary px-6 md:px-10 py-3 md:py-4 text-lg bg-transparent text-white border-2 border-white hover:bg-white/10"
+            onclick="openWhatsApp()"
+          >
+            <i class="fab fa-whatsapp mr-3"></i> WhatsApp
           </button>
         </div>
 
@@ -1626,8 +2041,14 @@
               <i class="fas fa-phone-alt"></i>
             </div>
             <h4 class="font-bold text-lg mb-2 text-white">Call Us</h4>
-            <p class="text-blue-100">+254 723 795 977</p>
-            <p class="text-blue-100 text-sm mt-1">9:00 AM - 6:00 PM EAT</p>
+            <a
+              href="tel:+254723795977"
+              class="text-blue-100 hover:text-white transition"
+              >+254 723 795 977</a
+            >
+            <p class="text-blue-100 text-sm mt-1">
+              Mon-Sat, 9:00 AM - 6:00 PM EAT
+            </p>
           </div>
 
           <div class="fade-in">
@@ -1635,7 +2056,11 @@
               <i class="fas fa-envelope"></i>
             </div>
             <h4 class="font-bold text-lg mb-2 text-white">Email Us</h4>
-            <p class="text-blue-100">swifttilltechnologies@gmail.com</p>
+            <a
+              href="mailto:swifttilltechnologies@gmail.com"
+              class="text-blue-100 hover:text-white transition"
+              >swifttilltechnologies@gmail.com</a
+            >
             <p class="text-blue-100 text-sm mt-1">Response within 2 hours</p>
           </div>
 
@@ -1663,28 +2088,36 @@
             </p>
             <div class="flex space-x-4">
               <a
-                href="#"
+                href="https://facebook.com"
+                target="_blank"
                 class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-700 transition text-white"
+                aria-label="Facebook"
               >
                 <i class="fab fa-facebook-f"></i>
               </a>
               <a
-                href="#"
-                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-700 transition text-white"
+                href="https://twitter.com"
+                target="_blank"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-500 transition text-white"
+                aria-label="Twitter"
               >
                 <i class="fab fa-twitter"></i>
               </a>
               <a
-                href="#"
+                href="https://linkedin.com"
+                target="_blank"
                 class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-700 transition text-white"
+                aria-label="LinkedIn"
               >
                 <i class="fab fa-linkedin-in"></i>
               </a>
               <a
                 href="#"
-                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-700 transition text-white"
+                onclick="openWhatsApp()"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition text-white"
+                aria-label="WhatsApp"
               >
-                <i class="fab fa-instagram"></i>
+                <i class="fab fa-whatsapp"></i>
               </a>
             </div>
           </div>
@@ -1696,37 +2129,35 @@
               <a href="#showcase">Showcase</a>
               <a href="#integrations">Integrations</a>
               <a href="#pricing">Pricing</a>
-              <a href="#" onclick="openContactModal('Footer Link')"
-                >Request a Demo</a
+              <a href="#" onclick="openContactModal('footer_demo')"
+                >Request Software</a
               >
-            </div>
-          </div>
-
-          <div>
-            <h4 class="text-white text-lg font-bold mb-6">Company</h4>
-            <div class="footer-links">
-              <a href="#about">About Us</a>
-              <a href="#contact">Contact</a>
-              <a href="#" onclick="openContactModal('Careers')">Careers</a>
-              <a href="#">Blog</a>
-              <a href="#">Press</a>
             </div>
           </div>
 
           <div>
             <h4 class="text-white text-lg font-bold mb-6">Resources</h4>
             <div class="footer-links">
-              <a href="#" onclick="openContactModal('Support')">Help Center</a>
-              <a href="#" onclick="openContactModal('Documentation')"
+              <a href="#" onclick="openContactModal('support')">Help Center</a>
+              <a href="#" onclick="openContactModal('documentation')"
                 >Documentation</a
               >
-              <a href="#" onclick="openContactModal('Training')"
+              <a href="#" onclick="openContactModal('training')"
                 >Video Tutorials</a
               >
-              <a href="#" onclick="openContactModal('API')"
-                >API Documentation</a
-              >
-              <a href="#">System Status</a>
+              <a href="#" onclick="openContactModal('api')">API Access</a>
+              <a href="#" onclick="showHardwarePackages()">Hardware Guide</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white text-lg font-bold mb-6">Company</h4>
+            <div class="footer-links">
+              <a href="#" onclick="openContactModal('about')">About Us</a>
+              <a href="#contact">Contact</a>
+              <a href="#" onclick="openContactModal('careers')">Careers</a>
+              <a href="#" onclick="openContactModal('blog')">Blog</a>
+              <a href="#" onclick="openContactModal('partners')">Partners</a>
             </div>
           </div>
         </div>
@@ -1734,12 +2165,29 @@
         <div
           class="border-t border-gray-800 mt-8 md:mt-12 pt-8 text-center text-gray-500"
         >
-          <p>
-            &copy; 2024 SwiftTill Technologies. All rights reserved. Phone: +254
-            723 795 977 | Email: swifttilltechnologies@gmail.com
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">
+              &copy; 2024 SwiftTill Technologies. All rights reserved.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a
+                href="tel:+254723795977"
+                class="text-gray-400 hover:text-white transition"
+                >+254 723 795 977</a
+              >
+              <span class="text-gray-600">•</span>
+              <a
+                href="mailto:swifttilltechnologies@gmail.com"
+                class="text-gray-400 hover:text-white transition"
+                >swifttilltechnologies@gmail.com</a
+              >
+              <span class="text-gray-600">•</span>
+              <span>Nakuru, Kenya</span>
+            </div>
+          </div>
+          <p class="mt-4 text-sm">
+            Business Registration: PENDING | VAT: PENDING
           </p>
-          <p class="mt-2">Nakuru, Kenya | Serving businesses across Kenya</p>
-          <p class="mt-2 text-sm">Business Registration: PENDING</p>
         </div>
       </div>
     </footer>
@@ -1747,10 +2195,10 @@
     <!-- Contact Modal -->
     <div
       id="contactModal"
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden backdrop-blur-sm"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden backdrop-blur-sm p-4"
     >
       <div
-        class="bg-white rounded-2xl p-4 md:p-8 max-w-lg w-full mx-4 border border-gray-200 shadow-2xl max-h-[90vh] overflow-y-auto"
+        class="bg-white rounded-2xl p-4 md:p-8 max-w-lg w-full mx-auto border border-gray-200 shadow-2xl max-h-[90vh] overflow-y-auto"
       >
         <div class="flex justify-between items-center mb-6">
           <h3 class="text-xl md:text-2xl font-bold text-gray-900">
@@ -1758,58 +2206,91 @@
           </h3>
           <button
             onclick="closeContactModal()"
-            class="text-gray-500 hover:text-gray-700 text-2xl"
+            class="text-gray-500 hover:text-gray-700 text-2xl focus:outline-none"
+            aria-label="Close"
           >
             &times;
           </button>
         </div>
 
-        <form id="contactForm">
+        <form id="contactForm" novalidate>
           <div class="mb-4">
-            <label class="block text-gray-700 mb-2">Full Name *</label>
+            <label for="user_name" class="block text-gray-700 mb-2 font-medium"
+              >Full Name *</label
+            >
             <input
               type="text"
+              id="user_name"
               name="user_name"
-              class="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="form-input"
               required
+              placeholder="Enter your full name"
             />
+            <div class="text-red-500 text-sm mt-1 hidden" id="nameError">
+              Please enter your name
+            </div>
           </div>
 
           <div class="mb-4">
-            <label class="block text-gray-700 mb-2">Email *</label>
+            <label for="user_email" class="block text-gray-700 mb-2 font-medium"
+              >Email *</label
+            >
             <input
               type="email"
+              id="user_email"
               name="user_email"
-              class="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="form-input"
               required
+              placeholder="e.g swifttilltechnologies@gmail.com"
             />
+            <div class="text-red-500 text-sm mt-1 hidden" id="emailError">
+              Please enter a valid email
+            </div>
           </div>
 
           <div class="mb-4">
-            <label class="block text-gray-700 mb-2">Phone Number *</label>
+            <label for="user_phone" class="block text-gray-700 mb-2 font-medium"
+              >Phone Number *</label
+            >
             <input
               type="tel"
+              id="user_phone"
               name="user_phone"
-              class="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="form-input"
               required
+              placeholder="07XX XXX XXX"
             />
+            <div class="text-red-500 text-sm mt-1 hidden" id="phoneError">
+              Please enter a valid phone number
+            </div>
           </div>
 
           <div class="mb-4">
-            <label class="block text-gray-700 mb-2">Business Name *</label>
+            <label
+              for="business_name"
+              class="block text-gray-700 mb-2 font-medium"
+              >Business Name *</label
+            >
             <input
               type="text"
+              id="business_name"
               name="business_name"
-              class="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="form-input"
               required
+              placeholder="Your business name"
             />
           </div>
 
           <div class="mb-6">
-            <label class="block text-gray-700 mb-2">Business Type *</label>
+            <label
+              for="business_type"
+              class="block text-gray-700 mb-2 font-medium"
+              >Business Type *</label
+            >
             <select
+              id="business_type"
               name="business_type"
-              class="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              class="form-input"
               required
             >
               <option value="" disabled selected>
@@ -1823,16 +2304,16 @@
               <option value="clothing">Clothing/Fashion Store</option>
               <option value="electronics">Electronics Store</option>
               <option value="wholesale">Wholesale Business</option>
+              <option value="salon">Salon/Spa</option>
               <option value="other">Other</option>
             </select>
           </div>
 
           <div class="mb-6">
-            <label class="block text-gray-700 mb-2">Number of Locations</label>
-            <select
-              name="locations"
-              class="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            <label for="locations" class="block text-gray-700 mb-2 font-medium"
+              >Number of Locations</label
             >
+            <select id="locations" name="locations" class="form-input">
               <option value="1">1 Location</option>
               <option value="2-3">2-3 Locations</option>
               <option value="4-5">4-5 Locations</option>
@@ -1841,13 +2322,32 @@
           </div>
 
           <div class="mb-6">
-            <label class="block text-gray-700 mb-2">Message (Optional)</label>
+            <label for="message" class="block text-gray-700 mb-2 font-medium"
+              >Message (Optional)</label
+            >
             <textarea
+              id="message"
               name="message"
               rows="3"
-              class="w-full p-3 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Tell us about your business needs..."
+              class="form-input"
+              placeholder="Tell us about your business needs and challenges..."
             ></textarea>
+          </div>
+
+          <div class="mb-6">
+            <div class="flex items-start">
+              <input
+                type="checkbox"
+                id="marketing"
+                name="marketing"
+                class="mt-1 mr-2"
+                checked
+              />
+              <label for="marketing" class="text-gray-600 text-sm">
+                Yes, I'd like to receive occasional updates about new features
+                and tips for my business.
+              </label>
+            </div>
           </div>
 
           <button type="submit" class="btn-primary w-full" id="submitBtn">
@@ -1859,7 +2359,7 @@
           <div class="text-center mt-4">
             <p class="text-gray-500 text-sm">
               We'll contact you within 24 hours to discuss your needs and
-              schedule a demo.
+              schedule a Software for you.
             </p>
           </div>
         </form>
@@ -1869,13 +2369,15 @@
     <!-- Success Modal -->
     <div
       id="successModal"
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden backdrop-blur-sm p-4"
     >
-      <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center">
-        <div class="text-green-500 text-6xl mb-4">
+      <div
+        class="bg-white rounded-2xl p-6 md:p-8 max-w-md w-full mx-auto text-center"
+      >
+        <div class="text-green-500 text-5xl md:text-6xl mb-4">
           <i class="fas fa-check-circle"></i>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
           Request Sent Successfully!
         </h3>
         <p class="text-gray-600 mb-6">
@@ -1886,22 +2388,174 @@
         <button onclick="closeSuccessModal()" class="btn-primary">
           <i class="fas fa-check mr-2"></i> Got it!
         </button>
+        <p class="text-sm text-gray-500 mt-4">
+          Check your email for a confirmation message.
+        </p>
       </div>
     </div>
 
+    <!-- Hardware Packages Modal -->
+    <div
+      id="hardwareModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden backdrop-blur-sm p-4"
+    >
+      <div
+        class="bg-white rounded-2xl p-6 md:p-8 max-w-2xl w-full mx-auto max-h-[90vh] overflow-y-auto"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl md:text-2xl font-bold text-gray-900">
+            Hardware Packages
+          </h3>
+          <button
+            onclick="closeHardwareModal()"
+            class="text-gray-500 hover:text-gray-700 text-2xl focus:outline-none"
+            aria-label="Close"
+          >
+            &times;
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="border border-gray-200 rounded-xl p-6">
+            <h4 class="font-bold text-lg mb-4 text-gray-900">Basic Package</h4>
+            <div class="text-3xl font-bold text-blue-600 mb-4">Ksh 15,000</div>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center text-gray-700">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>POS Terminal</span>
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Barcode Scanner</span>
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Receipt Printer</span>
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Cash Drawer</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="border border-blue-200 rounded-xl p-6 bg-blue-50">
+            <div class="badge badge-blue mb-4">RECOMMENDED</div>
+            <h4 class="font-bold text-lg mb-4 text-gray-900">
+              Complete Package
+            </h4>
+            <div class="text-3xl font-bold text-blue-600 mb-4">Ksh 35,000</div>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-center text-gray-700">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Everything in Basic</span>
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Customer Display</span>
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>Label Printer</span>
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>UPS Backup</span>
+              </li>
+              <li class="flex items-center text-gray-700">
+                <i class="fas fa-check text-green-500 mr-3"></i>
+                <span>1 Year Warranty</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <p class="text-gray-600 mb-4">
+            Need custom hardware? Contact us for a tailored solution.
+          </p>
+          <button
+            onclick="closeHardwareModal(); openContactModal('hardware');"
+            class="btn-primary"
+          >
+            <i class="fas fa-headset mr-2"></i> Contact Sales
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button
+      id="backToTop"
+      class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition transform hover:-translate-y-1 z-40 hidden"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
     <script>
       // ==============================
-      // SwiftTill Contact Form & UI JS
+      // IMPROVED SwiftTill POS JavaScript
       // ==============================
 
-      // Initialize EmailJS with your public key
+      // Initialize EmailJS
       emailjs.init("_i5F9o9idzdxX9x2p");
+
+      // Configuration
+      const CONFIG = {
+        contactPhone: "+254723795977",
+        contactEmail: "swifttilltechnologies@gmail.com",
+        whatsappNumber: "254723795977",
+        defaultMessage:
+          "Hello SwiftTill, I'm interested in learning more about your POS system!",
+      };
+
+      // State management
+      let currentFormSource = "";
+
+      // DOM Elements
+      const elements = {
+        header: document.getElementById("header"),
+        mobileMenu: document.getElementById("mobileMenu"),
+        mobileMenuBtn: document.getElementById("mobileMenuBtn"),
+        contactModal: document.getElementById("contactModal"),
+        successModal: document.getElementById("successModal"),
+        hardwareModal: document.getElementById("hardwareModal"),
+        contactForm: document.getElementById("contactForm"),
+        submitBtn: document.getElementById("submitBtn"),
+        loadingSpinner: document.getElementById("loadingSpinner"),
+        backToTop: document.getElementById("backToTop"),
+      };
+
+      // ==================== UTILITY FUNCTIONS ====================
+
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+      function validatePhone(phone) {
+        const re = /^[0-9+\-\s()]{10,}$/;
+        return re.test(phone);
+      }
+
+      // ==================== UI FUNCTIONS ====================
 
       // Header scroll effect
       function updateHeader() {
-        const header = document.getElementById("header");
-        if (window.scrollY > 50) header.classList.add("scrolled");
-        else header.classList.remove("scrolled");
+        elements.header.classList.toggle("scrolled", window.scrollY > 50);
       }
 
       // Showcase tabs
@@ -1913,12 +2567,16 @@
           tab.addEventListener("click", () => {
             const tabId = tab.dataset.tab;
 
+            // Update active tab
             tabs.forEach((t) => t.classList.remove("active"));
             tab.classList.add("active");
 
+            // Show corresponding pane
             panes.forEach((pane) => {
               pane.classList.remove("active");
-              if (pane.id === `${tabId}-pane`) pane.classList.add("active");
+              if (pane.id === `${tabId}-pane`) {
+                pane.classList.add("active");
+              }
             });
           });
         });
@@ -1928,177 +2586,397 @@
       function checkFadeIn() {
         document.querySelectorAll(".fade-in").forEach((el) => {
           const top = el.getBoundingClientRect().top;
-          if (top < window.innerHeight - 100) el.classList.add("visible");
+          if (top < window.innerHeight - 100) {
+            el.classList.add("visible");
+          }
         });
       }
 
-      // Modals
-      function openContactModal(source = "") {
-        document.getElementById("contactModal").classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-        console.log(`Modal opened from: ${source}`);
-      }
-      function closeContactModal() {
-        document.getElementById("contactModal").classList.add("hidden");
-        document.body.style.overflow = "auto";
-      }
-      function closeSuccessModal() {
-        document.getElementById("successModal").classList.add("hidden");
-        document.body.style.overflow = "auto";
+      // Back to top button
+      function handleBackToTop() {
+        elements.backToTop.classList.toggle("hidden", window.scrollY < 300);
       }
 
-      // Contact info
+      // ==================== MODAL FUNCTIONS ====================
+
+      function openContactModal(source = "") {
+        currentFormSource = source;
+        elements.contactModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight =
+          window.innerWidth - document.documentElement.clientWidth + "px";
+      }
+
+      function closeContactModal() {
+        elements.contactModal.classList.add("hidden");
+        elements.contactForm.reset();
+        resetFormErrors();
+        document.body.style.overflow = "auto";
+        document.body.style.paddingRight = "";
+      }
+
+      function closeSuccessModal() {
+        elements.successModal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+        document.body.style.paddingRight = "";
+      }
+
+      function showHardwarePackages() {
+        elements.hardwareModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        document.body.style.paddingRight =
+          window.innerWidth - document.documentElement.clientWidth + "px";
+      }
+
+      function closeHardwareModal() {
+        elements.hardwareModal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+        document.body.style.paddingRight = "";
+      }
+
+      // ==================== CONTACT FUNCTIONS ====================
+
       function showContactInfo() {
         alert(
-          "SwiftTill Technologies\n\n📞 +254 723 795 977\n📧 swifttilltechnologies@gmail.com\n📍 Nakuru, Kenya\n\nAvailable Mon-Sat, 9:00 AM - 6:00 PM EAT"
+          `SwiftTill Technologies\n\n📞 Call: ${CONFIG.contactPhone}\n📧 Email: ${CONFIG.contactEmail}\n📍 Location: Nakuru, Kenya\n\nAvailable Monday - Saturday\n9:00 AM - 6:00 PM EAT`
         );
       }
 
-      // Navigation scroll
-      function scrollToFeatures() {
-        document
-          .getElementById("features")
-          .scrollIntoView({ behavior: "smooth" });
-      }
-      function scrollToPricing() {
-        document
-          .getElementById("pricing")
-          .scrollIntoView({ behavior: "smooth" });
-      }
-      function scrollToContact() {
-        document
-          .getElementById("contact")
-          .scrollIntoView({ behavior: "smooth" });
+      function openWhatsApp() {
+        const url = `https://wa.me/${
+          CONFIG.whatsappNumber
+        }?text=${encodeURIComponent(CONFIG.defaultMessage)}`;
+        window.open(url, "_blank");
       }
 
-      // Mobile menu
+      // ==================== NAVIGATION FUNCTIONS ====================
+
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const headerHeight = elements.header.offsetHeight;
+          const sectionTop = section.offsetTop - headerHeight;
+          window.scrollTo({
+            top: sectionTop,
+            behavior: "smooth",
+          });
+        }
+      }
+
+      function scrollToFeatures() {
+        scrollToSection("features");
+      }
+
+      function scrollToPricing() {
+        scrollToSection("pricing");
+      }
+
+      function scrollToContact() {
+        scrollToSection("contact");
+      }
+
+      // ==================== MOBILE MENU ====================
+
       function openMobileMenu() {
-        document.getElementById("mobileMenu").classList.add("active");
+        elements.mobileMenu.classList.add("active");
         document.body.style.overflow = "hidden";
       }
+
       function closeMobileMenu() {
-        document.getElementById("mobileMenu").classList.remove("active");
+        elements.mobileMenu.classList.remove("active");
         document.body.style.overflow = "auto";
       }
 
-      // ==============================
-      // Contact Form Submission
-      // ==============================
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+      // ==================== FORM HANDLING ====================
 
-          const submitBtn = document.getElementById("submitBtn");
-          const loadingSpinner = document.getElementById("loadingSpinner");
-          const submitText = submitBtn.querySelector("span");
-
-          submitText.textContent = "Sending...";
-          loadingSpinner.style.display = "inline-block";
-          submitBtn.disabled = true;
-
-          const formData = {
-            user_name: this.user_name.value,
-            user_email: this.user_email.value,
-            user_phone: this.user_phone.value,
-            business_name: this.business_name.value,
-            business_type: this.business_type.value,
-            locations: this.locations.value,
-            message: this.message.value || "No additional message",
-            timestamp: new Date().toLocaleString(),
-            package: "Ksh 20,000 Complete Package",
-          };
-
-          // 1️⃣ Send email to client
-          emailjs
-            .send("service_oqd73zw", "template_bwe3mfb", {
-              to_email: formData.user_email,
-              ...formData,
-            })
-            .then(() => console.log("Client email sent!"))
-            .catch((err) => console.error("Client email failed:", err));
-
-          // 2️⃣ Send email to admin
-          emailjs
-            .send("service_oqd73zw", "template_vrtq0j5", {
-              to_email: "swifttilltechnologies@gmail.com",
-              ...formData,
-            })
-            .then(() => console.log("Admin email sent!"))
-            .catch((err) => console.error("Admin email failed:", err))
-            .finally(() => {
-              closeContactModal();
-              document
-                .getElementById("successModal")
-                .classList.remove("hidden");
-              document.getElementById("contactForm").reset();
-              submitText.textContent = "Submit Request";
-              loadingSpinner.style.display = "none";
-              submitBtn.disabled = false;
-            });
+      function resetFormErrors() {
+        document.querySelectorAll('[id$="Error"]').forEach((el) => {
+          el.classList.add("hidden");
         });
+      }
 
-      // ==============================
-      // Initialize Everything
-      // ==============================
-      document.addEventListener("DOMContentLoaded", function () {
-        initShowcaseTabs();
-        checkFadeIn();
+      function showFormError(fieldId, message) {
+        const errorEl = document.getElementById(fieldId + "Error");
+        if (errorEl) {
+          errorEl.textContent = message;
+          errorEl.classList.remove("hidden");
+        }
+      }
 
-        window.addEventListener("scroll", () => {
-          updateHeader();
-          checkFadeIn();
-        });
+      function hideFormError(fieldId) {
+        const errorEl = document.getElementById(fieldId + "Error");
+        if (errorEl) {
+          errorEl.classList.add("hidden");
+        }
+      }
 
-        document
-          .getElementById("mobileMenuBtn")
-          .addEventListener("click", openMobileMenu);
+      function validateForm(formData) {
+        let isValid = true;
 
+        // Validate name
+        if (!formData.user_name.trim()) {
+          showFormError("name", "Please enter your name");
+          isValid = false;
+        } else {
+          hideFormError("name");
+        }
+
+        // Validate email
+        if (!formData.user_email.trim()) {
+          showFormError("email", "Please enter your email");
+          isValid = false;
+        } else if (!validateEmail(formData.user_email)) {
+          showFormError("email", "Please enter a valid email address");
+          isValid = false;
+        } else {
+          hideFormError("email");
+        }
+
+        // Validate phone
+        if (!formData.user_phone.trim()) {
+          showFormError("phone", "Please enter your phone number");
+          isValid = false;
+        } else if (!validatePhone(formData.user_phone)) {
+          showFormError("phone", "Please enter a valid phone number");
+          isValid = false;
+        } else {
+          hideFormError("phone");
+        }
+
+        return isValid;
+      }
+
+      // ==================== FORM SUBMISSION ====================
+
+      elements.contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const formData = {
+          user_name: this.user_name.value,
+          user_email: this.user_email.value,
+          user_phone: this.user_phone.value,
+          business_name: this.business_name.value,
+          business_type: this.business_type.value,
+          locations: this.locations.value,
+          message: this.message.value || "No additional message",
+          marketing: this.marketing.checked ? "Yes" : "No",
+          source: currentFormSource,
+          timestamp: new Date().toLocaleString("en-KE"),
+          package: "Ksh 20,000 Complete Package",
+        };
+
+        // Validate form
+        if (!validateForm(formData)) {
+          return;
+        }
+
+        // Show loading state
+        const submitText = elements.submitBtn.querySelector("span");
+        submitText.textContent = "Sending...";
+        elements.loadingSpinner.style.display = "inline-block";
+        elements.submitBtn.disabled = true;
+
+        try {
+          // Send to client
+          await emailjs.send("service_oqd73zw", "template_bwe3mfb", {
+            to_email: formData.user_email,
+            to_name: formData.user_name,
+            ...formData,
+          });
+
+          // Send to admin
+          await emailjs.send("service_oqd73zw", "template_vrtq0j5", {
+            to_email: CONFIG.contactEmail,
+            to_name: "SwiftTill Team",
+            ...formData,
+          });
+
+          // Success
+          closeContactModal();
+          elements.successModal.classList.remove("hidden");
+
+          // Reset form
+          this.reset();
+
+          // Send WhatsApp notification to admin (optional)
+          const whatsappMessage = `New SwiftTill Inquiry from ${formData.user_name} (${formData.user_phone}) - ${formData.business_name}`;
+          // Uncomment to enable WhatsApp notifications
+          // window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+        } catch (error) {
+          console.error("Email sending failed:", error);
+          alert(
+            "Sorry, there was an error submitting your request. Please try again or call us directly."
+          );
+        } finally {
+          // Reset button state
+          submitText.textContent = "Submit Request";
+          elements.loadingSpinner.style.display = "none";
+          elements.submitBtn.disabled = false;
+        }
+      });
+
+      // ==================== EVENT LISTENERS ====================
+
+      function initEventListeners() {
+        // Scroll events
+        window.addEventListener(
+          "scroll",
+          debounce(() => {
+            updateHeader();
+            checkFadeIn();
+            handleBackToTop();
+          }, 10)
+        );
+
+        // Mobile menu
+        elements.mobileMenuBtn.addEventListener("click", openMobileMenu);
+
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("href");
-            if (targetId !== "#") {
-              const target = document.querySelector(targetId);
-              if (target) target.scrollIntoView({ behavior: "smooth" });
+            const href = this.getAttribute("href");
+            if (href !== "#") {
+              e.preventDefault();
+              const targetId = href.substring(1);
+              scrollToSection(targetId);
             }
           });
         });
 
-        updateStats();
-      });
+        // Back to top
+        elements.backToTop.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
 
-      function updateStats() {
-        const stats = { businesses: 500, uptime: 99.9, support: 24 };
-        // Update DOM if you have elements for stats
+        // Close modals on outside click
+        document.addEventListener("click", (e) => {
+          if (e.target === elements.contactModal) closeContactModal();
+          if (e.target === elements.successModal) closeSuccessModal();
+          if (e.target === elements.hardwareModal) closeHardwareModal();
+        });
+
+        // Close modals with Escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            closeContactModal();
+            closeSuccessModal();
+            closeHardwareModal();
+            closeMobileMenu();
+          }
+        });
+
+        // Form validation on input
+        ["user_name", "user_email", "user_phone"].forEach((field) => {
+          const input = document.getElementById(field);
+          if (input) {
+            input.addEventListener("input", () => hideFormError(field));
+          }
+        });
+
+        // Initialize showcase tabs
+        initShowcaseTabs();
       }
 
-      // Close modals by clicking outside
-      document.getElementById("contactModal").addEventListener("click", (e) => {
-        if (e.target === e.currentTarget) closeContactModal();
-      });
-      document.getElementById("successModal").addEventListener("click", (e) => {
-        if (e.target === e.currentTarget) closeSuccessModal();
-      });
+      // ==================== INITIALIZATION ====================
 
-      // Close modals with Escape key
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          closeContactModal();
-          closeSuccessModal();
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize everything
+        updateHeader();
+        checkFadeIn();
+        initEventListeners();
+
+        // Preload images if any
+        const images = document.querySelectorAll("img");
+        images.forEach((img) => {
+          img.loading = "lazy";
+        });
+
+        // Add performance monitoring
+        if ("performance" in window) {
+          window.addEventListener("load", () => {
+            setTimeout(() => {
+              const perfEntries = performance.getEntriesByType("navigation");
+              if (perfEntries.length > 0) {
+                const navTiming = perfEntries[0];
+                console.log(
+                  `Page loaded in ${
+                    navTiming.loadEventEnd - navTiming.startTime
+                  }ms`
+                );
+              }
+            }, 0);
+          });
+        }
+
+        // Service worker registration (optional)
+        if ("serviceWorker" in navigator) {
+          window.addEventListener("load", () => {
+            navigator.serviceWorker.register("/sw.js").catch((err) => {
+              console.log("ServiceWorker registration failed: ", err);
+            });
+          });
         }
       });
 
-      // WhatsApp integration
-      function openWhatsApp() {
-        const phone = "254723795977";
-        const message =
-          "Hello SwiftTill, I'm interested in learning more about your POS system!";
-        window.open(
-          `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-          "_blank"
-        );
+      // ==================== STATS ANIMATION ====================
+
+      function animateStats() {
+        const stats = document.querySelectorAll(".stat-number");
+        stats.forEach((stat) => {
+          const target = parseInt(stat.textContent);
+          let current = 0;
+          const increment = target / 50;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            stat.textContent =
+              Math.floor(current) +
+              (stat.textContent.includes("%") ? "%" : "+");
+          }, 30);
+        });
       }
+
+      // Trigger stats animation when in view
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateStats();
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      const statsSection = document.querySelector(".hero-stats");
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
+
+      // ==================== BROWSER COMPATIBILITY ====================
+
+      // Add CSS custom properties fallback
+      if (!window.CSS || !CSS.supports("color", "var(--primary-blue)")) {
+        document.documentElement.className += " no-css-vars";
+      }
+
+      // Export functions for HTML onclick attributes
+      window.openContactModal = openContactModal;
+      window.closeContactModal = closeContactModal;
+      window.closeSuccessModal = closeSuccessModal;
+      window.showContactInfo = showContactInfo;
+      window.openWhatsApp = openWhatsApp;
+      window.scrollToFeatures = scrollToFeatures;
+      window.scrollToPricing = scrollToPricing;
+      window.scrollToContact = scrollToContact;
+      window.openMobileMenu = openMobileMenu;
+      window.closeMobileMenu = closeMobileMenu;
+      window.showHardwarePackages = showHardwarePackages;
+      window.closeHardwareModal = closeHardwareModal;
     </script>
   </body>
 </html>
