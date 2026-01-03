@@ -53,7 +53,7 @@
 
     <style>
       :root {
-        --primary-blue: #1e40af;
+        --primary-blue: #003cff;
         --secondary-blue: #2563eb;
         --accent-blue: #3b82f6;
         --light-blue: #eff6ff;
@@ -826,6 +826,161 @@
         background-color: white;
       }
 
+      /* ==================== IMPROVED MODAL STYLES ==================== */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        padding: 1rem;
+        animation: fadeInOverlay 0.3s ease;
+        overflow-y: auto;
+      }
+
+      @keyframes fadeInOverlay {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal-content {
+        background: white;
+        border-radius: 24px;
+        width: 100%;
+        max-width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        animation: slideUpModal 0.4s ease;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      @keyframes slideUpModal {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-header {
+        padding: 1.5rem 1.5rem 0;
+        position: sticky;
+        top: 0;
+        background: white;
+        z-index: 10;
+        border-radius: 24px 24px 0 0;
+      }
+
+      .modal-body {
+        padding: 1.5rem;
+      }
+
+      .modal-footer {
+        padding: 0 1.5rem 1.5rem;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: #f3f4f6;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.25rem;
+        color: #374151;
+        transition: all 0.3s ease;
+        z-index: 11;
+      }
+
+      .modal-close:hover {
+        background: #e5e7eb;
+        transform: rotate(90deg);
+      }
+
+      .modal-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 0.5rem;
+        padding-right: 2rem;
+      }
+
+      .modal-subtitle {
+        color: #6b7280;
+        font-size: 0.875rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Success Modal Specific */
+      .success-modal .modal-content {
+        max-width: 500px;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .success-icon {
+        font-size: 4rem;
+        color: #10b981;
+        margin-bottom: 1rem;
+        animation: scaleIn 0.5s ease;
+      }
+
+      @keyframes scaleIn {
+        from {
+          transform: scale(0);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* Hardware Modal Specific */
+      .hardware-modal .modal-content {
+        max-width: 800px;
+      }
+
+      /* Form validation styles */
+      .form-error {
+        color: #ef4444;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        display: none;
+      }
+
+      .form-input.error {
+        border-color: #ef4444;
+        background-color: #fef2f2;
+      }
+
+      .form-input.success {
+        border-color: #10b981;
+        background-color: #f0fdf4;
+      }
+
       /* ==================== SCROLL BAR ==================== */
       ::-webkit-scrollbar {
         width: 8px;
@@ -877,6 +1032,26 @@
         .testimonial-card {
           margin: 0;
         }
+
+        .modal-content {
+          max-height: 85vh;
+          border-radius: 16px;
+        }
+
+        .modal-header {
+          padding: 1rem 1rem 0;
+        }
+
+        .modal-body {
+          padding: 1rem;
+        }
+
+        .modal-close {
+          top: 1rem;
+          right: 1rem;
+          width: 36px;
+          height: 36px;
+        }
       }
 
       @media (max-width: 480px) {
@@ -904,6 +1079,15 @@
           right: -45px;
           top: 15px;
         }
+
+        .modal-content {
+          max-height: 80vh;
+          border-radius: 12px;
+        }
+
+        .modal-title {
+          font-size: 1.25rem;
+        }
       }
 
       /* ==================== PRINT STYLES ==================== */
@@ -915,8 +1099,8 @@
         .orb,
         .cta-section,
         .main-footer,
-        #contactModal,
-        #successModal {
+        .modal-overlay,
+        #backToTop {
           display: none !important;
         }
 
@@ -2193,293 +2377,329 @@
     </footer>
 
     <!-- Contact Modal -->
-    <div
-      id="contactModal"
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden backdrop-blur-sm p-4"
-    >
-      <div
-        class="bg-white rounded-2xl p-4 md:p-8 max-w-lg w-full mx-auto border border-gray-200 shadow-2xl max-h-[90vh] overflow-y-auto"
-      >
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-xl md:text-2xl font-bold text-gray-900">
-            Get SwiftTill POS
-          </h3>
-          <button
-            onclick="closeContactModal()"
-            class="text-gray-500 hover:text-gray-700 text-2xl focus:outline-none"
-            aria-label="Close"
-          >
-            &times;
-          </button>
+    <div id="contactModal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <button
+          class="modal-close"
+          onclick="closeContactModal()"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <div class="modal-header">
+          <h3 class="modal-title">Get SwiftTill POS</h3>
+          <p class="modal-subtitle">
+            Fill out the form below and we'll contact you within 24 hours to
+            schedule your installation
+          </p>
         </div>
-
-        <form id="contactForm" novalidate>
-          <div class="mb-4">
-            <label for="user_name" class="block text-gray-700 mb-2 font-medium"
-              >Full Name *</label
-            >
-            <input
-              type="text"
-              id="user_name"
-              name="user_name"
-              class="form-input"
-              required
-              placeholder="Enter your full name"
-            />
-            <div class="text-red-500 text-sm mt-1 hidden" id="nameError">
-              Please enter your name
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <label for="user_email" class="block text-gray-700 mb-2 font-medium"
-              >Email *</label
-            >
-            <input
-              type="email"
-              id="user_email"
-              name="user_email"
-              class="form-input"
-              required
-              placeholder="e.g swifttilltechnologies@gmail.com"
-            />
-            <div class="text-red-500 text-sm mt-1 hidden" id="emailError">
-              Please enter a valid email
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <label for="user_phone" class="block text-gray-700 mb-2 font-medium"
-              >Phone Number *</label
-            >
-            <input
-              type="tel"
-              id="user_phone"
-              name="user_phone"
-              class="form-input"
-              required
-              placeholder="07XX XXX XXX"
-            />
-            <div class="text-red-500 text-sm mt-1 hidden" id="phoneError">
-              Please enter a valid phone number
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <label
-              for="business_name"
-              class="block text-gray-700 mb-2 font-medium"
-              >Business Name *</label
-            >
-            <input
-              type="text"
-              id="business_name"
-              name="business_name"
-              class="form-input"
-              required
-              placeholder="Your business name"
-            />
-          </div>
-
-          <div class="mb-6">
-            <label
-              for="business_type"
-              class="block text-gray-700 mb-2 font-medium"
-              >Business Type *</label
-            >
-            <select
-              id="business_type"
-              name="business_type"
-              class="form-input"
-              required
-            >
-              <option value="" disabled selected>
-                Select your business type
-              </option>
-              <option value="retail">Retail Store/Shop</option>
-              <option value="supermarket">Supermarket</option>
-              <option value="restaurant">Restaurant/Cafe/Hotel</option>
-              <option value="pharmacy">Pharmacy/Chemist</option>
-              <option value="hardware">Hardware Store</option>
-              <option value="clothing">Clothing/Fashion Store</option>
-              <option value="electronics">Electronics Store</option>
-              <option value="wholesale">Wholesale Business</option>
-              <option value="salon">Salon/Spa</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div class="mb-6">
-            <label for="locations" class="block text-gray-700 mb-2 font-medium"
-              >Number of Locations</label
-            >
-            <select id="locations" name="locations" class="form-input">
-              <option value="1">1 Location</option>
-              <option value="2-3">2-3 Locations</option>
-              <option value="4-5">4-5 Locations</option>
-              <option value="5+">More than 5 Locations</option>
-            </select>
-          </div>
-
-          <div class="mb-6">
-            <label for="message" class="block text-gray-700 mb-2 font-medium"
-              >Message (Optional)</label
-            >
-            <textarea
-              id="message"
-              name="message"
-              rows="3"
-              class="form-input"
-              placeholder="Tell us about your business needs and challenges..."
-            ></textarea>
-          </div>
-
-          <div class="mb-6">
-            <div class="flex items-start">
+        <div class="modal-body">
+          <form id="contactForm" novalidate>
+            <div class="mb-4">
+              <label
+                for="user_name"
+                class="block text-gray-700 mb-2 font-medium"
+                >Full Name *</label
+              >
               <input
-                type="checkbox"
-                id="marketing"
-                name="marketing"
-                class="mt-1 mr-2"
-                checked
+                type="text"
+                id="user_name"
+                name="user_name"
+                class="form-input"
+                required
+                placeholder="Enter your full name"
               />
-              <label for="marketing" class="text-gray-600 text-sm">
-                Yes, I'd like to receive occasional updates about new features
-                and tips for my business.
-              </label>
+              <div class="form-error" id="nameError">
+                Please enter your name
+              </div>
             </div>
-          </div>
 
-          <button type="submit" class="btn-primary w-full" id="submitBtn">
-            <i class="fas fa-paper-plane mr-2"></i>
-            <span>Submit Request</span>
-            <div class="loading-spinner ml-2" id="loadingSpinner"></div>
-          </button>
+            <div class="mb-4">
+              <label
+                for="user_email"
+                class="block text-gray-700 mb-2 font-medium"
+                >Email *</label
+              >
+              <input
+                type="email"
+                id="user_email"
+                name="user_email"
+                class="form-input"
+                required
+                placeholder="your@email.com"
+              />
+              <div class="form-error" id="emailError">
+                Please enter a valid email
+              </div>
+            </div>
 
-          <div class="text-center mt-4">
-            <p class="text-gray-500 text-sm">
-              We'll contact you within 24 hours to discuss your needs and
-              schedule a Software for you.
-            </p>
-          </div>
-        </form>
+            <div class="mb-4">
+              <label
+                for="user_phone"
+                class="block text-gray-700 mb-2 font-medium"
+                >Phone Number *</label
+              >
+              <input
+                type="tel"
+                id="user_phone"
+                name="user_phone"
+                class="form-input"
+                required
+                placeholder="07XX XXX XXX"
+              />
+              <div class="form-error" id="phoneError">
+                Please enter a valid phone number
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label
+                for="business_name"
+                class="block text-gray-700 mb-2 font-medium"
+                >Business Name *</label
+              >
+              <input
+                type="text"
+                id="business_name"
+                name="business_name"
+                class="form-input"
+                required
+                placeholder="Your business name"
+              />
+            </div>
+
+            <div class="mb-4">
+              <label
+                for="business_type"
+                class="block text-gray-700 mb-2 font-medium"
+                >Business Type *</label
+              >
+              <select
+                id="business_type"
+                name="business_type"
+                class="form-input"
+                required
+              >
+                <option value="" disabled selected>
+                  Select your business type
+                </option>
+                <option value="retail">Retail Store/Shop</option>
+                <option value="supermarket">Supermarket</option>
+                <option value="restaurant">Restaurant/Cafe/Hotel</option>
+                <option value="pharmacy">Pharmacy/Chemist</option>
+                <option value="hardware">Hardware Store</option>
+                <option value="clothing">Clothing/Fashion Store</option>
+                <option value="electronics">Electronics Store</option>
+                <option value="wholesale">Wholesale Business</option>
+                <option value="salon">Salon/Spa</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label
+                for="locations"
+                class="block text-gray-700 mb-2 font-medium"
+                >Number of Locations</label
+              >
+              <select id="locations" name="locations" class="form-input">
+                <option value="1">1 Location</option>
+                <option value="2-3">2-3 Locations</option>
+                <option value="4-5">4-5 Locations</option>
+                <option value="5+">More than 5 Locations</option>
+              </select>
+            </div>
+
+            <div class="mb-6">
+              <label for="message" class="block text-gray-700 mb-2 font-medium"
+                >Message (Optional)</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="3"
+                class="form-input"
+                placeholder="Tell us about your business needs and challenges..."
+              ></textarea>
+            </div>
+
+            <div class="mb-6">
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  id="marketing"
+                  name="marketing"
+                  class="mt-1 mr-2"
+                  checked
+                />
+                <label for="marketing" class="text-gray-600 text-sm">
+                  Yes, I'd like to receive occasional updates about new features
+                  and tips for my business.
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary w-full" id="submitBtn">
+              <i class="fas fa-paper-plane mr-2"></i>
+              <span>Submit Request</span>
+              <div class="loading-spinner ml-2" id="loadingSpinner"></div>
+            </button>
+
+            <div class="text-center mt-4">
+              <p class="text-gray-500 text-sm">
+                We'll contact you within 24 hours to discuss your needs and
+                schedule installation.
+              </p>
+              <div
+                class="mt-3 flex items-center justify-center space-x-4 text-sm text-gray-500"
+              >
+                <i class="fas fa-shield-alt"></i>
+                <span>Your information is secure and confidential</span>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
     <!-- Success Modal -->
-    <div
-      id="successModal"
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden backdrop-blur-sm p-4"
-    >
-      <div
-        class="bg-white rounded-2xl p-6 md:p-8 max-w-md w-full mx-auto text-center"
-      >
-        <div class="text-green-500 text-5xl md:text-6xl mb-4">
-          <i class="fas fa-check-circle"></i>
+    <div id="successModal" class="modal-overlay hidden success-modal">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+            Request Sent Successfully!
+          </h3>
+          <p class="text-gray-600 mb-6">
+            Thank you for your interest in SwiftTill POS. We have received your
+            request and will contact you within 24 hours at the phone number and
+            email you provided.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <button onclick="closeSuccessModal()" class="btn-primary">
+              <i class="fas fa-check mr-2"></i> Got it!
+            </button>
+            <button
+              onclick="closeSuccessModal(); showContactInfo();"
+              class="btn-secondary"
+            >
+              <i class="fas fa-phone-alt mr-2"></i> Call Now
+            </button>
+          </div>
+          <p class="text-sm text-gray-500 mt-4">
+            Check your email for a confirmation message.
+          </p>
         </div>
-        <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-          Request Sent Successfully!
-        </h3>
-        <p class="text-gray-600 mb-6">
-          Thank you for your interest in SwiftTill POS. We have received your
-          request and will contact you within 24 hours at the phone number and
-          email you provided.
-        </p>
-        <button onclick="closeSuccessModal()" class="btn-primary">
-          <i class="fas fa-check mr-2"></i> Got it!
-        </button>
-        <p class="text-sm text-gray-500 mt-4">
-          Check your email for a confirmation message.
-        </p>
       </div>
     </div>
 
     <!-- Hardware Packages Modal -->
-    <div
-      id="hardwareModal"
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden backdrop-blur-sm p-4"
-    >
-      <div
-        class="bg-white rounded-2xl p-6 md:p-8 max-w-2xl w-full mx-auto max-h-[90vh] overflow-y-auto"
-      >
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-xl md:text-2xl font-bold text-gray-900">
-            Hardware Packages
-          </h3>
-          <button
-            onclick="closeHardwareModal()"
-            class="text-gray-500 hover:text-gray-700 text-2xl focus:outline-none"
-            aria-label="Close"
-          >
-            &times;
-          </button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="border border-gray-200 rounded-xl p-6">
-            <h4 class="font-bold text-lg mb-4 text-gray-900">Basic Package</h4>
-            <div class="text-3xl font-bold text-blue-600 mb-4">Ksh 15,000</div>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-center text-gray-700">
-                <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>POS Terminal</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>Barcode Scanner</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>Receipt Printer</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>Cash Drawer</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="border border-blue-200 rounded-xl p-6 bg-blue-50">
-            <div class="badge badge-blue mb-4">RECOMMENDED</div>
-            <h4 class="font-bold text-lg mb-4 text-gray-900">
-              Complete Package
-            </h4>
-            <div class="text-3xl font-bold text-blue-600 mb-4">Ksh 35,000</div>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-center text-gray-700">
-                <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>Everything in Basic</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>Customer Display</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>Label Printer</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>UPS Backup</span>
-              </li>
-              <li class="flex items-center text-gray-700">
-                <i class="fas fa-check text-green-500 mr-3"></i>
-                <span>1 Year Warranty</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mt-8 text-center">
-          <p class="text-gray-600 mb-4">
-            Need custom hardware? Contact us for a tailored solution.
+    <div id="hardwareModal" class="modal-overlay hidden hardware-modal">
+      <div class="modal-content">
+        <button
+          class="modal-close"
+          onclick="closeHardwareModal()"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <div class="modal-header">
+          <h3 class="modal-title">Hardware Packages</h3>
+          <p class="modal-subtitle">
+            Choose the perfect hardware setup for your business needs
           </p>
-          <button
-            onclick="closeHardwareModal(); openContactModal('hardware');"
-            class="btn-primary"
-          >
-            <i class="fas fa-headset mr-2"></i> Contact Sales
-          </button>
+        </div>
+        <div class="modal-body">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              class="border border-gray-200 rounded-xl p-6 hover:border-blue-300 transition-colors"
+            >
+              <h4 class="font-bold text-lg mb-4 text-gray-900">
+                Basic Package
+              </h4>
+              <div class="text-3xl font-bold text-blue-600 mb-4">
+                Ksh 15,000
+              </div>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-center text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-3"></i>
+                  <span>POS Terminal</span>
+                </li>
+                <li class="flex items-center text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-3"></i>
+                  <span>Barcode Scanner</span>
+                </li>
+                <li class="flex items-center text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-3"></i>
+                  <span>Receipt Printer</span>
+                </li>
+                <li class="flex items-center text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-3"></i>
+                  <span>Cash Drawer</span>
+                </li>
+              </ul>
+              <button
+                onclick="closeHardwareModal(); openContactModal('hardware_basic');"
+                class="btn-secondary w-full"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i> Select Package
+              </button>
+            </div>
+
+            <div
+              class="border-2 border-blue-500 rounded-xl p-6 bg-blue-50 hover:border-blue-600 transition-colors"
+            >
+              <div class="badge badge-blue mb-4">RECOMMENDED</div>
+              <h4 class="font-bold text-lg mb-4 text-gray-900">
+                Complete Package
+              </h4>
+              <div class="text-3xl font-bold text-blue-600 mb-4">
+                Ksh 35,000
+              </div>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-center text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-3"></i>
+                  <span>Everything in Basic</span>
+                </li>
+                <li class="flex items-center text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-3"></i>
+                  <span>Customer Display</span>
+                </li>
+                <li class="flex items-center text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-3"></i>
+                  <span>Label Printer</span>
+                </li>
+                <li class="flex items-center text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-3"></i>
+                  <span>UPS Backup</span>
+                </li>
+                <li class="flex items-center text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-3"></i>
+                  <span>1 Year Warranty</span>
+                </li>
+              </ul>
+              <button
+                onclick="closeHardwareModal(); openContactModal('hardware_complete');"
+                class="btn-primary w-full"
+              >
+                <i class="fas fa-star mr-2"></i> Select Package
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-8 text-center">
+            <p class="text-gray-600 mb-4">
+              Need custom hardware? Contact us for a tailored solution.
+            </p>
+            <button
+              onclick="closeHardwareModal(); openContactModal('hardware_custom');"
+              class="btn-secondary"
+            >
+              <i class="fas fa-headset mr-2"></i> Contact Sales
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -2597,14 +2817,19 @@
         elements.backToTop.classList.toggle("hidden", window.scrollY < 300);
       }
 
-      // ==================== MODAL FUNCTIONS ====================
+      // ==================== IMPROVED MODAL FUNCTIONS ====================
 
       function openContactModal(source = "") {
         currentFormSource = source;
         elements.contactModal.classList.remove("hidden");
         document.body.style.overflow = "hidden";
-        document.body.style.paddingRight =
-          window.innerWidth - document.documentElement.clientWidth + "px";
+        // Reset and focus first input
+        setTimeout(() => {
+          const firstInput = elements.contactForm.querySelector(
+            "input, select, textarea"
+          );
+          if (firstInput) firstInput.focus();
+        }, 100);
       }
 
       function closeContactModal() {
@@ -2612,26 +2837,21 @@
         elements.contactForm.reset();
         resetFormErrors();
         document.body.style.overflow = "auto";
-        document.body.style.paddingRight = "";
       }
 
       function closeSuccessModal() {
         elements.successModal.classList.add("hidden");
         document.body.style.overflow = "auto";
-        document.body.style.paddingRight = "";
       }
 
       function showHardwarePackages() {
         elements.hardwareModal.classList.remove("hidden");
         document.body.style.overflow = "hidden";
-        document.body.style.paddingRight =
-          window.innerWidth - document.documentElement.clientWidth + "px";
       }
 
       function closeHardwareModal() {
         elements.hardwareModal.classList.add("hidden");
         document.body.style.overflow = "auto";
-        document.body.style.paddingRight = "";
       }
 
       // ==================== CONTACT FUNCTIONS ====================
@@ -2690,23 +2910,32 @@
       // ==================== FORM HANDLING ====================
 
       function resetFormErrors() {
-        document.querySelectorAll('[id$="Error"]').forEach((el) => {
-          el.classList.add("hidden");
+        document.querySelectorAll(".form-error").forEach((el) => {
+          el.style.display = "none";
+        });
+        document.querySelectorAll(".form-input").forEach((el) => {
+          el.classList.remove("error", "success");
         });
       }
 
       function showFormError(fieldId, message) {
         const errorEl = document.getElementById(fieldId + "Error");
-        if (errorEl) {
+        const inputEl = document.getElementById(fieldId);
+        if (errorEl && inputEl) {
           errorEl.textContent = message;
-          errorEl.classList.remove("hidden");
+          errorEl.style.display = "block";
+          inputEl.classList.add("error");
+          inputEl.classList.remove("success");
         }
       }
 
       function hideFormError(fieldId) {
         const errorEl = document.getElementById(fieldId + "Error");
-        if (errorEl) {
-          errorEl.classList.add("hidden");
+        const inputEl = document.getElementById(fieldId);
+        if (errorEl && inputEl) {
+          errorEl.style.display = "none";
+          inputEl.classList.remove("error");
+          inputEl.classList.add("success");
         }
       }
 
@@ -2715,32 +2944,52 @@
 
         // Validate name
         if (!formData.user_name.trim()) {
-          showFormError("name", "Please enter your name");
+          showFormError("user_name", "Please enter your name");
           isValid = false;
         } else {
-          hideFormError("name");
+          hideFormError("user_name");
         }
 
         // Validate email
         if (!formData.user_email.trim()) {
-          showFormError("email", "Please enter your email");
+          showFormError("user_email", "Please enter your email");
           isValid = false;
         } else if (!validateEmail(formData.user_email)) {
-          showFormError("email", "Please enter a valid email address");
+          showFormError("user_email", "Please enter a valid email address");
           isValid = false;
         } else {
-          hideFormError("email");
+          hideFormError("user_email");
         }
 
         // Validate phone
         if (!formData.user_phone.trim()) {
-          showFormError("phone", "Please enter your phone number");
+          showFormError("user_phone", "Please enter your phone number");
           isValid = false;
         } else if (!validatePhone(formData.user_phone)) {
-          showFormError("phone", "Please enter a valid phone number");
+          showFormError("user_phone", "Please enter a valid phone number");
           isValid = false;
         } else {
-          hideFormError("phone");
+          hideFormError("user_phone");
+        }
+
+        // Validate business name
+        if (!formData.business_name.trim()) {
+          showFormError("business_name", "Please enter your business name");
+          isValid = false;
+        } else {
+          hideFormError("business_name");
+        }
+
+        // Validate business type
+        if (!formData.business_type || formData.business_type === "") {
+          const businessTypeEl = document.getElementById("business_type");
+          businessTypeEl.classList.add("error");
+          businessTypeEl.classList.remove("success");
+          isValid = false;
+        } else {
+          const businessTypeEl = document.getElementById("business_type");
+          businessTypeEl.classList.remove("error");
+          businessTypeEl.classList.add("success");
         }
 
         return isValid;
@@ -2767,6 +3016,12 @@
 
         // Validate form
         if (!validateForm(formData)) {
+          // Scroll to first error
+          const firstError = document.querySelector(".form-input.error");
+          if (firstError) {
+            firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+            firstError.focus();
+          }
           return;
         }
 
@@ -2797,15 +3052,27 @@
 
           // Reset form
           this.reset();
+          resetFormErrors();
 
           // Send WhatsApp notification to admin (optional)
           const whatsappMessage = `New SwiftTill Inquiry from ${formData.user_name} (${formData.user_phone}) - ${formData.business_name}`;
           // Uncomment to enable WhatsApp notifications
           // window.open(`https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+
+          // Track conversion
+          if (window.gtag) {
+            gtag("event", "conversion", {
+              send_to: "AW-123456789/AbC-D_efG-hI",
+              value: 20000,
+              currency: "KES",
+              transaction_id: Date.now().toString(),
+            });
+          }
         } catch (error) {
           console.error("Email sending failed:", error);
           alert(
-            "Sorry, there was an error submitting your request. Please try again or call us directly."
+            "Sorry, there was an error submitting your request. Please try again or call us directly at " +
+              CONFIG.contactPhone
           );
         } finally {
           // Reset button state
@@ -2814,6 +3081,49 @@
           elements.submitBtn.disabled = false;
         }
       });
+
+      // Real-time form validation
+      function initRealTimeValidation() {
+        const inputs = elements.contactForm.querySelectorAll(
+          "input, select, textarea"
+        );
+        inputs.forEach((input) => {
+          input.addEventListener("blur", function () {
+            if (this.value.trim()) {
+              this.classList.remove("error");
+              this.classList.add("success");
+              const errorEl = document.getElementById(this.id + "Error");
+              if (errorEl) errorEl.style.display = "none";
+            }
+          });
+
+          // Special validation for email
+          if (input.type === "email") {
+            input.addEventListener("input", function () {
+              if (this.value && !validateEmail(this.value)) {
+                this.classList.add("error");
+                this.classList.remove("success");
+              } else if (this.value) {
+                this.classList.remove("error");
+                this.classList.add("success");
+              }
+            });
+          }
+
+          // Special validation for phone
+          if (input.type === "tel") {
+            input.addEventListener("input", function () {
+              if (this.value && !validatePhone(this.value)) {
+                this.classList.add("error");
+                this.classList.remove("success");
+              } else if (this.value) {
+                this.classList.remove("error");
+                this.classList.add("success");
+              }
+            });
+          }
+        });
+      }
 
       // ==================== EVENT LISTENERS ====================
 
@@ -2839,6 +3149,9 @@
               e.preventDefault();
               const targetId = href.substring(1);
               scrollToSection(targetId);
+              if (window.innerWidth < 768) {
+                closeMobileMenu();
+              }
             }
           });
         });
@@ -2850,9 +3163,11 @@
 
         // Close modals on outside click
         document.addEventListener("click", (e) => {
-          if (e.target === elements.contactModal) closeContactModal();
-          if (e.target === elements.successModal) closeSuccessModal();
-          if (e.target === elements.hardwareModal) closeHardwareModal();
+          if (e.target.classList.contains("modal-overlay")) {
+            if (e.target === elements.contactModal) closeContactModal();
+            if (e.target === elements.successModal) closeSuccessModal();
+            if (e.target === elements.hardwareModal) closeHardwareModal();
+          }
         });
 
         // Close modals with Escape key
@@ -2865,16 +3180,11 @@
           }
         });
 
-        // Form validation on input
-        ["user_name", "user_email", "user_phone"].forEach((field) => {
-          const input = document.getElementById(field);
-          if (input) {
-            input.addEventListener("input", () => hideFormError(field));
-          }
-        });
-
         // Initialize showcase tabs
         initShowcaseTabs();
+
+        // Initialize real-time form validation
+        initRealTimeValidation();
       }
 
       // ==================== INITIALIZATION ====================
@@ -2884,6 +3194,9 @@
         updateHeader();
         checkFadeIn();
         initEventListeners();
+
+        // Trigger initial fade-in check
+        setTimeout(checkFadeIn, 100);
 
         // Preload images if any
         const images = document.querySelectorAll("img");
@@ -2905,15 +3218,6 @@
                 );
               }
             }, 0);
-          });
-        }
-
-        // Service worker registration (optional)
-        if ("serviceWorker" in navigator) {
-          window.addEventListener("load", () => {
-            navigator.serviceWorker.register("/sw.js").catch((err) => {
-              console.log("ServiceWorker registration failed: ", err);
-            });
           });
         }
       });
