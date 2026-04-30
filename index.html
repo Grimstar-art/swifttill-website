@@ -8,15 +8,19 @@
     </title>
     <meta
       name="description"
-      content="SwiftTill POS - Complete business management system for retail stores, restaurants, and service businesses in Kenya. Streamline operations, boost sales, and gain insights."
+      content="SwiftTill POS - Complete business management system for retail stores, restaurants, and service businesses in Kenya. Streamline operations, boost sales, and gain insights with AI-powered analytics, M-Pesa integration, and real-time inventory tracking."
     />
     <meta
       name="keywords"
-      content="POS system Kenya, business management, retail software, restaurant POS, inventory management, Kenyan businesses, M-Pesa payment, sales tracking"
+      content="POS system Kenya, business management, retail software, restaurant POS, inventory management, Kenyan businesses, M-Pesa payment, sales tracking, AI analytics, cloud sync, multi-store management"
     />
     <meta name="author" content="SwiftTill Technologies" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
+    <meta name="geo.region" content="KE" />
+    <meta name="geo.placename" content="Nakuru, Kenya" />
+    <meta name="geo.position" content="-0.3031;36.0800" />
+    <meta name="ICBM" content="-0.3031, 36.0800" />
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta
@@ -28,10 +32,19 @@
       content="All-in-one business management platform designed for Kenyan businesses. Streamline operations, boost sales, and gain valuable insights. 500+ trusted businesses."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'><rect fill='%23003cff' width='1200' height='630'/><text x='50%' y='50%' font-size='48' fill='white' text-anchor='middle' dominant-baseline='middle'>SwiftTill POS - Business Management</text></svg>" />
+    <meta
+      property="og:image"
+      content="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'><rect fill='%23003cff' width='1200' height='630'/><text x='50%' y='50%' font-size='48' fill='white' text-anchor='middle' dominant-baseline='middle'>SwiftTill POS - Business Management</text></svg>"
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SwiftTill POS | All-in-One Business Management" />
-    <meta name="twitter:description" content="Trusted POS system for 500+ Kenyan businesses. Real-time analytics, inventory management, M-Pesa integration." />
+    <meta
+      name="twitter:title"
+      content="SwiftTill POS | All-in-One Business Management"
+    />
+    <meta
+      name="twitter:description"
+      content="Trusted POS system for 500+ Kenyan businesses. Real-time analytics, inventory management, M-Pesa integration."
+    />
 
     <!-- Favicon -->
     <link
@@ -60,46 +73,49 @@
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "SwiftTill POS",
-      "description": "All-in-one business management platform for Kenya with real-time sales tracking, inventory management, and M-Pesa integration",
-      "url": "https://swifttill.com",
-      "applicationCategory": "BusinessApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "20000",
-        "priceCurrency": "KES"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "150"
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SwiftTill POS",
+        "description": "All-in-one business management platform for Kenya with real-time sales tracking, inventory management, and M-Pesa integration",
+        "url": "https://swifttill.com",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "20000",
+          "priceCurrency": "KES"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "150"
+        }
       }
-    }
     </script>
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "SwiftTill Technologies",
-      "url": "https://swifttill.com",
-      "logo": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>",
-      "sameAs": ["https://facebook.com/swifttill", "https://twitter.com/swifttill"],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Support",
-        "telephone": "+254723795977",
-        "email": "swifttilltechnologies@gmail.com"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressCity": "Nakuru",
-        "addressCountry": "KE"
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SwiftTill Technologies",
+        "url": "https://swifttill.com",
+        "logo": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>",
+        "sameAs": [
+          "https://facebook.com/swifttill",
+          "https://twitter.com/swifttill"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Support",
+          "telephone": "+254723795977",
+          "email": "swifttilltechnologies@gmail.com"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCity": "Nakuru",
+          "addressCountry": "KE"
+        }
       }
-    }
     </script>
 
     <style>
@@ -731,6 +747,37 @@
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
         box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+      }
+
+      /* ==================== CASE STUDIES SECTION ==================== */
+      .case-studies-section {
+        padding: clamp(3rem, 5vw, 6rem) 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      }
+
+      .case-study-card {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        height: 100%;
+      }
+
+      .case-study-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+      }
+
+      /* ==================== ROI CALCULATOR SECTION ==================== */
+      .roi-calculator-section {
+        padding: clamp(3rem, 5vw, 6rem) 0;
+        background: #ffffff;
+      }
+
+      /* ==================== NEWSLETTER SECTION ==================== */
+      .newsletter-section {
+        padding: clamp(3rem, 5vw, 6rem) 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
       }
 
       /* ==================== CTA SECTION ==================== */
@@ -1749,9 +1796,7 @@
         <a href="#pricing" class="nav-link" onclick="closeMobileMenu()"
           >Pricing</a
         >
-        <a href="#faq" class="nav-link" onclick="closeMobileMenu()"
-          >FAQ</a
-        >
+        <a href="#faq" class="nav-link" onclick="closeMobileMenu()">FAQ</a>
         <a href="#contact" class="nav-link" onclick="closeMobileMenu()"
           >Contact</a
         >
@@ -2563,6 +2608,225 @@
       </div>
     </section>
 
+    <!-- ROI Calculator Section -->
+    <section class="roi-calculator-section" id="calculator">
+      <div class="container">
+        <div class="text-center mb-8 md:mb-12">
+          <span
+            class="inline-block px-4 py-2 bg-green-50 text-green-600 rounded-full text-sm font-semibold mb-4"
+          >
+            <i class="fas fa-calculator mr-2"></i>ROI CALCULATOR
+          </span>
+          <h2 class="section-title fade-in">Calculate Your Business Savings</h2>
+          <p class="section-subtitle fade-in">
+            See how much money and time you can save with SwiftTill POS. Enter
+            your current business metrics below.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="bg-white rounded-3xl shadow-2xl border-2 border-gray-100 overflow-hidden"
+          >
+            <div
+              class="bg-gradient-to-r from-blue-600 to-green-600 p-6 text-white"
+            >
+              <h3 class="text-2xl font-bold mb-2">SwiftTill ROI Calculator</h3>
+              <p class="text-blue-100">
+                Discover your potential savings in just 60 seconds
+              </p>
+            </div>
+
+            <div class="p-8">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Input Section -->
+                <div class="space-y-6">
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                    >
+                      Monthly Sales Revenue (Ksh)
+                    </label>
+                    <input
+                      type="number"
+                      id="monthlyRevenue"
+                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                      placeholder="e.g., 500000"
+                      min="10000"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                    >
+                      Daily Transactions
+                    </label>
+                    <input
+                      type="number"
+                      id="dailyTransactions"
+                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                      placeholder="e.g., 50"
+                      min="1"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                    >
+                      Average Transaction Time (minutes)
+                    </label>
+                    <input
+                      type="number"
+                      id="transactionTime"
+                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                      placeholder="e.g., 5"
+                      min="1"
+                      max="30"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="block text-sm font-semibold text-gray-700 mb-2"
+                    >
+                      Monthly Inventory Loss (%)
+                    </label>
+                    <input
+                      type="number"
+                      id="inventoryLoss"
+                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                      placeholder="e.g., 5"
+                      min="0"
+                      max="50"
+                    />
+                  </div>
+
+                  <button id="calculateROI" class="btn-primary w-full">
+                    <i class="fas fa-calculator mr-2"></i> Calculate My Savings
+                  </button>
+                </div>
+
+                <!-- Results Section -->
+                <div class="bg-gray-50 rounded-2xl p-6">
+                  <h4 class="text-xl font-bold text-gray-900 mb-6">
+                    Your Potential Savings
+                  </h4>
+
+                  <div class="space-y-4">
+                    <div
+                      class="flex justify-between items-center p-4 bg-white rounded-xl border"
+                    >
+                      <div>
+                        <div class="font-semibold text-gray-900">
+                          Time Saved Monthly
+                        </div>
+                        <div class="text-sm text-gray-600">
+                          Faster transactions
+                        </div>
+                      </div>
+                      <div class="text-right">
+                        <div
+                          class="text-2xl font-bold text-blue-600"
+                          id="timeSaved"
+                        >
+                          0 hours
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="flex justify-between items-center p-4 bg-white rounded-xl border"
+                    >
+                      <div>
+                        <div class="font-semibold text-gray-900">
+                          Inventory Savings
+                        </div>
+                        <div class="text-sm text-gray-600">
+                          Reduced loss & waste
+                        </div>
+                      </div>
+                      <div class="text-right">
+                        <div
+                          class="text-2xl font-bold text-green-600"
+                          id="inventorySaved"
+                        >
+                          Ksh 0
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="flex justify-between items-center p-4 bg-white rounded-xl border"
+                    >
+                      <div>
+                        <div class="font-semibold text-gray-900">
+                          Error Reduction
+                        </div>
+                        <div class="text-sm text-gray-600">
+                          Fewer transaction mistakes
+                        </div>
+                      </div>
+                      <div class="text-right">
+                        <div
+                          class="text-2xl font-bold text-purple-600"
+                          id="errorReduction"
+                        >
+                          Ksh 0
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="flex justify-between items-center p-4 bg-white rounded-xl border"
+                    >
+                      <div>
+                        <div class="font-semibold text-gray-900">
+                          Total Monthly Savings
+                        </div>
+                        <div class="text-sm text-gray-600">
+                          Combined benefits
+                        </div>
+                      </div>
+                      <div class="text-right">
+                        <div
+                          class="text-3xl font-bold text-green-600"
+                          id="totalSavings"
+                        >
+                          Ksh 0
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="mt-6 p-4 bg-green-50 rounded-xl border border-green-200"
+                  >
+                    <div class="flex items-center mb-2">
+                      <i class="fas fa-lightbulb text-green-600 mr-2"></i>
+                      <span class="font-semibold text-green-800">Pro Tip</span>
+                    </div>
+                    <p class="text-green-700 text-sm" id="roiTip">
+                      Enter your business details above to see personalized
+                      savings calculations.
+                    </p>
+                  </div>
+
+                  <button
+                    class="btn-primary w-full mt-6"
+                    onclick="openContactModal('roi_calculator')"
+                  >
+                    <i class="fas fa-rocket mr-2"></i> Get SwiftTill Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Pricing -->
     <section class="pricing-section" id="pricing">
       <div class="container">
@@ -2677,15 +2941,20 @@
         <div class="text-center mb-8 md:mb-12">
           <h2 class="section-title fade-in">Why Businesses Trust SwiftTill</h2>
           <p class="section-subtitle fade-in">
-            Industry-leading standards and certifications that guarantee your business is in safe hands
+            Industry-leading standards and certifications that guarantee your
+            business is in safe hands
           </p>
         </div>
 
         <div class="trust-grid">
           <div class="trust-badge fade-in">
             <div class="trust-badge-icon">🔒</div>
-            <div class="text-sm font-bold text-gray-900 mb-2">Bank-Grade Security</div>
-            <div class="trust-badge-text">SSL Encrypted & PCI DSS Compliant</div>
+            <div class="text-sm font-bold text-gray-900 mb-2">
+              Bank-Grade Security
+            </div>
+            <div class="trust-badge-text">
+              SSL Encrypted & PCI DSS Compliant
+            </div>
           </div>
 
           <div class="trust-badge fade-in">
@@ -2696,7 +2965,9 @@
 
           <div class="trust-badge fade-in">
             <div class="trust-badge-icon">🏆</div>
-            <div class="text-sm font-bold text-gray-900 mb-2">Award Winning</div>
+            <div class="text-sm font-bold text-gray-900 mb-2">
+              Award Winning
+            </div>
             <div class="trust-badge-text">Best POS Solution - East Africa</div>
           </div>
 
@@ -2708,7 +2979,9 @@
 
           <div class="trust-badge fade-in">
             <div class="trust-badge-icon">🛡️</div>
-            <div class="text-sm font-bold text-gray-900 mb-2">ISO Certified</div>
+            <div class="text-sm font-bold text-gray-900 mb-2">
+              ISO Certified
+            </div>
             <div class="trust-badge-text">International Quality Standards</div>
           </div>
 
@@ -2716,6 +2989,186 @@
             <div class="trust-badge-icon">📱</div>
             <div class="text-sm font-bold text-gray-900 mb-2">M-Pesa Ready</div>
             <div class="trust-badge-text">Safaricom Integrated & Approved</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies-section" id="case-studies">
+      <div class="container">
+        <div class="text-center mb-8 md:mb-12">
+          <span
+            class="inline-block px-4 py-2 bg-green-50 text-green-600 rounded-full text-sm font-semibold mb-4"
+          >
+            <i class="fas fa-chart-line mr-2"></i>SUCCESS STORIES
+          </span>
+          <h2 class="section-title fade-in">
+            Real Results from Real Businesses
+          </h2>
+          <p class="section-subtitle fade-in">
+            See how SwiftTill has transformed businesses across Kenya with
+            measurable results
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Case Study 1 -->
+          <div class="case-study-card fade-in">
+            <div
+              class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-t-2xl text-white"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-2xl font-bold">Thika Supermarket</div>
+                <div class="text-blue-100 text-sm">Retail Chain</div>
+              </div>
+              <div class="text-3xl font-bold mb-2">+45% Sales Growth</div>
+              <div class="text-blue-100">Within 6 months of implementation</div>
+            </div>
+            <div class="bg-white p-6 rounded-b-2xl border-2 border-gray-100">
+              <h4 class="font-bold text-lg mb-3 text-gray-900">
+                The Challenge
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Manual inventory tracking was causing stockouts and
+                overstocking, leading to lost sales and wasted capital.
+              </p>
+              <h4 class="font-bold text-lg mb-3 text-gray-900">The Solution</h4>
+              <p class="text-gray-600 mb-4">
+                SwiftTill's real-time inventory management and automated
+                reordering system.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-600">30%</div>
+                  <div class="text-sm text-gray-600">Inventory Accuracy</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-blue-600">Ksh 500K</div>
+                  <div class="text-sm text-gray-600">Monthly Savings</div>
+                </div>
+              </div>
+              <button
+                onclick="openContactModal('case_study_thika')"
+                class="btn-secondary w-full"
+              >
+                <i class="fas fa-external-link-alt mr-2"></i> Read Full Story
+              </button>
+            </div>
+          </div>
+
+          <!-- Case Study 2 -->
+          <div class="case-study-card fade-in">
+            <div
+              class="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-t-2xl text-white"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-2xl font-bold">Nairobi Bistro</div>
+                <div class="text-green-100 text-sm">Restaurant</div>
+              </div>
+              <div class="text-3xl font-bold mb-2">50% Faster Service</div>
+              <div class="text-green-100">
+                Table-to-payment in under 2 minutes
+              </div>
+            </div>
+            <div class="bg-white p-6 rounded-b-2xl border-2 border-gray-100">
+              <h4 class="font-bold text-lg mb-3 text-gray-900">
+                The Challenge
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Long wait times and order errors were driving customers away
+                during peak hours.
+              </p>
+              <h4 class="font-bold text-lg mb-3 text-gray-900">The Solution</h4>
+              <p class="text-gray-600 mb-4">
+                Integrated POS with kitchen display system and table management.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-600">65%</div>
+                  <div class="text-sm text-gray-600">Order Accuracy</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-blue-600">25%</div>
+                  <div class="text-sm text-gray-600">Higher Tips</div>
+                </div>
+              </div>
+              <button
+                onclick="openContactModal('case_study_bistro')"
+                class="btn-secondary w-full"
+              >
+                <i class="fas fa-external-link-alt mr-2"></i> Read Full Story
+              </button>
+            </div>
+          </div>
+
+          <!-- Case Study 3 -->
+          <div class="case-study-card fade-in">
+            <div
+              class="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-t-2xl text-white"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-2xl font-bold">Coastal Electronics</div>
+                <div class="text-purple-100 text-sm">Multi-Store Chain</div>
+              </div>
+              <div class="text-3xl font-bold mb-2">3 Locations Managed</div>
+              <div class="text-purple-100">From single dashboard</div>
+            </div>
+            <div class="bg-white p-6 rounded-b-2xl border-2 border-gray-100">
+              <h4 class="font-bold text-lg mb-3 text-gray-900">
+                The Challenge
+              </h4>
+              <p class="text-gray-600 mb-4">
+                Managing inventory across multiple locations was chaotic and
+                inefficient.
+              </p>
+              <h4 class="font-bold text-lg mb-3 text-gray-900">The Solution</h4>
+              <p class="text-gray-600 mb-4">
+                Cloud-based multi-store synchronization with centralized
+                reporting.
+              </p>
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-green-600">40%</div>
+                  <div class="text-sm text-gray-600">
+                    Operational Efficiency
+                  </div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold text-blue-600">Ksh 1.2M</div>
+                  <div class="text-sm text-gray-600">Annual Savings</div>
+                </div>
+              </div>
+              <button
+                onclick="openContactModal('case_study_electronics')"
+                class="btn-secondary w-full"
+              >
+                <i class="fas fa-external-link-alt mr-2"></i> Read Full Story
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <div
+            class="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 max-w-4xl mx-auto"
+          >
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">
+              Ready to Join These Success Stories?
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Don't let outdated systems hold your business back. Join hundreds
+              of successful Kenyan businesses using SwiftTill.
+            </p>
+            <button
+              class="btn-primary mr-4"
+              onclick="openContactModal('case_studies_cta')"
+            >
+              <i class="fas fa-rocket mr-2"></i> Start Your Success Story
+            </button>
+            <button class="btn-secondary" onclick="scrollToPricing()">
+              <i class="fas fa-calculator mr-2"></i> Calculate ROI
+            </button>
           </div>
         </div>
       </div>
@@ -2732,7 +3185,8 @@
           </span>
           <h2 class="section-title fade-in">Frequently Asked Questions</h2>
           <p class="section-subtitle fade-in">
-            Get answers to common questions about SwiftTill POS and how it can help your business
+            Get answers to common questions about SwiftTill POS and how it can
+            help your business
           </p>
         </div>
 
@@ -2740,71 +3194,110 @@
           <div class="faq-item fade-in">
             <div class="faq-header" onclick="toggleFAQ(this)">
               <span class="faq-title">How long does installation take?</span>
-              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+              <span class="faq-toggle"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
             </div>
             <div class="faq-content">
               <p class="faq-answer">
-                Installation and setup typically takes 2-4 hours depending on your store setup and the number of products in your inventory. Our team handles everything, and you'll receive comprehensive on-site training as part of the package.
+                Installation and setup typically takes 2-4 hours depending on
+                your store setup and the number of products in your inventory.
+                Our team handles everything, and you'll receive comprehensive
+                on-site training as part of the package.
               </p>
             </div>
           </div>
 
           <div class="faq-item fade-in">
             <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title">Is there any monthly or recurring fee?</span>
-              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+              <span class="faq-title"
+                >Is there any monthly or recurring fee?</span
+              >
+              <span class="faq-toggle"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
             </div>
             <div class="faq-content">
               <p class="faq-answer">
-                No! SwiftTill is a one-time payment of Ksh 20,000 for the complete software package. There are no monthly subscriptions, no hidden charges. You get free software updates for 1 year and 6 months of technical support included.
+                No! SwiftTill is a one-time payment of Ksh 20,000 for the
+                complete software package. There are no monthly subscriptions,
+                no hidden charges. You get free software updates for 1 year and
+                6 months of technical support included.
               </p>
             </div>
           </div>
 
           <div class="faq-item fade-in">
             <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title">Can I use SwiftTill on multiple devices?</span>
-              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+              <span class="faq-title"
+                >Can I use SwiftTill on multiple devices?</span
+              >
+              <span class="faq-toggle"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
             </div>
             <div class="faq-content">
               <p class="faq-answer">
-                Absolutely! SwiftTill POS is designed for multi-user access. You can have multiple terminals in your store all syncing in real-time. Plus, with our cloud sync feature, you can manage multiple locations from anywhere.
+                Absolutely! SwiftTill POS is designed for multi-user access. You
+                can have multiple terminals in your store all syncing in
+                real-time. Plus, with our cloud sync feature, you can manage
+                multiple locations from anywhere.
               </p>
             </div>
           </div>
 
           <div class="faq-item fade-in">
             <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title">What payment methods does SwiftTill support?</span>
-              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+              <span class="faq-title"
+                >What payment methods does SwiftTill support?</span
+              >
+              <span class="faq-toggle"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
             </div>
             <div class="faq-content">
               <p class="faq-answer">
-                SwiftTill supports M-Pesa payments, card payments, cash, cheques, and custom payment methods. Automatic reconciliation means your finances are always up to date. Integration with QuickBooks makes accounting seamless.
+                SwiftTill supports M-Pesa payments, card payments, cash,
+                cheques, and custom payment methods. Automatic reconciliation
+                means your finances are always up to date. Integration with
+                QuickBooks makes accounting seamless.
               </p>
             </div>
           </div>
 
           <div class="faq-item fade-in">
             <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title">What happens if I lose internet connection?</span>
-              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+              <span class="faq-title"
+                >What happens if I lose internet connection?</span
+              >
+              <span class="faq-toggle"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
             </div>
             <div class="faq-content">
               <p class="faq-answer">
-                SwiftTill works offline! You can continue processing sales, and data automatically syncs when your connection is restored. This ensures your business never stops, even during network outages.
+                SwiftTill works offline! You can continue processing sales, and
+                data automatically syncs when your connection is restored. This
+                ensures your business never stops, even during network outages.
               </p>
             </div>
           </div>
 
           <div class="faq-item fade-in">
             <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title">Do you provide training and support?</span>
-              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+              <span class="faq-title"
+                >Do you provide training and support?</span
+              >
+              <span class="faq-toggle"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
             </div>
             <div class="faq-content">
               <p class="faq-answer">
-                Yes! Training is included during installation. We also provide 6 months of free technical support, video tutorials, documentation, and our support team is available Monday-Saturday. Extended support packages are available.
+                Yes! Training is included during installation. We also provide 6
+                months of free technical support, video tutorials,
+                documentation, and our support team is available
+                Monday-Saturday. Extended support packages are available.
               </p>
             </div>
           </div>
@@ -2812,17 +3305,97 @@
           <div class="faq-item fade-in">
             <div class="faq-header" onclick="toggleFAQ(this)">
               <span class="faq-title">Is my business data secure?</span>
-              <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+              <span class="faq-toggle"
+                ><i class="fas fa-chevron-down"></i
+              ></span>
             </div>
             <div class="faq-content">
               <p class="faq-answer">
-                Security is our top priority. We use bank-grade encryption, PCI DSS compliance, automatic daily backups, and role-based access controls. Your data is protected with industry-leading security standards.
+                Security is our top priority. We use bank-grade encryption, PCI
+                DSS compliance, automatic daily backups, and role-based access
+                controls. Your data is protected with industry-leading security
+                standards.
               </p>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="max-w-4xl mx-auto text-center">
+          <div
+            class="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"
+            ></div>
+
+            <div class="relative z-10">
+              <i
+                class="fas fa-envelope-open-text text-4xl mb-4 text-blue-100"
+              ></i>
+              <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Stay Ahead of the Competition
+              </h2>
+              <p
+                class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
+              >
+                Get exclusive tips, industry insights, and early access to new
+                features. Join 500+ business owners who trust SwiftTill.
+              </p>
+
+              <div class="max-w-md mx-auto">
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <input
+                    type="email"
+                    id="newsletterEmail"
+                    placeholder="Enter your email address"
+                    class="flex-1 px-6 py-4 rounded-xl border-0 focus:ring-2 focus:ring-white text-gray-900 text-lg"
+                  />
+                  <button
+                    id="newsletterSubscribe"
+                    class="btn-secondary bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 whitespace-nowrap"
+                  >
+                    <i class="fas fa-paper-plane mr-2"></i> Subscribe
+                  </button>
+                </div>
+
+                <div class="mt-4 text-sm text-blue-100">
+                  <i class="fas fa-shield-alt mr-1"></i>
+                  We respect your privacy. Unsubscribe at any time.
+                </div>
+              </div>
+
+              <div
+                class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
+              >
+                <div>
+                  <div class="text-2xl font-bold mb-1">500+</div>
+                  <div class="text-blue-100">Business Owners</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold mb-1">Weekly</div>
+                  <div class="text-blue-100">Business Tips</div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold mb-1">Free</div>
+                  <div class="text-blue-100">Forever</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
       <div class="container">
         <div class="text-center mb-8 md:mb-12">
           <span
@@ -3054,12 +3627,7 @@
           </div>
 
           <div>
-            <h4
-              class="text-white text-lg font-bold mb-6"
-              swifttilltechnologies@gmail,com
-            >
-              Company
-            </h4>
+            <h4 class="text-white text-lg font-bold mb-6">Company</h4>
             <div class="footer-links">
               <a href="#" onclick="openContactModal('about')">About Us</a>
               <a href="#contact">Contact</a>
@@ -3725,10 +4293,16 @@
 
         // Validate phone
         if (!formData.user_phone.trim()) {
-          showFormError("user_phone", "Phone number is required to contact you");
+          showFormError(
+            "user_phone",
+            "Phone number is required to contact you",
+          );
           isValid = false;
         } else if (!validatePhone(formData.user_phone)) {
-          showFormError("user_phone", "Please enter a valid phone number (e.g., +254723795977)");
+          showFormError(
+            "user_phone",
+            "Please enter a valid phone number (e.g., +254723795977)",
+          );
           isValid = false;
         } else {
           hideFormError("user_phone");
@@ -3840,7 +4414,7 @@
           );
         } finally {
           // Reset button state
-          submitText.textContent = "Submit Request";
+          submitText.textContent = "Send My Request";
           elements.loadingSpinner.style.display = "none";
           elements.submitBtn.disabled = false;
         }
@@ -4046,6 +4620,133 @@
       window.showHardwarePackages = showHardwarePackages;
       window.closeHardwareModal = closeHardwareModal;
       window.toggleFAQ = toggleFAQ;
+
+      // ==================== ROI CALCULATOR ====================
+
+      function calculateROI() {
+        const monthlyRevenue =
+          parseFloat(document.getElementById("monthlyRevenue").value) || 0;
+        const dailyTransactions =
+          parseFloat(document.getElementById("dailyTransactions").value) || 0;
+        const transactionTime =
+          parseFloat(document.getElementById("transactionTime").value) || 0;
+        const inventoryLoss =
+          parseFloat(document.getElementById("inventoryLoss").value) || 0;
+
+        if (
+          !monthlyRevenue ||
+          !dailyTransactions ||
+          !transactionTime ||
+          inventoryLoss === ""
+        ) {
+          document.getElementById("roiTip").textContent =
+            "Please fill in all fields to see your savings.";
+          return;
+        }
+
+        // Calculate time savings (assuming 50% reduction with SwiftTill)
+        const dailyMinutesSaved = dailyTransactions * (transactionTime * 0.5);
+        const monthlyHoursSaved = (dailyMinutesSaved * 22) / 60; // 22 working days per month
+
+        // Calculate inventory savings (reduce loss from current % to 1%)
+        const inventorySavingsPercentage = inventoryLoss - 1;
+        const inventorySavingsKsh =
+          (monthlyRevenue * inventorySavingsPercentage) / 100;
+
+        // Calculate error reduction (reduce transaction errors by 80%)
+        const errorReductionPercentage = dailyTransactions * 22 * 0.02 * 100; // Assume 2% error rate
+        const errorReductionKsh = monthlyRevenue * 0.01 * 0.8; // 0.8% of revenue lost to errors, 80% reduction
+
+        // Total savings
+        const hourlyRate = 250; // KES per hour (conservative estimate)
+        const timeSavingsKsh = monthlyHoursSaved * hourlyRate;
+        const totalMonthlySavings =
+          timeSavingsKsh + inventorySavingsKsh + errorReductionKsh;
+
+        // Update UI
+        document.getElementById("timeSaved").textContent =
+          monthlyHoursSaved.toFixed(1) + " hours";
+        document.getElementById("inventorySaved").textContent =
+          "Ksh " + Math.round(inventorySavingsKsh).toLocaleString();
+        document.getElementById("errorReduction").textContent =
+          "Ksh " + Math.round(errorReductionKsh).toLocaleString();
+        document.getElementById("totalSavings").textContent =
+          "Ksh " + Math.round(totalMonthlySavings).toLocaleString();
+
+        // ROI tip
+        const roiPercentage =
+          ((totalMonthlySavings - 20000 / 12) / (20000 / 12)) * 100;
+        const paybackMonths = Math.round(20000 / totalMonthlySavings);
+        document.getElementById("roiTip").innerHTML = `
+          <i class="fas fa-check-circle mr-2"></i>
+          Your system pays for itself in ${paybackMonths} month${paybackMonths !== 1 ? "s" : ""}! That's a ${roiPercentage.toFixed(0)}% monthly ROI.
+        `;
+      }
+
+      // Add ROI calculator event listener
+      const roiButton = document.getElementById("calculateROI");
+      if (roiButton) {
+        roiButton.addEventListener("click", calculateROI);
+
+        // Also calculate on input change for real-time updates
+        document
+          .getElementById("monthlyRevenue")
+          .addEventListener("input", calculateROI);
+        document
+          .getElementById("dailyTransactions")
+          .addEventListener("input", calculateROI);
+        document
+          .getElementById("transactionTime")
+          .addEventListener("input", calculateROI);
+        document
+          .getElementById("inventoryLoss")
+          .addEventListener("input", calculateROI);
+      }
+
+      // ==================== NEWSLETTER ====================
+
+      const newsletterSubscribe = document.getElementById(
+        "newsletterSubscribe",
+      );
+      if (newsletterSubscribe) {
+        newsletterSubscribe.addEventListener("click", async function () {
+          const email = document.getElementById("newsletterEmail").value;
+
+          if (!email || !validateEmail(email)) {
+            alert("Please enter a valid email address");
+            return;
+          }
+
+          // Show loading state
+          const originalText = this.innerHTML;
+          this.innerHTML =
+            '<i class="fas fa-spinner fa-spin mr-2"></i> Subscribing...';
+          this.disabled = true;
+
+          try {
+            // Send newsletter subscription
+            await emailjs.send("service_oqd73zw", "template_newsletter", {
+              to_email: email,
+              subscriber_email: email,
+              timestamp: new Date().toLocaleString("en-KE"),
+            });
+
+            // Success message
+            this.innerHTML = '<i class="fas fa-check mr-2"></i> Subscribed!';
+            document.getElementById("newsletterEmail").value = "";
+
+            setTimeout(() => {
+              this.innerHTML = originalText;
+              this.disabled = false;
+            }, 3000);
+          } catch (error) {
+            console.error("Newsletter subscription failed:", error);
+            this.innerHTML = originalText;
+            this.disabled = false;
+            alert("Subscription failed. Please try again.");
+          }
+        });
+      }
     </script>
   </body>
 </html>
