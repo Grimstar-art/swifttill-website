@@ -225,6 +225,18 @@
         }
       }
 
+      @keyframes float-card {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
       /* ==================== HEADER & NAVIGATION ==================== */
       .main-header {
         background: rgba(255, 255, 255, 0.98);
@@ -247,18 +259,19 @@
       .logo {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.85rem;
         font-weight: 900;
-        font-size: 1.75rem;
+        font-size: 1.45rem;
         letter-spacing: -0.5px;
       }
 
       .logo img.brand-logo {
-        width: 64px;
-        height: 64px;
-        object-fit: contain;
+        width: 56px;
+        height: 56px;
+        object-fit: cover;
         border-radius: 18px;
-        box-shadow: 0 10px 25px rgba(0, 60, 255, 0.18);
+        border: 2px solid rgba(59, 130, 246, 0.18);
+        box-shadow: 0 12px 24px rgba(0, 60, 255, 0.18);
       }
 
       .logo span {
@@ -266,6 +279,8 @@
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
+        font-size: 1.05rem;
+        line-height: 1.1;
       }
 
       .nav-link {
@@ -330,9 +345,10 @@
 
       .hero-stats {
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
         margin-top: 3rem;
         flex-wrap: wrap;
+        justify-content: space-between;
       }
 
       .hero-image-wrapper {
@@ -343,6 +359,7 @@
         background: white;
         max-width: 560px;
         margin: 0 auto 2rem;
+        animation: float-card 18s ease-in-out infinite alternate;
       }
 
       .hero-image {
@@ -352,8 +369,9 @@
 
       .stat-item {
         text-align: center;
-        min-width: 100px;
+        min-width: 110px;
         position: relative;
+        flex: 1 1 140px;
       }
 
       .stat-number {
@@ -1762,9 +1780,11 @@
         <div class="flex justify-between items-center py-4">
           <div class="logo">
             <img
-              src="./images/logo.jpeg"
+              src="./images/logoo.png"
               alt="SwiftTill POS logo"
               class="brand-logo"
+              width="56"
+              height="56"
             />
             <span>SwiftTill POS</span>
           </div>
