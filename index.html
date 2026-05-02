@@ -14,7 +14,7 @@
       name="keywords"
       content="POS system Kenya, business management, retail software, restaurant POS, inventory management, Kenyan businesses, M-Pesa payment, sales tracking, AI analytics, cloud sync, multi-store management"
     />
-    <meta name="author" content="SwiftTill Technologies" />
+    <meta name="author" content="Jayden Kanja" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="geo.region" content="KE" />
@@ -1460,6 +1460,101 @@
         visibility: visible;
       }
 
+      .page-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(59, 130, 246, 0.2),
+            transparent 35%
+          ),
+          linear-gradient(180deg, #0b1224 0%, #081128 45%, #0f172a 100%);
+        color: white;
+        z-index: 2000;
+        opacity: 1;
+        visibility: visible;
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+      }
+
+      .page-loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .loader-inner {
+        text-align: center;
+        padding: 2rem 2.2rem;
+        border-radius: 28px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 30px 80px rgba(15, 23, 42, 0.3);
+        backdrop-filter: blur(12px);
+      }
+
+      .loader-icon {
+        width: 84px;
+        height: 84px;
+        margin: 0 auto 1rem;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+        animation: spin 1.8s linear infinite;
+      }
+
+      .loader-icon i {
+        font-size: 2rem;
+        color: white;
+      }
+
+      .loader-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 0.6rem;
+      }
+
+      .loader-copy {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 1.25rem;
+        line-height: 1.6;
+      }
+
+      .loader-progress {
+        width: 240px;
+        height: 6px;
+        margin: 0 auto;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        overflow: hidden;
+      }
+
+      .loader-progress::before {
+        content: "";
+        display: block;
+        width: 30%;
+        height: 100%;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        animation: loader-slide 1.5s ease-in-out infinite;
+      }
+
+      @keyframes loader-slide {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
       .loading-spinner {
         display: none;
         width: 18px;
@@ -2224,6 +2319,20 @@
     </style>
   </head>
   <body>
+    <!-- Page Loader -->
+    <div id="pageLoader" class="page-loader" aria-hidden="true">
+      <div class="loader-inner">
+        <div class="loader-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="loader-title">Loading SwiftTill POS</div>
+        <div class="loader-copy">
+          Preparing the best Kenyan business solution for you.
+        </div>
+        <div class="loader-progress"></div>
+      </div>
+    </div>
+
     <!-- Glowing Orbs -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -2379,6 +2488,9 @@
               The all-in-one business management platform designed to streamline
               operations, boost sales, and provide actionable insights for
               retail stores, restaurants, and service businesses across Kenya.
+            </p>
+            <p class="text-sm text-gray-500 mt-3">
+              Crafted with care by Jayden Kanja.
             </p>
 
             <div class="flex flex-wrap gap-4 mt-8">
@@ -4240,7 +4352,8 @@
         >
           <div class="flex flex-col md:flex-row justify-between items-center">
             <p class="mb-4 md:mb-0">
-              &copy; 2024 SwiftTill Technologies. All rights reserved.
+              &copy; 2024 SwiftTill Technologies. All rights reserved. Built by
+              Jayden Kanja.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
               <a
@@ -5148,8 +5261,18 @@
 
       // ==================== INITIALIZATION ====================
 
+      function hidePageLoader() {
+        const loader = document.getElementById("pageLoader");
+        if (!loader) return;
+        loader.classList.add("hidden");
+        setTimeout(() => {
+          loader.remove();
+        }, 600);
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         // Initialize everything
+        hidePageLoader();
         updateHeader();
         checkFadeIn();
         initEventListeners();
