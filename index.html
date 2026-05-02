@@ -217,17 +217,36 @@
         justify-content: center;
         background: linear-gradient(
           135deg,
-          #0f172a 0%,
-          #1e293b 40%,
-          #003cff 100%
+          #f8fafc 0%,
+          #f0f9ff 40%,
+          #e0f2fe 100%
         );
-        color: white;
+        color: #1f2937;
         overflow: hidden;
         opacity: 1;
         pointer-events: all;
         transition:
           opacity 0.8s ease,
           visibility 0.8s ease;
+        position: relative;
+      }
+
+      .splash-screen::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(59, 130, 246, 0.05) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(139, 92, 246, 0.03) 0%,
+            transparent 60%
+          );
+        pointer-events: none;
       }
 
       .splash-screen.hidden {
@@ -249,7 +268,12 @@
         font-weight: 900;
         letter-spacing: -0.06em;
         line-height: 1;
-        background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+        background: linear-gradient(
+          90deg,
+          #1f2937 0%,
+          #003cff 50%,
+          #2563eb 100%
+        );
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -268,20 +292,47 @@
         animation-delay: 0.4s;
         font-size: clamp(0.95rem, 1.8vw, 1.3rem);
         margin-bottom: 1.2rem;
-        color: rgba(241, 245, 249, 0.95);
-        font-weight: 500;
-        letter-spacing: 0.5px;
+        color: #003cff;
+        font-weight: 600;
+        letter-spacing: 1px;
       }
 
       .splash-note {
         animation-delay: 0.75s;
         font-size: 0.95rem;
-        color: rgba(203, 213, 225, 0.9);
+        color: #4b5563;
         font-weight: 400;
         max-width: 600px;
-        margin: 0 auto 2rem;
+        margin: 0 auto 2.5rem;
         line-height: 1.6;
         letter-spacing: 0.3px;
+      }
+
+      .splash-creator {
+        opacity: 0;
+        animation: splashTextAppear 1.2s ease-out forwards;
+        animation-delay: 1.3s;
+        margin-top: 2.5rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .splash-creator-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #6b7280;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .splash-creator-name {
+        font-size: 1.4rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #003cff, #8b5cf6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
       }
 
       .splash-ring {
@@ -300,8 +351,8 @@
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        background: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         opacity: 0;
         animation: splashDotFloat 3s ease-in-out infinite;
       }
@@ -342,7 +393,7 @@
       .loader-bar {
         width: 180px;
         height: 3px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(59, 130, 246, 0.15);
         border-radius: 2px;
         margin: 0 auto 1rem;
         overflow: hidden;
@@ -350,16 +401,17 @@
 
       .loader-progress {
         height: 100%;
-        background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+        background: linear-gradient(90deg, #003cff, #2563eb, #003cff);
         border-radius: 2px;
         animation: splashProgress 2.5s ease-in-out infinite;
-        box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);
+        box-shadow: 0 0 12px rgba(0, 60, 255, 0.5);
       }
 
       .loader-text {
         font-size: 0.85rem;
-        color: rgba(203, 213, 225, 0.8);
+        color: #4b5563;
         letter-spacing: 1px;
+        font-weight: 500;
         animation: splashLoaderText 2.5s ease-in-out infinite;
       }
 
@@ -2470,6 +2522,10 @@
             <div class="loader-progress"></div>
           </div>
           <div class="loader-text">INITIALIZING</div>
+        </div>
+        <div class="splash-creator">
+          <div class="splash-creator-label">Presented by</div>
+          <div class="splash-creator-name">Jayden Kanja</div>
         </div>
       </div>
     </div>
