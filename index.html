@@ -5631,5 +5631,26 @@
         });
       }
     </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const splash = document.getElementById("splashScreen");
+        const fadeIns = document.querySelectorAll(".fade-in");
+
+        document.body.style.overflow = "hidden";
+
+        const revealContent = () => {
+          splash.classList.add("hidden");
+          document.body.style.overflow = "";
+          fadeIns.forEach((element, index) => {
+            window.setTimeout(() => {
+              element.classList.add("visible");
+            }, index * 100);
+          });
+        };
+
+        window.setTimeout(revealContent, 8000);
+      });
+    </script>
   </body>
 </html>
