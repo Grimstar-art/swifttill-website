@@ -5087,6 +5087,32 @@
         return isValid;
       }
 
+      function buildMailtoLink(formData) {
+        const subject = encodeURIComponent(
+          `SwiftTill POS Contact Request from ${formData.user_name}`,
+        );
+        const body = encodeURIComponent(
+          `Name: ${formData.user_name}\n` +
+            `Email: ${formData.user_email}\n` +
+            `Phone: ${formData.user_phone}\n` +
+            `Business Name: ${formData.business_name}\n` +
+            `Business Type: ${formData.business_type}\n` +
+            `Locations: ${formData.locations}\n` +
+            `Marketing Opt-In: ${formData.marketing}\n` +
+            `Source: ${formData.source || "Website contact form"}\n` +
+            `Package: ${formData.package}\n` +
+            `Timestamp: ${formData.timestamp}\n\n` +
+            `Message:\n${formData.message}`,
+        );
+
+        return `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
+      }
+
+      function openMailClient(formData) {
+        const mailtoLink = buildMailtoLink(formData);
+        window.location.href = mailtoLink;
+      }
+
       // ==================== FORM SUBMISSION ====================
 
       elements.contactForm.addEventListener("submit", async function (e) {
@@ -5119,11 +5145,13 @@
 
         // Show loading state
         const submitText = elements.submitBtn.querySelector("span");
-        submitText.textContent = "Sending...";
+        submitText.textContent = "Opening email...";
         elements.loadingSpinner.style.display = "inline-block";
         elements.submitBtn.disabled = true;
 
         try {
+          openMailClient(formData);
+
           await new Promise((resolve) => setTimeout(resolve, 700));
 
           closeContactModal();
