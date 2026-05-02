@@ -208,6 +208,109 @@
         z-index: 0;
       }
 
+      .splash-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 3000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at top, #7c3aed 0%, #2563eb 45%, #0f172a 100%);
+        color: white;
+        overflow: hidden;
+        opacity: 1;
+        pointer-events: all;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
+
+      .splash-screen.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .splash-inner {
+        position: relative;
+        max-width: 960px;
+        padding: 2rem 2.5rem;
+        text-align: center;
+        z-index: 1;
+      }
+
+      .splash-title {
+        font-size: clamp(2.8rem, 6vw, 5rem);
+        font-weight: 900;
+        letter-spacing: -0.08em;
+        line-height: 0.96;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #ec4899, #818cf8, #22d3ee);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+        animation: splashTextPop 1.2s ease-out forwards;
+      }
+
+      .splash-subtitle,
+      .splash-note {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: splashTextAppear 1.2s ease-out forwards;
+      }
+
+      .splash-subtitle {
+        animation-delay: 0.4s;
+        font-size: clamp(1rem, 2vw, 1.4rem);
+        margin-bottom: 1rem;
+        color: rgba(241, 245, 249, 0.9);
+      }
+
+      .splash-note {
+        animation-delay: 0.75s;
+        font-size: 1rem;
+        color: rgba(203, 213, 225, 0.95);
+      }
+
+      .splash-ring {
+        position: absolute;
+        inset: -35%;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 0 120px rgba(59, 130, 246, 0.3);
+        animation: splashRing 10s linear infinite;
+      }
+
+      .splash-dot {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+      }
+
+      .splash-dot:nth-child(1) { top: 20%; left: 15%; }
+      .splash-dot:nth-child(2) { top: 18%; right: 14%; }
+      .splash-dot:nth-child(3) { bottom: 18%; left: 16%; }
+      .splash-dot:nth-child(4) { bottom: 22%; right: 18%; }
+      .splash-dot:nth-child(5) { top: 50%; left: 4%; }
+
+      @keyframes splashRing {
+        0% { transform: rotate(0deg) scale(0.96); }
+        50% { transform: rotate(180deg) scale(1.01); }
+        100% { transform: rotate(360deg) scale(0.96); }
+      }
+
+      @keyframes splashTextPop {
+        0% { opacity: 0; transform: scale(0.96) translateY(18px); }
+        100% { opacity: 1; transform: scale(1) translateY(0); }
+      }
+
+      @keyframes splashTextAppear {
+        0% { opacity: 0; transform: translateY(18px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+
       .orb-1 {
         width: min(500px, 80vw);
         height: min(500px, 80vw);
@@ -2216,6 +2319,26 @@
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
+
+    <div id="splashScreen" class="splash-screen" aria-label="Loading splash screen">
+      <div class="splash-inner">
+        <div class="splash-ring"></div>
+        <h1 class="splash-title">Jayden Kanja</h1>
+        <p class="splash-subtitle">
+          Welcome to SwiftTill POS — bold, colorful, and built for Kenyan
+          businesses.
+        </p>
+        <p class="splash-note">
+          Experience the future of retail, restaurant, and service business
+          management in one brilliant launch.
+        </p>
+        <div class="splash-dot"></div>
+        <div class="splash-dot"></div>
+        <div class="splash-dot"></div>
+        <div class="splash-dot"></div>
+        <div class="splash-dot"></div>
+      </div>
+    </div>
 
     <!-- Header -->
     <header class="main-header" id="header">
@@ -5082,6 +5205,18 @@
 
       // ==================== INITIALIZATION ====================
 
+      function hideSplashScreen() {
+        const splashScreen = document.getElementById("splashScreen");
+        if (!splashScreen) return;
+
+        splashScreen.classList.add("hidden");
+        setTimeout(() => {
+          if (splashScreen.parentNode) {
+            splashScreen.parentNode.removeChild(splashScreen);
+          }
+        }, 800);
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         // Initialize everything
         updateHeader();
@@ -5090,6 +5225,9 @@
 
         // Trigger initial fade-in check
         setTimeout(checkFadeIn, 100);
+
+        // Hide the splash screen after seven seconds
+        setTimeout(hideSplashScreen, 7000);
 
         // Preload images if any
         const images = document.querySelectorAll("img");
@@ -5298,7 +5436,7 @@
             console.error("Newsletter subscription failed:", error);
             this.innerHTML = originalText;
             this.disabled = false;
-            alert("Subscription failed. Please try again.");
+            alert("Subscription failed. Please try again Later.");
           }
         });
       }
