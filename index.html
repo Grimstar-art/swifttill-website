@@ -1943,9 +1943,16 @@
         z-index: 9998;
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
         transition: all 0.3s ease;
         -webkit-backdrop-filter: blur(2px);
         backdrop-filter: blur(2px);
+      }
+
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
       }
 
       @keyframes spin {
@@ -3444,1948 +3451,2012 @@
     ></div>
 
     <!-- Hero Section -->
-    <section class="hero-section" id="home">
-      <div class="container">
-        <div
-          class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
-        >
-          <div class="fade-in">
-            <div class="flex items-center gap-2 mb-4">
-              <span class="badge badge-green">
-                <i class="fas fa-bolt mr-1"></i> Made for Kenya
-              </span>
-              <span class="badge badge-blue">
-                <i class="fas fa-check-circle mr-1"></i> Trusted by 500+
-                Businesses
-              </span>
-            </div>
-
-            <h1 class="hero-title">
-              Transform Your Business Operations with SwiftTill POS
-            </h1>
-            <p class="hero-subtitle">
-              The all-in-one business management platform designed to streamline
-              operations, boost sales, and provide actionable insights for
-              retail stores, restaurants, and service businesses across Kenya.
-            </p>
-
-            <div class="flex flex-wrap gap-4 mt-8">
-              <button
-                class="btn-primary"
-                onclick="openContactModal('hero_demo')"
-              >
-                <i class="fas fa-calendar-check"></i>
-                <span>Book SwiftTill POS</span>
-              </button>
-              <button class="btn-secondary" onclick="scrollToPricing()">
-                <i class="fas fa-tag"></i>
-                <span>View Pricing</span>
-              </button>
-            </div>
-
-            <div class="hero-stats">
-              <div class="stat-item">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Kenyan Businesses</div>
+    <main role="main">
+      <section class="hero-section" id="home">
+        <div class="container">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
+          >
+            <div class="fade-in">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="badge badge-green">
+                  <i class="fas fa-bolt mr-1"></i> Made for Kenya
+                </span>
+                <span class="badge badge-blue">
+                  <i class="fas fa-check-circle mr-1"></i> Trusted by 500+
+                  Businesses
+                </span>
               </div>
-              <div class="stat-item">
-                <div class="stat-number">99.9%</div>
-                <div class="stat-label">Uptime</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Support</div>
-              </div>
-            </div>
-          </div>
 
-          <div class="fade-in">
-            <div class="hero-image-wrapper mb-8">
-              <img
-                src="./logoo.png"
-                alt="SwiftTill POS product preview"
-                class="hero-image"
-              />
-            </div>
-            <div class="dashboard-preview">
-              <div class="dashboard-header">
-                <div class="flex items-center space-x-2">
-                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span class="text-sm font-medium text-gray-600 ml-2"
-                    >Live Dashboard</span
-                  >
+              <h1 class="hero-title">
+                Transform Your Business Operations with SwiftTill POS
+              </h1>
+              <p class="hero-subtitle">
+                The all-in-one business management platform designed to
+                streamline operations, boost sales, and provide actionable
+                insights for retail stores, restaurants, and service businesses
+                across Kenya.
+              </p>
+
+              <div class="flex flex-wrap gap-4 mt-8">
+                <button
+                  class="btn-primary"
+                  onclick="openContactModal('hero_demo')"
+                >
+                  <i class="fas fa-calendar-check"></i>
+                  <span>Book SwiftTill POS</span>
+                </button>
+                <button class="btn-secondary" onclick="scrollToPricing()">
+                  <i class="fas fa-tag"></i>
+                  <span>View Pricing</span>
+                </button>
+              </div>
+
+              <div class="hero-stats">
+                <div class="stat-item">
+                  <div class="stat-number">500+</div>
+                  <div class="stat-label">Kenyan Businesses</div>
                 </div>
-                <div class="text-sm text-gray-500">
-                  <i class="fas fa-circle text-green-500 mr-1"></i> Real-time
-                  Data
+                <div class="stat-item">
+                  <div class="stat-number">99.9%</div>
+                  <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number">24/7</div>
+                  <div class="stat-label">Support</div>
                 </div>
               </div>
-              <div class="p-4 md:p-6">
-                <div class="grid grid-cols-2 gap-4 mb-6">
-                  <div class="metric-card">
-                    <div class="text-gray-500 text-sm mb-1">Today's Sales</div>
-                    <div class="text-xl md:text-2xl font-bold text-green-600">
-                      Ksh 84,256
-                    </div>
-                    <div class="text-xs text-green-500 mt-1">
-                      ↑ 12.5% from yesterday
-                    </div>
-                  </div>
-                  <div class="metric-card">
-                    <div class="text-gray-500 text-sm mb-1">Transactions</div>
-                    <div class="text-xl md:text-2xl font-bold text-blue-600">
-                      142
-                    </div>
-                    <div class="text-xs text-blue-500 mt-1">
-                      ↑ 8.2% from yesterday
-                    </div>
-                  </div>
-                </div>
+            </div>
 
-                <div class="metric-card">
-                  <div class="flex justify-between items-center mb-3">
-                    <div class="text-gray-600 text-sm font-medium">
-                      Top Products Today
-                    </div>
-                    <button
-                      class="text-xs text-blue-600 hover:text-blue-800 transition"
-                      onclick="openContactModal('view_products')"
+            <div class="fade-in">
+              <div class="hero-image-wrapper mb-8">
+                <img
+                  src="./logoo.png"
+                  alt="SwiftTill POS product preview"
+                  class="hero-image"
+                />
+              </div>
+              <div class="dashboard-preview">
+                <div class="dashboard-header">
+                  <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span class="text-sm font-medium text-gray-600 ml-2"
+                      >Live Dashboard</span
                     >
-                      View All →
-                    </button>
                   </div>
-                  <div class="space-y-3">
-                    <div class="flex items-center justify-between">
-                      <div class="flex items-center">
-                        <div
-                          class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3"
-                        >
-                          <i
-                            class="fas fa-mobile-alt text-blue-600 text-xs"
-                          ></i>
-                        </div>
-                        <div>
-                          <div class="text-sm font-medium text-gray-900">
-                            Smartphone X
-                          </div>
-                          <div class="text-xs text-gray-500">12 sold</div>
-                        </div>
-                      </div>
-                      <div class="text-sm font-bold text-gray-900">
-                        Ksh 8,999
-                      </div>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <div class="flex items-center">
-                        <div
-                          class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3"
-                        >
-                          <i
-                            class="fas fa-headphones text-green-600 text-xs"
-                          ></i>
-                        </div>
-                        <div>
-                          <div class="text-sm font-medium text-gray-900">
-                            Wireless Headphones
-                          </div>
-                          <div class="text-xs text-gray-500">8 sold</div>
-                        </div>
-                      </div>
-                      <div class="text-sm font-bold text-gray-900">
-                        Ksh 1,299
-                      </div>
-                    </div>
+                  <div class="text-sm text-gray-500">
+                    <i class="fas fa-circle text-green-500 mr-1"></i> Real-time
+                    Data
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+                <div class="p-4 md:p-6">
+                  <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="metric-card">
+                      <div class="text-gray-500 text-sm mb-1">
+                        Today's Sales
+                      </div>
+                      <div class="text-xl md:text-2xl font-bold text-green-600">
+                        Ksh 84,256
+                      </div>
+                      <div class="text-xs text-green-500 mt-1">
+                        ↑ 12.5% from yesterday
+                      </div>
+                    </div>
+                    <div class="metric-card">
+                      <div class="text-gray-500 text-sm mb-1">Transactions</div>
+                      <div class="text-xl md:text-2xl font-bold text-blue-600">
+                        142
+                      </div>
+                      <div class="text-xs text-blue-500 mt-1">
+                        ↑ 8.2% from yesterday
+                      </div>
+                    </div>
+                  </div>
 
-    <!-- Feature Highlights -->
-    <section class="features-section" id="features">
-      <div class="container">
-        <div class="text-center mb-8 md:mb-12">
-          <span
-            class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
-          >
-            <i class="fas fa-star mr-2"></i>REVOLUTIONARY FEATURES
-          </span>
-          <h2 class="section-title fade-in">
-            Everything You Need to Grow Your Business
-          </h2>
-          <p class="section-subtitle fade-in">
-            SwiftTill POS combines cutting-edge technology with intuitive design
-            to deliver unparalleled business management capabilities.
-          </p>
-        </div>
-
-        <div class="feature-grid">
-          <!-- Feature 1 -->
-          <div class="feature-card fade-in">
-            <div class="feature-icon">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <h3 class="feature-title">Lightning-Fast Transactions</h3>
-            <p class="text-gray-600">
-              Process sales in seconds with our optimized checkout system.
-              Support for barcode scanning, touch screen, and keyboard
-              shortcuts.
-            </p>
-            <ul class="mt-4 space-y-2">
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>One-touch product lookup</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Split payments & discounts</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Customer loyalty programs</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Feature 2 -->
-          <div class="feature-card fade-in">
-            <div class="feature-icon">
-              <i class="fas fa-chart-network"></i>
-            </div>
-            <h3 class="feature-title">Advanced Analytics Dashboard</h3>
-            <p class="text-gray-600">
-              Gain deep insights into your business performance with real-time
-              analytics, predictive trends, and customizable reports.
-            </p>
-            <ul class="mt-4 space-y-2">
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Real-time sales tracking</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Inventory forecasting</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Customer behavior analysis</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Feature 3 -->
-          <div class="feature-card fade-in">
-            <div class="feature-icon">
-              <i class="fas fa-cloud-upload-alt"></i>
-            </div>
-            <h3 class="feature-title">Smart Cloud Sync</h3>
-            <p class="text-gray-600">
-              Access your business data from anywhere with secure cloud
-              synchronization. Multi-store management and automatic backups.
-            </p>
-            <ul class="mt-4 space-y-2">
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Multi-store synchronization</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Automatic daily backups</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Mobile app access</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Feature 4 -->
-          <div class="feature-card fade-in">
-            <div class="feature-icon">
-              <i class="fas fa-robot"></i>
-            </div>
-            <h3 class="feature-title">AI-Powered Insights</h3>
-            <p class="text-gray-600">
-              Leverage artificial intelligence to predict sales trends, optimize
-              inventory, and personalize customer experiences.
-            </p>
-            <ul class="mt-4 space-y-2">
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Predictive inventory management</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Personalized recommendations</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Automated reordering</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Feature 5 -->
-          <div class="feature-card fade-in">
-            <div class="feature-icon">
-              <i class="fas fa-shield-alt"></i>
-            </div>
-            <h3 class="feature-title">Enterprise-Grade Security</h3>
-            <p class="text-gray-600">
-              Protect your business data with bank-level encryption, role-based
-              access controls, and comprehensive audit trails.
-            </p>
-            <ul class="mt-4 space-y-2">
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>End-to-end encryption</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Role-based permissions</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>PCI DSS compliance</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Feature 6 -->
-          <div class="feature-card fade-in">
-            <div class="feature-icon">
-              <i class="fas fa-cogs"></i>
-            </div>
-            <h3 class="feature-title">Customizable Workflows</h3>
-            <p class="text-gray-600">
-              Tailor SwiftTill to your specific business needs with customizable
-              workflows, receipt templates, and reporting formats.
-            </p>
-            <ul class="mt-4 space-y-2">
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Custom receipt templates</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Adaptable workflow designer</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Branded communications</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Feature 7 -->
-          <div class="feature-card fade-in">
-            <div class="feature-icon">
-              <i class="fas fa-gift"></i>
-            </div>
-            <h3 class="feature-title">Smart Loyalty & Rewards</h3>
-            <p class="text-gray-600">
-              Keep customers coming back with built-in loyalty programs, points
-              management, and instant rewards.
-            </p>
-            <ul class="mt-4 space-y-2">
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Reward repeat customers automatically</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Build offers from purchase history</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Track loyal customer growth</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Feature 8 -->
-          <div class="feature-card fade-in">
-            <div class="feature-icon">
-              <i class="fas fa-wifi"></i>
-            </div>
-            <h3 class="feature-title">Offline-First Reliability</h3>
-            <p class="text-gray-600">
-              Continue selling even when internet drops. SwiftTill syncs data
-              automatically once your connection returns.
-            </p>
-            <ul class="mt-4 space-y-2">
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Offline sales processing</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Automatic sync when online</span>
-              </li>
-              <li class="flex items-center text-gray-600">
-                <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                <span>Zero lost sales during outages</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Visual Showcase -->
-    <section class="showcase-section" id="showcase">
-      <div class="container">
-        <div class="text-center mb-8 md:mb-12">
-          <span
-            class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
-          >
-            <i class="fas fa-eye mr-2"></i>INTERACTIVE DEMO
-          </span>
-          <h2 class="section-title fade-in">
-            Experience the Power of SwiftTill
-          </h2>
-          <p class="section-subtitle fade-in">
-            Explore how SwiftTill transforms every aspect of your business
-            operations with intuitive interfaces and powerful features.
-          </p>
-        </div>
-
-        <div class="showcase-container fade-in">
-          <div class="showcase-header">
-            <div class="text-lg md:text-xl font-bold text-white">
-              <i class="fas fa-desktop mr-2"></i> SwiftTill Interactive Showcase
-            </div>
-            <div class="showcase-tabs">
-              <button class="showcase-tab active" data-tab="dashboard">
-                <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
-              </button>
-              <button class="showcase-tab" data-tab="inventory">
-                <i class="fas fa-boxes mr-2"></i> Inventory
-              </button>
-              <button class="showcase-tab" data-tab="analytics">
-                <i class="fas fa-chart-bar mr-2"></i> Analytics
-              </button>
-              <button class="showcase-tab" data-tab="reports">
-                <i class="fas fa-file-alt mr-2"></i> Reports
-              </button>
-            </div>
-          </div>
-
-          <div class="showcase-content">
-            <!-- Dashboard Pane -->
-            <div class="showcase-pane active" id="dashboard-pane">
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold mb-4 text-gray-900">
-                    Real-Time Business Dashboard
-                  </h3>
-                  <p class="text-gray-600 mb-6">
-                    Monitor your business performance at a glance with our
-                    comprehensive dashboard. Track sales, inventory, customer
-                    metrics, and more in real-time.
-                  </p>
-                  <ul class="space-y-3">
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span
-                        >Live sales tracking with minute-by-minute updates</span
+                  <div class="metric-card">
+                    <div class="flex justify-between items-center mb-3">
+                      <div class="text-gray-600 text-sm font-medium">
+                        Top Products Today
+                      </div>
+                      <button
+                        class="text-xs text-blue-600 hover:text-blue-800 transition"
+                        onclick="openContactModal('view_products')"
                       >
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Inventory alerts for low stock items</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Staff performance metrics</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Customer traffic analytics</span>
-                    </li>
-                  </ul>
-                </div>
-                <div
-                  class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
-                >
-                  <div
-                    class="flex flex-col md:flex-row md:items-center justify-between mb-6"
-                  >
-                    <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
-                      Today's Overview
+                        View All →
+                      </button>
                     </div>
-                    <div class="text-sm text-gray-500">Live Data</div>
-                  </div>
-                  <div class="space-y-4">
-                    <div
-                      class="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
-                    >
-                      <div class="text-gray-600">Total Sales</div>
-                      <div class="text-lg md:text-xl font-bold text-green-600">
-                        Ksh 128,473
+                    <div class="space-y-3">
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                          <div
+                            class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3"
+                          >
+                            <i
+                              class="fas fa-mobile-alt text-blue-600 text-xs"
+                            ></i>
+                          </div>
+                          <div>
+                            <div class="text-sm font-medium text-gray-900">
+                              Smartphone X
+                            </div>
+                            <div class="text-xs text-gray-500">12 sold</div>
+                          </div>
+                        </div>
+                        <div class="text-sm font-bold text-gray-900">
+                          Ksh 8,999
+                        </div>
                       </div>
-                    </div>
-                    <div
-                      class="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
-                    >
-                      <div class="text-gray-600">Transactions</div>
-                      <div class="text-lg md:text-xl font-bold text-blue-600">
-                        214
-                      </div>
-                    </div>
-                    <div
-                      class="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
-                    >
-                      <div class="text-gray-600">Average Basket</div>
-                      <div class="text-lg md:text-xl font-bold text-purple-600">
-                        Ksh 600
-                      </div>
-                    </div>
-                    <div
-                      class="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
-                    >
-                      <div class="text-gray-600">Top Product</div>
-                      <div class="text-lg md:text-xl font-bold text-yellow-600">
-                        Smartphone X
+                      <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                          <div
+                            class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3"
+                          >
+                            <i
+                              class="fas fa-headphones text-green-600 text-xs"
+                            ></i>
+                          </div>
+                          <div>
+                            <div class="text-sm font-medium text-gray-900">
+                              Wireless Headphones
+                            </div>
+                            <div class="text-xs text-gray-500">8 sold</div>
+                          </div>
+                        </div>
+                        <div class="text-sm font-bold text-gray-900">
+                          Ksh 1,299
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- Inventory Pane -->
-            <div class="showcase-pane" id="inventory-pane">
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold mb-4 text-gray-900">
-                    Intelligent Inventory Management
-                  </h3>
-                  <p class="text-gray-600 mb-6">
-                    Take control of your stock with our advanced inventory
-                    system. Track products, set reorder points, and manage
-                    suppliers effortlessly.
-                  </p>
-                  <ul class="space-y-3">
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Barcode scanning for quick inventory updates</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Batch and expiry date tracking</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Automated purchase orders</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Multi-location inventory tracking</span>
-                    </li>
-                  </ul>
-                </div>
-                <div
-                  class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
-                >
-                  <div
-                    class="flex flex-col md:flex-row md:items-center justify-between mb-6"
-                  >
-                    <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
-                      Inventory Status
-                    </div>
-                    <div class="text-sm text-gray-500">Smart Alerts</div>
+      <!-- Feature Highlights -->
+      <section class="features-section" id="features">
+        <div class="container">
+          <div class="text-center mb-8 md:mb-12">
+            <span
+              class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
+            >
+              <i class="fas fa-star mr-2"></i>REVOLUTIONARY FEATURES
+            </span>
+            <h2 class="section-title fade-in">
+              Everything You Need to Grow Your Business
+            </h2>
+            <p class="section-subtitle fade-in">
+              SwiftTill POS combines cutting-edge technology with intuitive
+              design to deliver unparalleled business management capabilities.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3 class="feature-title">Lightning-Fast Transactions</h3>
+              <p class="text-gray-600">
+                Process sales in seconds with our optimized checkout system.
+                Support for barcode scanning, touch screen, and keyboard
+                shortcuts.
+              </p>
+              <ul class="mt-4 space-y-2">
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>One-touch product lookup</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Split payments & discounts</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Customer loyalty programs</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-chart-network"></i>
+              </div>
+              <h3 class="feature-title">Advanced Analytics Dashboard</h3>
+              <p class="text-gray-600">
+                Gain deep insights into your business performance with real-time
+                analytics, predictive trends, and customizable reports.
+              </p>
+              <ul class="mt-4 space-y-2">
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Real-time sales tracking</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Inventory forecasting</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Customer behavior analysis</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <h3 class="feature-title">Smart Cloud Sync</h3>
+              <p class="text-gray-600">
+                Access your business data from anywhere with secure cloud
+                synchronization. Multi-store management and automatic backups.
+              </p>
+              <ul class="mt-4 space-y-2">
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Multi-store synchronization</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Automatic daily backups</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Mobile app access</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h3 class="feature-title">AI-Powered Insights</h3>
+              <p class="text-gray-600">
+                Leverage artificial intelligence to predict sales trends,
+                optimize inventory, and personalize customer experiences.
+              </p>
+              <ul class="mt-4 space-y-2">
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Predictive inventory management</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Personalized recommendations</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Automated reordering</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3 class="feature-title">Enterprise-Grade Security</h3>
+              <p class="text-gray-600">
+                Protect your business data with bank-level encryption,
+                role-based access controls, and comprehensive audit trails.
+              </p>
+              <ul class="mt-4 space-y-2">
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>End-to-end encryption</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Role-based permissions</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>PCI DSS compliance</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <h3 class="feature-title">Customizable Workflows</h3>
+              <p class="text-gray-600">
+                Tailor SwiftTill to your specific business needs with
+                customizable workflows, receipt templates, and reporting
+                formats.
+              </p>
+              <ul class="mt-4 space-y-2">
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Custom receipt templates</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Adaptable workflow designer</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Branded communications</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Feature 7 -->
+            <div class="feature-card fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-gift"></i>
+              </div>
+              <h3 class="feature-title">Smart Loyalty & Rewards</h3>
+              <p class="text-gray-600">
+                Keep customers coming back with built-in loyalty programs,
+                points management, and instant rewards.
+              </p>
+              <ul class="mt-4 space-y-2">
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Reward repeat customers automatically</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Build offers from purchase history</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Track loyal customer growth</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Feature 8 -->
+            <div class="feature-card fade-in">
+              <div class="feature-icon">
+                <i class="fas fa-wifi"></i>
+              </div>
+              <h3 class="feature-title">Offline-First Reliability</h3>
+              <p class="text-gray-600">
+                Continue selling even when internet drops. SwiftTill syncs data
+                automatically once your connection returns.
+              </p>
+              <ul class="mt-4 space-y-2">
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Offline sales processing</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Automatic sync when online</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                  <span>Zero lost sales during outages</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visual Showcase -->
+      <section class="showcase-section" id="showcase">
+        <div class="container">
+          <div class="text-center mb-8 md:mb-12">
+            <span
+              class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
+            >
+              <i class="fas fa-eye mr-2"></i>INTERACTIVE DEMO
+            </span>
+            <h2 class="section-title fade-in">
+              Experience the Power of SwiftTill
+            </h2>
+            <p class="section-subtitle fade-in">
+              Explore how SwiftTill transforms every aspect of your business
+              operations with intuitive interfaces and powerful features.
+            </p>
+          </div>
+
+          <div class="showcase-container fade-in">
+            <div class="showcase-header">
+              <div class="text-lg md:text-xl font-bold text-white">
+                <i class="fas fa-desktop mr-2"></i> SwiftTill Interactive
+                Showcase
+              </div>
+              <div class="showcase-tabs">
+                <button class="showcase-tab active" data-tab="dashboard">
+                  <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+                </button>
+                <button class="showcase-tab" data-tab="inventory">
+                  <i class="fas fa-boxes mr-2"></i> Inventory
+                </button>
+                <button class="showcase-tab" data-tab="analytics">
+                  <i class="fas fa-chart-bar mr-2"></i> Analytics
+                </button>
+                <button class="showcase-tab" data-tab="reports">
+                  <i class="fas fa-file-alt mr-2"></i> Reports
+                </button>
+              </div>
+            </div>
+
+            <div class="showcase-content">
+              <!-- Dashboard Pane -->
+              <div class="showcase-pane active" id="dashboard-pane">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div>
+                    <h3
+                      class="text-xl md:text-2xl font-bold mb-4 text-gray-900"
+                    >
+                      Real-Time Business Dashboard
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                      Monitor your business performance at a glance with our
+                      comprehensive dashboard. Track sales, inventory, customer
+                      metrics, and more in real-time.
+                    </p>
+                    <ul class="space-y-3">
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span
+                          >Live sales tracking with minute-by-minute
+                          updates</span
+                        >
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Inventory alerts for low stock items</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Staff performance metrics</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Customer traffic analytics</span>
+                      </li>
+                    </ul>
                   </div>
-                  <div class="space-y-4">
-                    <div class="p-3 bg-gray-50 rounded-lg">
-                      <div class="flex justify-between items-center mb-2">
-                        <div class="font-medium text-gray-900">
+                  <div
+                    class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
+                  >
+                    <div
+                      class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+                    >
+                      <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
+                        Today's Overview
+                      </div>
+                      <div class="text-sm text-gray-500">Live Data</div>
+                    </div>
+                    <div class="space-y-4">
+                      <div
+                        class="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
+                      >
+                        <div class="text-gray-600">Total Sales</div>
+                        <div
+                          class="text-lg md:text-xl font-bold text-green-600"
+                        >
+                          Ksh 128,473
+                        </div>
+                      </div>
+                      <div
+                        class="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
+                      >
+                        <div class="text-gray-600">Transactions</div>
+                        <div class="text-lg md:text-xl font-bold text-blue-600">
+                          214
+                        </div>
+                      </div>
+                      <div
+                        class="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
+                      >
+                        <div class="text-gray-600">Average Basket</div>
+                        <div
+                          class="text-lg md:text-xl font-bold text-purple-600"
+                        >
+                          Ksh 600
+                        </div>
+                      </div>
+                      <div
+                        class="flex justify-between items-center p-3 bg-gray-50 rounded-lg"
+                      >
+                        <div class="text-gray-600">Top Product</div>
+                        <div
+                          class="text-lg md:text-xl font-bold text-yellow-600"
+                        >
                           Smartphone X
                         </div>
-                        <div
-                          class="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded"
-                        >
-                          In Stock
-                        </div>
-                      </div>
-                      <div class="text-sm text-gray-600">
-                        42 units remaining
-                      </div>
-                    </div>
-                    <div class="p-3 bg-gray-50 rounded-lg">
-                      <div class="flex justify-between items-center mb-2">
-                        <div class="font-medium text-gray-900">
-                          Wireless Headphones
-                        </div>
-                        <div
-                          class="text-sm px-2 py-1 bg-yellow-100 text-yellow-800 rounded"
-                        >
-                          Low Stock
-                        </div>
-                      </div>
-                      <div class="text-sm text-gray-600">
-                        8 units remaining • Reorder suggested
-                      </div>
-                    </div>
-                    <div class="p-3 bg-gray-50 rounded-lg">
-                      <div class="flex justify-between items-center mb-2">
-                        <div class="font-medium text-gray-900">Laptop Pro</div>
-                        <div
-                          class="text-sm px-2 py-1 bg-red-100 text-red-800 rounded"
-                        >
-                          Out of Stock
-                        </div>
-                      </div>
-                      <div class="text-sm text-gray-600">
-                        0 units • Purchase order generated
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Analytics Pane -->
-            <div class="showcase-pane" id="analytics-pane">
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold mb-4 text-gray-900">
-                    Advanced Business Analytics
-                  </h3>
-                  <p class="text-gray-600 mb-6">
-                    Make data-driven decisions with powerful analytics tools
-                    that reveal insights about sales patterns, customer
-                    behavior, and operational efficiency.
-                  </p>
-                  <ul class="space-y-3">
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Sales trend analysis and forecasting</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Customer segmentation and profiling</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Profit margin analysis by product/category</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Comparative period analysis</span>
-                    </li>
-                  </ul>
-                </div>
-                <div
-                  class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
-                >
-                  <div
-                    class="flex flex-col md:flex-row md:items-center justify-between mb-6"
-                  >
-                    <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
-                      Performance Insights
-                    </div>
-                    <div class="text-sm text-gray-500">Last 30 Days</div>
-                  </div>
-                  <div class="space-y-4">
-                    <div>
-                      <div
-                        class="flex justify-between text-sm text-gray-600 mb-1"
-                      >
-                        <span>Electronics</span>
-                        <span>42% growth</span>
-                      </div>
-                      <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-blue-600 h-2 rounded-full w-3/4"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        class="flex justify-between text-sm text-gray-600 mb-1"
-                      >
-                        <span>Clothing</span>
-                        <span>18% growth</span>
-                      </div>
-                      <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-green-600 h-2 rounded-full w-5/12"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div
-                        class="flex justify-between text-sm text-gray-600 mb-1"
-                      >
-                        <span>Accessories</span>
-                        <span>28% growth</span>
-                      </div>
-                      <div class="w-full bg-gray-200 rounded-full h-2">
-                        <div class="bg-purple-600 h-2 rounded-full w-3/5"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Reports Pane -->
-            <div class="showcase-pane" id="reports-pane">
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                  <h3 class="text-xl md:text-2xl font-bold mb-4 text-gray-900">
-                    Comprehensive Reporting Suite
-                  </h3>
-                  <p class="text-gray-600 mb-6">
-                    Generate detailed reports for every aspect of your business
-                    with our customizable reporting engine. Export to PDF,
-                    Excel, or share directly.
-                  </p>
-                  <ul class="space-y-3">
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Daily, weekly, monthly sales reports</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Inventory valuation reports</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Customer purchase history</span>
-                    </li>
-                    <li class="flex items-center text-gray-700">
-                      <i class="fas fa-check text-green-500 mr-3"></i>
-                      <span>Tax and compliance reports</span>
-                    </li>
-                  </ul>
-                </div>
-                <div
-                  class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
-                >
-                  <div
-                    class="flex flex-col md:flex-row md:items-center justify-between mb-6"
-                  >
-                    <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
-                      Available Reports
-                    </div>
-                    <div class="text-sm text-gray-500">Customizable</div>
-                  </div>
-                  <div class="grid grid-cols-2 gap-4">
-                    <div class="p-3 bg-blue-50 rounded-lg">
-                      <i class="fas fa-chart-line text-blue-600 mb-2"></i>
-                      <div class="font-medium text-gray-900">Sales Report</div>
-                    </div>
-                    <div class="p-3 bg-green-50 rounded-lg">
-                      <i class="fas fa-boxes text-green-600 mb-2"></i>
-                      <div class="font-medium text-gray-900">
-                        Inventory Report
-                      </div>
-                    </div>
-                    <div class="p-3 bg-purple-50 rounded-lg">
-                      <i class="fas fa-users text-purple-600 mb-2"></i>
-                      <div class="font-medium text-gray-900">
-                        Customer Report
-                      </div>
-                    </div>
-                    <div class="p-3 bg-yellow-50 rounded-lg">
-                      <i
-                        class="fas fa-file-invoice-dollar text-yellow-600 mb-2"
-                      ></i>
-                      <div class="font-medium text-gray-900">Tax Report</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Integrations -->
-    <section class="integrations-section" id="integrations">
-      <div class="container">
-        <div class="text-center mb-8 md:mb-12">
-          <span
-            class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
-          >
-            <i class="fas fa-plug mr-2"></i>SEAMLESS INTEGRATIONS
-          </span>
-          <h2 class="section-title fade-in">
-            Connect With Your Favorite Tools
-          </h2>
-          <p class="section-subtitle fade-in">
-            SwiftTill connects with the tools you already use to create a
-            unified business ecosystem.
-          </p>
-        </div>
-
-        <div class="integration-grid">
-          <div class="integration-card fade-in">
-            <div class="integration-icon">
-              <i class="fas fa-mobile-alt icon-green"></i>
-            </div>
-            <h4 class="font-bold mb-2 text-gray-900">M-Pesa Integration</h4>
-            <p class="text-gray-600 text-sm">
-              Accept secure mobile payments via Safaricom M-Pesa with instant
-              reconciliation and automated transaction tracking.
-            </p>
-          </div>
-
-          <div class="integration-card fade-in">
-            <div class="integration-icon">
-              <i class="fas fa-sms icon-orange"></i>
-            </div>
-            <h4 class="font-bold mb-2 text-gray-900">SMS Marketing</h4>
-            <p class="text-gray-600 text-sm">
-              Send targeted bulk SMS campaigns, automated order alerts, and
-              personalized customer notifications to boost engagement.
-            </p>
-          </div>
-
-          <div class="integration-card fade-in">
-            <div class="integration-icon">
-              <i class="fas fa-file-invoice-dollar icon-blue"></i>
-            </div>
-            <h4 class="font-bold mb-2 text-gray-900">QuickBooks Online</h4>
-            <p class="text-gray-600 text-sm">
-              Seamlessly sync sales data, expenses, inventory levels, and
-              financial reports with QuickBooks for effortless accounting.
-            </p>
-          </div>
-
-          <div class="integration-card fade-in">
-            <div class="integration-icon">
-              <i class="fas fa-truck icon-green-teal"></i>
-            </div>
-            <h4 class="font-bold mb-2 text-gray-900">Delivery Services</h4>
-            <p class="text-gray-600 text-sm">
-              Connect with popular local delivery services like Glovo, Uber
-              Eats, and local couriers for streamlined order fulfillment.
-            </p>
-          </div>
-
-          <div class="integration-card fade-in">
-            <div class="integration-icon">
-              <i class="fab fa-whatsapp icon-green"></i>
-            </div>
-            <h4 class="font-bold mb-2 text-gray-900">WhatsApp Commerce</h4>
-            <p class="text-gray-600 text-sm">
-              Automate order confirmations, payment reminders, delivery updates,
-              and customer support through WhatsApp Business API.
-            </p>
-          </div>
-
-          <div class="integration-card fade-in">
-            <div class="integration-icon">
-              <i class="fas fa-credit-card icon-purple"></i>
-            </div>
-            <h4 class="font-bold mb-2 text-gray-900">Payment Gateways</h4>
-            <p class="text-gray-600 text-sm">
-              Integrate with multiple payment processors including card
-              payments, bank transfers, and digital wallets for maximum
-              flexibility.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROI Calculator Section -->
-    <section class="roi-calculator-section" id="calculator">
-      <div class="container">
-        <div class="text-center mb-8 md:mb-12">
-          <span
-            class="inline-block px-4 py-2 bg-green-50 text-green-600 rounded-full text-sm font-semibold mb-4"
-          >
-            <i class="fas fa-calculator mr-2"></i>ROI CALCULATOR
-          </span>
-          <h2 class="section-title fade-in">Calculate Your Business Savings</h2>
-          <p class="section-subtitle fade-in">
-            See how much money and time you can save with SwiftTill POS. Enter
-            your current business metrics below.
-          </p>
-        </div>
-
-        <div class="max-w-4xl mx-auto">
-          <div
-            class="bg-white rounded-3xl shadow-2xl border-2 border-gray-100 overflow-hidden"
-          >
-            <div
-              class="bg-gradient-to-r from-blue-600 to-green-600 p-6 text-white"
-            >
-              <h3 class="text-2xl font-bold mb-2">SwiftTill ROI Calculator</h3>
-              <p class="text-blue-100">
-                Discover your potential savings in just 60 seconds
-              </p>
-            </div>
-
-            <div class="p-8">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Input Section -->
-                <div class="space-y-6">
+              <!-- Inventory Pane -->
+              <div class="showcase-pane" id="inventory-pane">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div>
-                    <label
-                      class="block text-sm font-semibold text-gray-700 mb-2"
+                    <h3
+                      class="text-xl md:text-2xl font-bold mb-4 text-gray-900"
                     >
-                      Monthly Sales Revenue (Ksh)
-                    </label>
-                    <input
-                      type="number"
-                      id="monthlyRevenue"
-                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
-                      placeholder="e.g., 500000"
-                      min="10000"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      class="block text-sm font-semibold text-gray-700 mb-2"
-                    >
-                      Daily Transactions
-                    </label>
-                    <input
-                      type="number"
-                      id="dailyTransactions"
-                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
-                      placeholder="e.g., 50"
-                      min="1"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      class="block text-sm font-semibold text-gray-700 mb-2"
-                    >
-                      Average Transaction Time (minutes)
-                    </label>
-                    <input
-                      type="number"
-                      id="transactionTime"
-                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
-                      placeholder="e.g., 5"
-                      min="1"
-                      max="30"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      class="block text-sm font-semibold text-gray-700 mb-2"
-                    >
-                      Monthly Inventory Loss (%)
-                    </label>
-                    <input
-                      type="number"
-                      id="inventoryLoss"
-                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
-                      placeholder="e.g., 5"
-                      min="0"
-                      max="50"
-                    />
-                  </div>
-
-                  <button id="calculateROI" class="btn-primary w-full">
-                    <i class="fas fa-calculator mr-2"></i> Calculate My Savings
-                  </button>
-                </div>
-
-                <!-- Results Section -->
-                <div class="bg-gray-50 rounded-2xl p-6">
-                  <h4 class="text-xl font-bold text-gray-900 mb-6">
-                    Your Potential Savings
-                  </h4>
-
-                  <div class="space-y-4">
-                    <div
-                      class="flex justify-between items-center p-4 bg-white rounded-xl border"
-                    >
-                      <div>
-                        <div class="font-semibold text-gray-900">
-                          Time Saved Monthly
-                        </div>
-                        <div class="text-sm text-gray-600">
-                          Faster transactions
-                        </div>
-                      </div>
-                      <div class="text-right">
-                        <div
-                          class="text-2xl font-bold text-blue-600"
-                          id="timeSaved"
-                        >
-                          0 hours
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex justify-between items-center p-4 bg-white rounded-xl border"
-                    >
-                      <div>
-                        <div class="font-semibold text-gray-900">
-                          Inventory Savings
-                        </div>
-                        <div class="text-sm text-gray-600">
-                          Reduced loss & waste
-                        </div>
-                      </div>
-                      <div class="text-right">
-                        <div
-                          class="text-2xl font-bold text-green-600"
-                          id="inventorySaved"
-                        >
-                          Ksh 0
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex justify-between items-center p-4 bg-white rounded-xl border"
-                    >
-                      <div>
-                        <div class="font-semibold text-gray-900">
-                          Error Reduction
-                        </div>
-                        <div class="text-sm text-gray-600">
-                          Fewer transaction mistakes
-                        </div>
-                      </div>
-                      <div class="text-right">
-                        <div
-                          class="text-2xl font-bold text-purple-600"
-                          id="errorReduction"
-                        >
-                          Ksh 0
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex justify-between items-center p-4 bg-white rounded-xl border"
-                    >
-                      <div>
-                        <div class="font-semibold text-gray-900">
-                          Total Monthly Savings
-                        </div>
-                        <div class="text-sm text-gray-600">
-                          Combined benefits
-                        </div>
-                      </div>
-                      <div class="text-right">
-                        <div
-                          class="text-3xl font-bold text-green-600"
-                          id="totalSavings"
-                        >
-                          Ksh 0
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="mt-6 p-4 bg-green-50 rounded-xl border border-green-200"
-                  >
-                    <div class="flex items-center mb-2">
-                      <i class="fas fa-lightbulb text-green-600 mr-2"></i>
-                      <span class="font-semibold text-green-800">Pro Tip</span>
-                    </div>
-                    <p class="text-green-700 text-sm" id="roiTip">
-                      Enter your business details above to see personalized
-                      savings calculations.
+                      Intelligent Inventory Management
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                      Take control of your stock with our advanced inventory
+                      system. Track products, set reorder points, and manage
+                      suppliers effortlessly.
                     </p>
+                    <ul class="space-y-3">
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span
+                          >Barcode scanning for quick inventory updates</span
+                        >
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Batch and expiry date tracking</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Automated purchase orders</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Multi-location inventory tracking</span>
+                      </li>
+                    </ul>
                   </div>
-
-                  <button
-                    class="btn-primary w-full mt-6"
-                    onclick="openContactModal('roi_calculator')"
+                  <div
+                    class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
                   >
-                    <i class="fas fa-rocket mr-2"></i> Get SwiftTill Now
-                  </button>
+                    <div
+                      class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+                    >
+                      <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
+                        Inventory Status
+                      </div>
+                      <div class="text-sm text-gray-500">Smart Alerts</div>
+                    </div>
+                    <div class="space-y-4">
+                      <div class="p-3 bg-gray-50 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                          <div class="font-medium text-gray-900">
+                            Smartphone X
+                          </div>
+                          <div
+                            class="text-sm px-2 py-1 bg-blue-100 text-blue-800 rounded"
+                          >
+                            In Stock
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                          42 units remaining
+                        </div>
+                      </div>
+                      <div class="p-3 bg-gray-50 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                          <div class="font-medium text-gray-900">
+                            Wireless Headphones
+                          </div>
+                          <div
+                            class="text-sm px-2 py-1 bg-yellow-100 text-yellow-800 rounded"
+                          >
+                            Low Stock
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                          8 units remaining • Reorder suggested
+                        </div>
+                      </div>
+                      <div class="p-3 bg-gray-50 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                          <div class="font-medium text-gray-900">
+                            Laptop Pro
+                          </div>
+                          <div
+                            class="text-sm px-2 py-1 bg-red-100 text-red-800 rounded"
+                          >
+                            Out of Stock
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                          0 units • Purchase order generated
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Analytics Pane -->
+              <div class="showcase-pane" id="analytics-pane">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div>
+                    <h3
+                      class="text-xl md:text-2xl font-bold mb-4 text-gray-900"
+                    >
+                      Advanced Business Analytics
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                      Make data-driven decisions with powerful analytics tools
+                      that reveal insights about sales patterns, customer
+                      behavior, and operational efficiency.
+                    </p>
+                    <ul class="space-y-3">
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Sales trend analysis and forecasting</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Customer segmentation and profiling</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Profit margin analysis by product/category</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Comparative period analysis</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
+                  >
+                    <div
+                      class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+                    >
+                      <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
+                        Performance Insights
+                      </div>
+                      <div class="text-sm text-gray-500">Last 30 Days</div>
+                    </div>
+                    <div class="space-y-4">
+                      <div>
+                        <div
+                          class="flex justify-between text-sm text-gray-600 mb-1"
+                        >
+                          <span>Electronics</span>
+                          <span>42% growth</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                          <div class="bg-blue-600 h-2 rounded-full w-3/4"></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          class="flex justify-between text-sm text-gray-600 mb-1"
+                        >
+                          <span>Clothing</span>
+                          <span>18% growth</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                          <div
+                            class="bg-green-600 h-2 rounded-full w-5/12"
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          class="flex justify-between text-sm text-gray-600 mb-1"
+                        >
+                          <span>Accessories</span>
+                          <span>28% growth</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                          <div
+                            class="bg-purple-600 h-2 rounded-full w-3/5"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Reports Pane -->
+              <div class="showcase-pane" id="reports-pane">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div>
+                    <h3
+                      class="text-xl md:text-2xl font-bold mb-4 text-gray-900"
+                    >
+                      Comprehensive Reporting Suite
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                      Generate detailed reports for every aspect of your
+                      business with our customizable reporting engine. Export to
+                      PDF, Excel, or share directly.
+                    </p>
+                    <ul class="space-y-3">
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Daily, weekly, monthly sales reports</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Inventory valuation reports</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Customer purchase history</span>
+                      </li>
+                      <li class="flex items-center text-gray-700">
+                        <i class="fas fa-check text-green-500 mr-3"></i>
+                        <span>Tax and compliance reports</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    class="bg-white rounded-xl p-4 md:p-6 border border-gray-200 shadow-sm"
+                  >
+                    <div
+                      class="flex flex-col md:flex-row md:items-center justify-between mb-6"
+                    >
+                      <div class="text-lg font-bold text-gray-900 mb-2 md:mb-0">
+                        Available Reports
+                      </div>
+                      <div class="text-sm text-gray-500">Customizable</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                      <div class="p-3 bg-blue-50 rounded-lg">
+                        <i class="fas fa-chart-line text-blue-600 mb-2"></i>
+                        <div class="font-medium text-gray-900">
+                          Sales Report
+                        </div>
+                      </div>
+                      <div class="p-3 bg-green-50 rounded-lg">
+                        <i class="fas fa-boxes text-green-600 mb-2"></i>
+                        <div class="font-medium text-gray-900">
+                          Inventory Report
+                        </div>
+                      </div>
+                      <div class="p-3 bg-purple-50 rounded-lg">
+                        <i class="fas fa-users text-purple-600 mb-2"></i>
+                        <div class="font-medium text-gray-900">
+                          Customer Report
+                        </div>
+                      </div>
+                      <div class="p-3 bg-yellow-50 rounded-lg">
+                        <i
+                          class="fas fa-file-invoice-dollar text-yellow-600 mb-2"
+                        ></i>
+                        <div class="font-medium text-gray-900">Tax Report</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Pricing -->
-    <section class="pricing-section" id="pricing">
-      <div class="container">
-        <div class="text-center mb-8 md:mb-12">
-          <span
-            class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
-          >
-            <i class="fas fa-tag mr-2"></i>STRAIGHTFORWARD PRICING
-          </span>
-          <h2 class="section-title fade-in">
-            Flexible Pricing for Every Stage of Your Business
-          </h2>
-          <p class="section-subtitle fade-in">
-            Choose between a one-time investment or affordable monthly plans.
-            All options are transparent, locally priced, and built for Kenyan
-            retail and hospitality businesses.
-          </p>
-        </div>
-
-        <div class="pricing-benefits fade-in">
-          <div class="pricing-benefit">
-            <i class="fas fa-shield-alt"></i>
-            <span>No hidden fees • Clear local pricing</span>
-          </div>
-          <div class="pricing-benefit">
-            <i class="fas fa-rocket"></i>
-            <span>Fast setup & training included</span>
-          </div>
-          <div class="pricing-benefit">
-            <i class="fas fa-cogs"></i>
-            <span>Works with optional hardware bundles</span>
-          </div>
-        </div>
-
-        <div class="pricing-grid fade-in">
-          <div class="pricing-card popular">
-            <span class="plan-tag">
-              <i class="fas fa-star"></i> Best Value
+      <!-- Integrations -->
+      <section class="integrations-section" id="integrations">
+        <div class="container">
+          <div class="text-center mb-8 md:mb-12">
+            <span
+              class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
+            >
+              <i class="fas fa-plug mr-2"></i>SEAMLESS INTEGRATIONS
             </span>
-            <div class="text-center mb-8">
-              <h3 class="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
-                One-Time Complete Package
-              </h3>
-              <p class="plan-description">
-                Own your full POS system with one upfront payment and no monthly
-                software fees.
-              </p>
-            </div>
-            <div class="price mb-3 text-center">Ksh 20,000<span>*</span></div>
-            <p class="price-note text-center text-sm mb-8">
-              *One-time payment. No recurring software fees. Hardware available
-              separately.
+            <h2 class="section-title fade-in">
+              Connect With Your Favorite Tools
+            </h2>
+            <p class="section-subtitle fade-in">
+              SwiftTill connects with the tools you already use to create a
+              unified business ecosystem.
             </p>
+          </div>
 
-            <ul class="feature-list mb-10">
-              <li class="flex items-start text-gray-700">
-                <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                <span>Full POS system installation and setup</span>
-              </li>
-              <li class="flex items-start text-gray-700">
-                <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                <span>Complete inventory & stock management</span>
-              </li>
-              <li class="flex items-start text-gray-700">
-                <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                <span>Sales reporting, analytics & cash flow insights</span>
-              </li>
-              <li class="flex items-start text-gray-700">
-                <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                <span>Customer management and loyalty tracking</span>
-              </li>
-              <li class="flex items-start text-gray-700">
-                <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                <span>Multi-user access and secure role controls</span>
-              </li>
-              <li class="flex items-start text-gray-700">
-                <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                <span>6 months technical support and 1 year updates</span>
-              </li>
-              <li class="flex items-start text-gray-700">
-                <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                <span>On-site training included</span>
-              </li>
-            </ul>
+          <div class="integration-grid">
+            <div class="integration-card fade-in">
+              <div class="integration-icon">
+                <i class="fas fa-mobile-alt icon-green"></i>
+              </div>
+              <h4 class="font-bold mb-2 text-gray-900">M-Pesa Integration</h4>
+              <p class="text-gray-600 text-sm">
+                Accept secure mobile payments via Safaricom M-Pesa with instant
+                reconciliation and automated transaction tracking.
+              </p>
+            </div>
 
-            <button
-              class="btn-primary w-full plan-action"
-              onclick="openContactModal('pricing')"
+            <div class="integration-card fade-in">
+              <div class="integration-icon">
+                <i class="fas fa-sms icon-orange"></i>
+              </div>
+              <h4 class="font-bold mb-2 text-gray-900">SMS Marketing</h4>
+              <p class="text-gray-600 text-sm">
+                Send targeted bulk SMS campaigns, automated order alerts, and
+                personalized customer notifications to boost engagement.
+              </p>
+            </div>
+
+            <div class="integration-card fade-in">
+              <div class="integration-icon">
+                <i class="fas fa-file-invoice-dollar icon-blue"></i>
+              </div>
+              <h4 class="font-bold mb-2 text-gray-900">QuickBooks Online</h4>
+              <p class="text-gray-600 text-sm">
+                Seamlessly sync sales data, expenses, inventory levels, and
+                financial reports with QuickBooks for effortless accounting.
+              </p>
+            </div>
+
+            <div class="integration-card fade-in">
+              <div class="integration-icon">
+                <i class="fas fa-truck icon-green-teal"></i>
+              </div>
+              <h4 class="font-bold mb-2 text-gray-900">Delivery Services</h4>
+              <p class="text-gray-600 text-sm">
+                Connect with popular local delivery services like Glovo, Uber
+                Eats, and local couriers for streamlined order fulfillment.
+              </p>
+            </div>
+
+            <div class="integration-card fade-in">
+              <div class="integration-icon">
+                <i class="fab fa-whatsapp icon-green"></i>
+              </div>
+              <h4 class="font-bold mb-2 text-gray-900">WhatsApp Commerce</h4>
+              <p class="text-gray-600 text-sm">
+                Automate order confirmations, payment reminders, delivery
+                updates, and customer support through WhatsApp Business API.
+              </p>
+            </div>
+
+            <div class="integration-card fade-in">
+              <div class="integration-icon">
+                <i class="fas fa-credit-card icon-purple"></i>
+              </div>
+              <h4 class="font-bold mb-2 text-gray-900">Payment Gateways</h4>
+              <p class="text-gray-600 text-sm">
+                Integrate with multiple payment processors including card
+                payments, bank transfers, and digital wallets for maximum
+                flexibility.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROI Calculator Section -->
+      <section class="roi-calculator-section" id="calculator">
+        <div class="container">
+          <div class="text-center mb-8 md:mb-12">
+            <span
+              class="inline-block px-4 py-2 bg-green-50 text-green-600 rounded-full text-sm font-semibold mb-4"
             >
-              <i class="fas fa-shopping-cart mr-2"></i> Get SwiftTill Now
-            </button>
-
-            <div class="text-center mt-8">
-              <a
-                href="#"
-                onclick="showHardwarePackages()"
-                class="text-blue-600 hover:text-blue-800 text-sm font-medium"
-              >
-                <i class="fas fa-laptop mr-1"></i> View Hardware Packages →
-              </a>
-            </div>
-          </div>
-
-          <div class="monthly-plans">
-            <div class="pricing-card">
-              <span class="plan-tag"> Starter Plan </span>
-              <div class="text-center mb-8">
-                <h3 class="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
-                  Starter Monthly Plan
-                </h3>
-                <p class="plan-description">
-                  Affordable for kiosks and small shops that want modern POS
-                  tools with low commitment.
-                </p>
-              </div>
-              <div class="price mb-3 text-center">
-                Ksh 3,499<span>/mo</span>
-              </div>
-              <p class="price-note text-center text-sm mb-8">
-                Month-to-month plan. No hidden registration fees.
-              </p>
-
-              <ul class="feature-list mb-10">
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>Core POS, inventory and sales tracking</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>Daily reports and dashboard insights</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>M-Pesa payment setup support</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>Online onboarding and training</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>3 months technical support</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>Cloud backup and basic security</span>
-                </li>
-              </ul>
-
-              <button
-                class="btn-primary w-full plan-action"
-                onclick="openContactModal('pricing')"
-              >
-                <i class="fas fa-shopping-cart mr-2"></i> Choose Starter
-              </button>
-            </div>
-
-            <div class="pricing-card">
-              <span class="plan-tag"> Growth Plan </span>
-              <div class="text-center mb-8">
-                <h3 class="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
-                  Growth Monthly Plan
-                </h3>
-                <p class="plan-description">
-                  Built for restaurants, multi-location shops and growing teams.
-                </p>
-              </div>
-              <div class="price mb-3 text-center">
-                Ksh 5,499<span>/mo</span>
-              </div>
-              <p class="price-note text-center text-sm mb-8">
-                Monthly plan with advanced tools and premium onboarding.
-              </p>
-
-              <ul class="feature-list mb-10">
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>Advanced analytics and sales forecasting</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>Multi-location support and user permissions</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>Loyalty, promotions and customer CRM</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>Priority support and premium onboarding</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>Ongoing updates and compliance fixes</span>
-                </li>
-                <li class="flex items-start text-gray-700">
-                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
-                  <span>API access and custom package add-ons</span>
-                </li>
-              </ul>
-
-              <button
-                class="btn-primary w-full plan-action"
-                onclick="openContactModal('pricing')"
-              >
-                <i class="fas fa-shopping-cart mr-2"></i> Choose Growth
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-12 fade-in">
-          <div
-            class="bg-green-50 border border-green-200 rounded-2xl p-8 max-w-3xl mx-auto shadow-lg"
-          >
-            <div class="flex items-start justify-center">
-              <i
-                class="fas fa-info-circle text-green-600 mt-1 mr-4 text-xl"
-              ></i>
-              <div class="text-left">
-                <h4 class="font-bold text-green-800 mb-3 text-lg">
-                  What’s included across all SwiftTill plans:
-                </h4>
-                <div
-                  class="grid grid-cols-1 md:grid-cols-2 gap-3 text-green-700 text-sm"
-                >
-                  <div class="flex items-center">
-                    <i class="fas fa-check text-green-500 mr-2"></i>
-                    <span>Software License & Installation</span>
-                  </div>
-                  <div class="flex items-center">
-                    <i class="fas fa-check text-green-500 mr-2"></i>
-                    <span>Business Training & Setup</span>
-                  </div>
-                  <div class="flex items-center">
-                    <i class="fas fa-check text-green-500 mr-2"></i>
-                    <span>Technical Support</span>
-                  </div>
-                  <div class="flex items-center">
-                    <i class="fas fa-check text-green-500 mr-2"></i>
-                    <span>Software Updates</span>
-                  </div>
-                  <div class="flex items-center">
-                    <i class="fas fa-check text-green-500 mr-2"></i>
-                    <span>Tax Compliance Features</span>
-                  </div>
-                  <div class="flex items-center">
-                    <i class="fas fa-check text-green-500 mr-2"></i>
-                    <span>Multi-Location Support</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trust & Certifications Section -->
-    <section class="trust-section">
-      <div class="container">
-        <div class="text-center mb-8 md:mb-12">
-          <h2 class="section-title fade-in">Why Businesses Trust SwiftTill</h2>
-          <p class="section-subtitle fade-in">
-            Industry-leading standards and certifications that guarantee your
-            business is in safe hands
-          </p>
-        </div>
-
-        <div class="trust-grid">
-          <div class="trust-badge fade-in">
-            <div class="trust-badge-icon">🔒</div>
-            <div class="text-sm font-bold text-gray-900 mb-2">
-              Bank-Grade Security
-            </div>
-            <div class="trust-badge-text">
-              SSL Encrypted & PCI DSS Compliant
-            </div>
-          </div>
-
-          <div class="trust-badge fade-in">
-            <div class="trust-badge-icon">⚡</div>
-            <div class="text-sm font-bold text-gray-900 mb-2">99.9% Uptime</div>
-            <div class="trust-badge-text">Proven Reliability Guarantee</div>
-          </div>
-
-          <div class="trust-badge fade-in">
-            <div class="trust-badge-icon">🏆</div>
-            <div class="text-sm font-bold text-gray-900 mb-2">
-              Award Winning
-            </div>
-            <div class="trust-badge-text">Best POS Solution - East Africa</div>
-          </div>
-
-          <div class="trust-badge fade-in">
-            <div class="trust-badge-icon">📊</div>
-            <div class="text-sm font-bold text-gray-900 mb-2">500+ Trusted</div>
-            <div class="trust-badge-text">Growing Community Nationwide</div>
-          </div>
-
-          <div class="trust-badge fade-in">
-            <div class="trust-badge-icon">🛡️</div>
-            <div class="text-sm font-bold text-gray-900 mb-2">
-              ISO Certified
-            </div>
-            <div class="trust-badge-text">International Quality Standards</div>
-          </div>
-
-          <div class="trust-badge fade-in">
-            <div class="trust-badge-icon">📱</div>
-            <div class="text-sm font-bold text-gray-900 mb-2">M-Pesa Ready</div>
-            <div class="trust-badge-text">Safaricom Integrated & Approved</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Case Studies Section -->
-    <section class="case-studies-section" id="case-studies">
-      <div class="container">
-        <div class="text-center mb-8 md:mb-12">
-          <span
-            class="inline-block px-4 py-2 bg-green-50 text-green-600 rounded-full text-sm font-semibold mb-4"
-          >
-            <i class="fas fa-chart-line mr-2"></i>SUCCESS STORIES
-          </span>
-          <h2 class="section-title fade-in">
-            Real Results from Real Businesses
-          </h2>
-          <p class="section-subtitle fade-in">
-            See how SwiftTill has transformed businesses across Kenya with
-            measurable results
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <!-- Case Study 1 -->
-          <div class="case-study-card fade-in">
-            <div
-              class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-t-2xl text-white"
-            >
-              <div class="flex items-center justify-between mb-4">
-                <div class="text-2xl font-bold">Thika Supermarket</div>
-                <div class="text-blue-100 text-sm">Retail Chain</div>
-              </div>
-              <div class="text-3xl font-bold mb-2">+45% Sales Growth</div>
-              <div class="text-blue-100">Within 6 months of implementation</div>
-            </div>
-            <div class="bg-white p-6 rounded-b-2xl border-2 border-gray-100">
-              <h4 class="font-bold text-lg mb-3 text-gray-900">
-                The Challenge
-              </h4>
-              <p class="text-gray-600 mb-4">
-                Manual inventory tracking was causing stockouts and
-                overstocking, leading to lost sales and wasted capital.
-              </p>
-              <h4 class="font-bold text-lg mb-3 text-gray-900">The Solution</h4>
-              <p class="text-gray-600 mb-4">
-                SwiftTill's real-time inventory management and automated
-                reordering system.
-              </p>
-              <div class="grid grid-cols-2 gap-4 mb-4">
-                <div class="text-center">
-                  <div class="text-2xl font-bold text-green-600">30%</div>
-                  <div class="text-sm text-gray-600">Inventory Accuracy</div>
-                </div>
-                <div class="text-center">
-                  <div class="text-2xl font-bold text-blue-600">Ksh 500K</div>
-                  <div class="text-sm text-gray-600">Monthly Savings</div>
-                </div>
-              </div>
-              <button
-                onclick="openContactModal('case_study_thika')"
-                class="btn-secondary w-full"
-              >
-                <i class="fas fa-external-link-alt mr-2"></i> Read Full Story
-              </button>
-            </div>
-          </div>
-
-          <!-- Case Study 2 -->
-          <div class="case-study-card fade-in">
-            <div
-              class="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-t-2xl text-white"
-            >
-              <div class="flex items-center justify-between mb-4">
-                <div class="text-2xl font-bold">Nairobi Bistro</div>
-                <div class="text-green-100 text-sm">Restaurant</div>
-              </div>
-              <div class="text-3xl font-bold mb-2">50% Faster Service</div>
-              <div class="text-green-100">
-                Table-to-payment in under 2 minutes
-              </div>
-            </div>
-            <div class="bg-white p-6 rounded-b-2xl border-2 border-gray-100">
-              <h4 class="font-bold text-lg mb-3 text-gray-900">
-                The Challenge
-              </h4>
-              <p class="text-gray-600 mb-4">
-                Long wait times and order errors were driving customers away
-                during peak hours.
-              </p>
-              <h4 class="font-bold text-lg mb-3 text-gray-900">The Solution</h4>
-              <p class="text-gray-600 mb-4">
-                Integrated POS with kitchen display system and table management.
-              </p>
-              <div class="grid grid-cols-2 gap-4 mb-4">
-                <div class="text-center">
-                  <div class="text-2xl font-bold text-green-600">65%</div>
-                  <div class="text-sm text-gray-600">Order Accuracy</div>
-                </div>
-                <div class="text-center">
-                  <div class="text-2xl font-bold text-blue-600">25%</div>
-                  <div class="text-sm text-gray-600">Higher Tips</div>
-                </div>
-              </div>
-              <button
-                onclick="openContactModal('case_study_bistro')"
-                class="btn-secondary w-full"
-              >
-                <i class="fas fa-external-link-alt mr-2"></i> Read Full Story
-              </button>
-            </div>
-          </div>
-
-          <!-- Case Study 3 -->
-          <div class="case-study-card fade-in">
-            <div
-              class="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-t-2xl text-white"
-            >
-              <div class="flex items-center justify-between mb-4">
-                <div class="text-2xl font-bold">Coastal Electronics</div>
-                <div class="text-purple-100 text-sm">Multi-Store Chain</div>
-              </div>
-              <div class="text-3xl font-bold mb-2">3 Locations Managed</div>
-              <div class="text-purple-100">From single dashboard</div>
-            </div>
-            <div class="bg-white p-6 rounded-b-2xl border-2 border-gray-100">
-              <h4 class="font-bold text-lg mb-3 text-gray-900">
-                The Challenge
-              </h4>
-              <p class="text-gray-600 mb-4">
-                Managing inventory across multiple locations was chaotic and
-                inefficient.
-              </p>
-              <h4 class="font-bold text-lg mb-3 text-gray-900">The Solution</h4>
-              <p class="text-gray-600 mb-4">
-                Cloud-based multi-store synchronization with centralized
-                reporting.
-              </p>
-              <div class="grid grid-cols-2 gap-4 mb-4">
-                <div class="text-center">
-                  <div class="text-2xl font-bold text-green-600">40%</div>
-                  <div class="text-sm text-gray-600">
-                    Operational Efficiency
-                  </div>
-                </div>
-                <div class="text-center">
-                  <div class="text-2xl font-bold text-blue-600">Ksh 1.2M</div>
-                  <div class="text-sm text-gray-600">Annual Savings</div>
-                </div>
-              </div>
-              <button
-                onclick="openContactModal('case_study_electronics')"
-                class="btn-secondary w-full"
-              >
-                <i class="fas fa-external-link-alt mr-2"></i> Read Full Story
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-12">
-          <div
-            class="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 max-w-4xl mx-auto"
-          >
-            <h3 class="text-2xl font-bold mb-4 text-gray-900">
-              Ready to Join These Success Stories?
-            </h3>
-            <p class="text-gray-600 mb-6">
-              Don't let outdated systems hold your business back. Join hundreds
-              of successful Kenyan businesses using SwiftTill.
+              <i class="fas fa-calculator mr-2"></i>ROI CALCULATOR
+            </span>
+            <h2 class="section-title fade-in">
+              Calculate Your Business Savings
+            </h2>
+            <p class="section-subtitle fade-in">
+              See how much money and time you can save with SwiftTill POS. Enter
+              your current business metrics below.
             </p>
-            <button
-              class="btn-primary mr-4"
-              onclick="openContactModal('case_studies_cta')"
+          </div>
+
+          <div class="max-w-4xl mx-auto">
+            <div
+              class="bg-white rounded-3xl shadow-2xl border-2 border-gray-100 overflow-hidden"
             >
-              <i class="fas fa-rocket mr-2"></i> Start Your Success Story
-            </button>
-            <button class="btn-secondary" onclick="scrollToPricing()">
-              <i class="fas fa-calculator mr-2"></i> Calculate ROI
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
-      <div class="container">
-        <div class="text-center mb-8 md:mb-12">
-          <span
-            class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
-          >
-            <i class="fas fa-question-circle mr-2"></i>COMMON QUESTIONS
-          </span>
-          <h2 class="section-title fade-in">Frequently Asked Questions</h2>
-          <p class="section-subtitle fade-in">
-            Get answers to common questions about SwiftTill POS and how it can
-            help your business
-          </p>
-        </div>
-
-        <div class="faq-container">
-          <div class="faq-item fade-in">
-            <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title">How long does installation take?</span>
-              <span class="faq-toggle"
-                ><i class="fas fa-chevron-down"></i
-              ></span>
-            </div>
-            <div class="faq-content">
-              <p class="faq-answer">
-                Installation and setup typically takes 2-4 hours depending on
-                your store setup and the number of products in your inventory.
-                Our team handles everything, and you'll receive comprehensive
-                on-site training as part of the package.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title"
-                >Is there any monthly or recurring fee?</span
-              >
-              <span class="faq-toggle"
-                ><i class="fas fa-chevron-down"></i
-              ></span>
-            </div>
-            <div class="faq-content">
-              <p class="faq-answer">
-                No! SwiftTill is a one-time payment of Ksh 20,000 for the
-                complete software package. There are no monthly subscriptions,
-                no hidden charges. You get free software updates for 1 year and
-                6 months of technical support included.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title"
-                >Can I use SwiftTill on multiple devices?</span
-              >
-              <span class="faq-toggle"
-                ><i class="fas fa-chevron-down"></i
-              ></span>
-            </div>
-            <div class="faq-content">
-              <p class="faq-answer">
-                Absolutely! SwiftTill POS is designed for multi-user access. You
-                can have multiple terminals in your store all syncing in
-                real-time. Plus, with our cloud sync feature, you can manage
-                multiple locations from anywhere.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title"
-                >What payment methods does SwiftTill support?</span
-              >
-              <span class="faq-toggle"
-                ><i class="fas fa-chevron-down"></i
-              ></span>
-            </div>
-            <div class="faq-content">
-              <p class="faq-answer">
-                SwiftTill supports M-Pesa payments, card payments, cash,
-                cheques, and custom payment methods. Automatic reconciliation
-                means your finances are always up to date. Integration with
-                QuickBooks makes accounting seamless.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title"
-                >What happens if I lose internet connection?</span
-              >
-              <span class="faq-toggle"
-                ><i class="fas fa-chevron-down"></i
-              ></span>
-            </div>
-            <div class="faq-content">
-              <p class="faq-answer">
-                SwiftTill works offline! You can continue processing sales, and
-                data automatically syncs when your connection is restored. This
-                ensures your business never stops, even during network outages.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title"
-                >Do you provide training and support?</span
-              >
-              <span class="faq-toggle"
-                ><i class="fas fa-chevron-down"></i
-              ></span>
-            </div>
-            <div class="faq-content">
-              <p class="faq-answer">
-                Yes! Training is included during installation. We also provide 6
-                months of free technical support, video tutorials,
-                documentation, and our support team is available
-                Monday-Saturday. Extended support packages are available.
-              </p>
-            </div>
-          </div>
-
-          <div class="faq-item fade-in">
-            <div class="faq-header" onclick="toggleFAQ(this)">
-              <span class="faq-title">Is my business data secure?</span>
-              <span class="faq-toggle"
-                ><i class="fas fa-chevron-down"></i
-              ></span>
-            </div>
-            <div class="faq-content">
-              <p class="faq-answer">
-                Security is our top priority. We use bank-grade encryption, PCI
-                DSS compliance, automatic daily backups, and role-based access
-                controls. Your data is protected with industry-leading security
-                standards.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-      <div class="container">
-        <div class="max-w-4xl mx-auto text-center">
-          <div
-            class="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden"
-          >
-            <div
-              class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"
-            ></div>
-            <div
-              class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"
-            ></div>
-
-            <div class="relative z-10">
-              <i
-                class="fas fa-envelope-open-text text-4xl mb-4 text-blue-100"
-              ></i>
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                Stay Ahead of the Competition
-              </h2>
-              <p
-                class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
-              >
-                Get exclusive tips, industry insights, and early access to new
-                features. Join 500+ business owners who trust SwiftTill.
-              </p>
-
-              <div class="max-w-md mx-auto">
-                <div class="flex flex-col sm:flex-row gap-4">
-                  <input
-                    type="email"
-                    id="newsletterEmail"
-                    placeholder="Enter your email address"
-                    class="flex-1 px-6 py-4 rounded-xl border-0 focus:ring-2 focus:ring-white text-gray-900 text-lg"
-                  />
-                  <button
-                    id="newsletterSubscribe"
-                    class="btn-secondary bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 whitespace-nowrap"
-                  >
-                    <i class="fas fa-paper-plane mr-2"></i> Subscribe
-                  </button>
-                </div>
-
-                <div class="mt-4 text-sm text-blue-100">
-                  <i class="fas fa-shield-alt mr-1"></i>
-                  We respect your privacy. Unsubscribe at any time.
-                </div>
-              </div>
-
               <div
-                class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
+                class="bg-gradient-to-r from-blue-600 to-green-600 p-6 text-white"
               >
-                <div>
-                  <div class="text-2xl font-bold mb-1">500+</div>
-                  <div class="text-blue-100">Business Owners</div>
-                </div>
-                <div>
-                  <div class="text-2xl font-bold mb-1">Weekly</div>
-                  <div class="text-blue-100">Business Tips</div>
-                </div>
-                <div>
-                  <div class="text-2xl font-bold mb-1">Free</div>
-                  <div class="text-blue-100">Forever</div>
+                <h3 class="text-2xl font-bold mb-2">
+                  SwiftTill ROI Calculator
+                </h3>
+                <p class="text-blue-100">
+                  Discover your potential savings in just 60 seconds
+                </p>
+              </div>
+
+              <div class="p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <!-- Input Section -->
+                  <div class="space-y-6">
+                    <div>
+                      <label
+                        class="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Monthly Sales Revenue (Ksh)
+                      </label>
+                      <input
+                        type="number"
+                        id="monthlyRevenue"
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                        placeholder="e.g., 500000"
+                        min="10000"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        class="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Daily Transactions
+                      </label>
+                      <input
+                        type="number"
+                        id="dailyTransactions"
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                        placeholder="e.g., 50"
+                        min="1"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        class="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Average Transaction Time (minutes)
+                      </label>
+                      <input
+                        type="number"
+                        id="transactionTime"
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                        placeholder="e.g., 5"
+                        min="1"
+                        max="30"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        class="block text-sm font-semibold text-gray-700 mb-2"
+                      >
+                        Monthly Inventory Loss (%)
+                      </label>
+                      <input
+                        type="number"
+                        id="inventoryLoss"
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                        placeholder="e.g., 5"
+                        min="0"
+                        max="50"
+                      />
+                    </div>
+
+                    <button id="calculateROI" class="btn-primary w-full">
+                      <i class="fas fa-calculator mr-2"></i> Calculate My
+                      Savings
+                    </button>
+                  </div>
+
+                  <!-- Results Section -->
+                  <div class="bg-gray-50 rounded-2xl p-6">
+                    <h4 class="text-xl font-bold text-gray-900 mb-6">
+                      Your Potential Savings
+                    </h4>
+
+                    <div class="space-y-4">
+                      <div
+                        class="flex justify-between items-center p-4 bg-white rounded-xl border"
+                      >
+                        <div>
+                          <div class="font-semibold text-gray-900">
+                            Time Saved Monthly
+                          </div>
+                          <div class="text-sm text-gray-600">
+                            Faster transactions
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <div
+                            class="text-2xl font-bold text-blue-600"
+                            id="timeSaved"
+                          >
+                            0 hours
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex justify-between items-center p-4 bg-white rounded-xl border"
+                      >
+                        <div>
+                          <div class="font-semibold text-gray-900">
+                            Inventory Savings
+                          </div>
+                          <div class="text-sm text-gray-600">
+                            Reduced loss & waste
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <div
+                            class="text-2xl font-bold text-green-600"
+                            id="inventorySaved"
+                          >
+                            Ksh 0
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex justify-between items-center p-4 bg-white rounded-xl border"
+                      >
+                        <div>
+                          <div class="font-semibold text-gray-900">
+                            Error Reduction
+                          </div>
+                          <div class="text-sm text-gray-600">
+                            Fewer transaction mistakes
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <div
+                            class="text-2xl font-bold text-purple-600"
+                            id="errorReduction"
+                          >
+                            Ksh 0
+                          </div>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex justify-between items-center p-4 bg-white rounded-xl border"
+                      >
+                        <div>
+                          <div class="font-semibold text-gray-900">
+                            Total Monthly Savings
+                          </div>
+                          <div class="text-sm text-gray-600">
+                            Combined benefits
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <div
+                            class="text-3xl font-bold text-green-600"
+                            id="totalSavings"
+                          >
+                            Ksh 0
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="mt-6 p-4 bg-green-50 rounded-xl border border-green-200"
+                    >
+                      <div class="flex items-center mb-2">
+                        <i class="fas fa-lightbulb text-green-600 mr-2"></i>
+                        <span class="font-semibold text-green-800"
+                          >Pro Tip</span
+                        >
+                      </div>
+                      <p class="text-green-700 text-sm" id="roiTip">
+                        Enter your business details above to see personalized
+                        savings calculations.
+                      </p>
+                    </div>
+
+                    <button
+                      class="btn-primary w-full mt-6"
+                      onclick="openContactModal('roi_calculator')"
+                    >
+                      <i class="fas fa-rocket mr-2"></i> Get SwiftTill Now
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section" id="testimonials">
-      <div class="container">
-        <div class="text-center mb-8 md:mb-12">
-          <span
-            class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
+      <!-- Pricing -->
+      <section class="pricing-section" id="pricing">
+        <div class="container">
+          <div class="text-center mb-8 md:mb-12">
+            <span
+              class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
+            >
+              <i class="fas fa-tag mr-2"></i>STRAIGHTFORWARD PRICING
+            </span>
+            <h2 class="section-title fade-in">
+              Flexible Pricing for Every Stage of Your Business
+            </h2>
+            <p class="section-subtitle fade-in">
+              Choose between a one-time investment or affordable monthly plans.
+              All options are transparent, locally priced, and built for Kenyan
+              retail and hospitality businesses.
+            </p>
+          </div>
+
+          <div class="pricing-benefits fade-in">
+            <div class="pricing-benefit">
+              <i class="fas fa-shield-alt"></i>
+              <span>No hidden fees • Clear local pricing</span>
+            </div>
+            <div class="pricing-benefit">
+              <i class="fas fa-rocket"></i>
+              <span>Fast setup & training included</span>
+            </div>
+            <div class="pricing-benefit">
+              <i class="fas fa-cogs"></i>
+              <span>Works with optional hardware bundles</span>
+            </div>
+          </div>
+
+          <div class="pricing-grid fade-in">
+            <div class="pricing-card popular">
+              <span class="plan-tag">
+                <i class="fas fa-star"></i> Best Value
+              </span>
+              <div class="text-center mb-8">
+                <h3 class="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
+                  One-Time Complete Package
+                </h3>
+                <p class="plan-description">
+                  Own your full POS system with one upfront payment and no
+                  monthly software fees.
+                </p>
+              </div>
+              <div class="price mb-3 text-center">Ksh 20,000<span>*</span></div>
+              <p class="price-note text-center text-sm mb-8">
+                *One-time payment. No recurring software fees. Hardware
+                available separately.
+              </p>
+
+              <ul class="feature-list mb-10">
+                <li class="flex items-start text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                  <span>Full POS system installation and setup</span>
+                </li>
+                <li class="flex items-start text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                  <span>Complete inventory & stock management</span>
+                </li>
+                <li class="flex items-start text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                  <span>Sales reporting, analytics & cash flow insights</span>
+                </li>
+                <li class="flex items-start text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                  <span>Customer management and loyalty tracking</span>
+                </li>
+                <li class="flex items-start text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                  <span>Multi-user access and secure role controls</span>
+                </li>
+                <li class="flex items-start text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                  <span>6 months technical support and 1 year updates</span>
+                </li>
+                <li class="flex items-start text-gray-700">
+                  <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                  <span>On-site training included</span>
+                </li>
+              </ul>
+
+              <button
+                class="btn-primary w-full plan-action"
+                onclick="openContactModal('pricing')"
+              >
+                <i class="fas fa-shopping-cart mr-2"></i> Get SwiftTill Now
+              </button>
+
+              <div class="text-center mt-8">
+                <a
+                  href="#"
+                  onclick="showHardwarePackages()"
+                  class="text-blue-600 hover:text-blue-800 text-sm font-medium"
+                >
+                  <i class="fas fa-laptop mr-1"></i> View Hardware Packages →
+                </a>
+              </div>
+            </div>
+
+            <div class="monthly-plans">
+              <div class="pricing-card">
+                <span class="plan-tag"> Starter Plan </span>
+                <div class="text-center mb-8">
+                  <h3 class="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
+                    Starter Monthly Plan
+                  </h3>
+                  <p class="plan-description">
+                    Affordable for kiosks and small shops that want modern POS
+                    tools with low commitment.
+                  </p>
+                </div>
+                <div class="price mb-3 text-center">
+                  Ksh 3,499<span>/mo</span>
+                </div>
+                <p class="price-note text-center text-sm mb-8">
+                  Month-to-month plan. No hidden registration fees.
+                </p>
+
+                <ul class="feature-list mb-10">
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>Core POS, inventory and sales tracking</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>Daily reports and dashboard insights</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>M-Pesa payment setup support</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>Online onboarding and training</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>3 months technical support</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>Cloud backup and basic security</span>
+                  </li>
+                </ul>
+
+                <button
+                  class="btn-primary w-full plan-action"
+                  onclick="openContactModal('pricing')"
+                >
+                  <i class="fas fa-shopping-cart mr-2"></i> Choose Starter
+                </button>
+              </div>
+
+              <div class="pricing-card">
+                <span class="plan-tag"> Growth Plan </span>
+                <div class="text-center mb-8">
+                  <h3 class="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
+                    Growth Monthly Plan
+                  </h3>
+                  <p class="plan-description">
+                    Built for restaurants, multi-location shops and growing
+                    teams.
+                  </p>
+                </div>
+                <div class="price mb-3 text-center">
+                  Ksh 5,499<span>/mo</span>
+                </div>
+                <p class="price-note text-center text-sm mb-8">
+                  Monthly plan with advanced tools and premium onboarding.
+                </p>
+
+                <ul class="feature-list mb-10">
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>Advanced analytics and sales forecasting</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>Multi-location support and user permissions</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>Loyalty, promotions and customer CRM</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>Priority support and premium onboarding</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>Ongoing updates and compliance fixes</span>
+                  </li>
+                  <li class="flex items-start text-gray-700">
+                    <i class="fas fa-check text-green-500 mr-4 mt-1"></i>
+                    <span>API access and custom package add-ons</span>
+                  </li>
+                </ul>
+
+                <button
+                  class="btn-primary w-full plan-action"
+                  onclick="openContactModal('pricing')"
+                >
+                  <i class="fas fa-shopping-cart mr-2"></i> Choose Growth
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12 fade-in">
+            <div
+              class="bg-green-50 border border-green-200 rounded-2xl p-8 max-w-3xl mx-auto shadow-lg"
+            >
+              <div class="flex items-start justify-center">
+                <i
+                  class="fas fa-info-circle text-green-600 mt-1 mr-4 text-xl"
+                ></i>
+                <div class="text-left">
+                  <h4 class="font-bold text-green-800 mb-3 text-lg">
+                    What’s included across all SwiftTill plans:
+                  </h4>
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-3 text-green-700 text-sm"
+                  >
+                    <div class="flex items-center">
+                      <i class="fas fa-check text-green-500 mr-2"></i>
+                      <span>Software License & Installation</span>
+                    </div>
+                    <div class="flex items-center">
+                      <i class="fas fa-check text-green-500 mr-2"></i>
+                      <span>Business Training & Setup</span>
+                    </div>
+                    <div class="flex items-center">
+                      <i class="fas fa-check text-green-500 mr-2"></i>
+                      <span>Technical Support</span>
+                    </div>
+                    <div class="flex items-center">
+                      <i class="fas fa-check text-green-500 mr-2"></i>
+                      <span>Software Updates</span>
+                    </div>
+                    <div class="flex items-center">
+                      <i class="fas fa-check text-green-500 mr-2"></i>
+                      <span>Tax Compliance Features</span>
+                    </div>
+                    <div class="flex items-center">
+                      <i class="fas fa-check text-green-500 mr-2"></i>
+                      <span>Multi-Location Support</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust & Certifications Section -->
+      <section class="trust-section">
+        <div class="container">
+          <div class="text-center mb-8 md:mb-12">
+            <h2 class="section-title fade-in">
+              Why Businesses Trust SwiftTill
+            </h2>
+            <p class="section-subtitle fade-in">
+              Industry-leading standards and certifications that guarantee your
+              business is in safe hands
+            </p>
+          </div>
+
+          <div class="trust-grid">
+            <div class="trust-badge fade-in">
+              <div class="trust-badge-icon">🔒</div>
+              <div class="text-sm font-bold text-gray-900 mb-2">
+                Bank-Grade Security
+              </div>
+              <div class="trust-badge-text">
+                SSL Encrypted & PCI DSS Compliant
+              </div>
+            </div>
+
+            <div class="trust-badge fade-in">
+              <div class="trust-badge-icon">⚡</div>
+              <div class="text-sm font-bold text-gray-900 mb-2">
+                99.9% Uptime
+              </div>
+              <div class="trust-badge-text">Proven Reliability Guarantee</div>
+            </div>
+
+            <div class="trust-badge fade-in">
+              <div class="trust-badge-icon">🏆</div>
+              <div class="text-sm font-bold text-gray-900 mb-2">
+                Award Winning
+              </div>
+              <div class="trust-badge-text">
+                Best POS Solution - East Africa
+              </div>
+            </div>
+
+            <div class="trust-badge fade-in">
+              <div class="trust-badge-icon">📊</div>
+              <div class="text-sm font-bold text-gray-900 mb-2">
+                500+ Trusted
+              </div>
+              <div class="trust-badge-text">Growing Community Nationwide</div>
+            </div>
+
+            <div class="trust-badge fade-in">
+              <div class="trust-badge-icon">🛡️</div>
+              <div class="text-sm font-bold text-gray-900 mb-2">
+                ISO Certified
+              </div>
+              <div class="trust-badge-text">
+                International Quality Standards
+              </div>
+            </div>
+
+            <div class="trust-badge fade-in">
+              <div class="trust-badge-icon">📱</div>
+              <div class="text-sm font-bold text-gray-900 mb-2">
+                M-Pesa Ready
+              </div>
+              <div class="trust-badge-text">
+                Safaricom Integrated & Approved
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Studies Section -->
+      <section class="case-studies-section" id="case-studies">
+        <div class="container">
+          <div class="text-center mb-8 md:mb-12">
+            <span
+              class="inline-block px-4 py-2 bg-green-50 text-green-600 rounded-full text-sm font-semibold mb-4"
+            >
+              <i class="fas fa-chart-line mr-2"></i>SUCCESS STORIES
+            </span>
+            <h2 class="section-title fade-in">
+              Real Results from Real Businesses
+            </h2>
+            <p class="section-subtitle fade-in">
+              See how SwiftTill has transformed businesses across Kenya with
+              measurable results
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Case Study 1 -->
+            <div class="case-study-card fade-in">
+              <div
+                class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-t-2xl text-white"
+              >
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-2xl font-bold">Thika Supermarket</div>
+                  <div class="text-blue-100 text-sm">Retail Chain</div>
+                </div>
+                <div class="text-3xl font-bold mb-2">+45% Sales Growth</div>
+                <div class="text-blue-100">
+                  Within 6 months of implementation
+                </div>
+              </div>
+              <div class="bg-white p-6 rounded-b-2xl border-2 border-gray-100">
+                <h4 class="font-bold text-lg mb-3 text-gray-900">
+                  The Challenge
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  Manual inventory tracking was causing stockouts and
+                  overstocking, leading to lost sales and wasted capital.
+                </p>
+                <h4 class="font-bold text-lg mb-3 text-gray-900">
+                  The Solution
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  SwiftTill's real-time inventory management and automated
+                  reordering system.
+                </p>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-green-600">30%</div>
+                    <div class="text-sm text-gray-600">Inventory Accuracy</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-blue-600">Ksh 500K</div>
+                    <div class="text-sm text-gray-600">Monthly Savings</div>
+                  </div>
+                </div>
+                <button
+                  onclick="openContactModal('case_study_thika')"
+                  class="btn-secondary w-full"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i> Read Full Story
+                </button>
+              </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="case-study-card fade-in">
+              <div
+                class="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-t-2xl text-white"
+              >
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-2xl font-bold">Nairobi Bistro</div>
+                  <div class="text-green-100 text-sm">Restaurant</div>
+                </div>
+                <div class="text-3xl font-bold mb-2">50% Faster Service</div>
+                <div class="text-green-100">
+                  Table-to-payment in under 2 minutes
+                </div>
+              </div>
+              <div class="bg-white p-6 rounded-b-2xl border-2 border-gray-100">
+                <h4 class="font-bold text-lg mb-3 text-gray-900">
+                  The Challenge
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  Long wait times and order errors were driving customers away
+                  during peak hours.
+                </p>
+                <h4 class="font-bold text-lg mb-3 text-gray-900">
+                  The Solution
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  Integrated POS with kitchen display system and table
+                  management.
+                </p>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-green-600">65%</div>
+                    <div class="text-sm text-gray-600">Order Accuracy</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-blue-600">25%</div>
+                    <div class="text-sm text-gray-600">Higher Tips</div>
+                  </div>
+                </div>
+                <button
+                  onclick="openContactModal('case_study_bistro')"
+                  class="btn-secondary w-full"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i> Read Full Story
+                </button>
+              </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="case-study-card fade-in">
+              <div
+                class="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-t-2xl text-white"
+              >
+                <div class="flex items-center justify-between mb-4">
+                  <div class="text-2xl font-bold">Coastal Electronics</div>
+                  <div class="text-purple-100 text-sm">Multi-Store Chain</div>
+                </div>
+                <div class="text-3xl font-bold mb-2">3 Locations Managed</div>
+                <div class="text-purple-100">From single dashboard</div>
+              </div>
+              <div class="bg-white p-6 rounded-b-2xl border-2 border-gray-100">
+                <h4 class="font-bold text-lg mb-3 text-gray-900">
+                  The Challenge
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  Managing inventory across multiple locations was chaotic and
+                  inefficient.
+                </p>
+                <h4 class="font-bold text-lg mb-3 text-gray-900">
+                  The Solution
+                </h4>
+                <p class="text-gray-600 mb-4">
+                  Cloud-based multi-store synchronization with centralized
+                  reporting.
+                </p>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-green-600">40%</div>
+                    <div class="text-sm text-gray-600">
+                      Operational Efficiency
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-blue-600">Ksh 1.2M</div>
+                    <div class="text-sm text-gray-600">Annual Savings</div>
+                  </div>
+                </div>
+                <button
+                  onclick="openContactModal('case_study_electronics')"
+                  class="btn-secondary w-full"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i> Read Full Story
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <div
+              class="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 max-w-4xl mx-auto"
+            >
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">
+                Ready to Join These Success Stories?
+              </h3>
+              <p class="text-gray-600 mb-6">
+                Don't let outdated systems hold your business back. Join
+                hundreds of successful Kenyan businesses using SwiftTill.
+              </p>
+              <button
+                class="btn-primary mr-4"
+                onclick="openContactModal('case_studies_cta')"
+              >
+                <i class="fas fa-rocket mr-2"></i> Start Your Success Story
+              </button>
+              <button class="btn-secondary" onclick="scrollToPricing()">
+                <i class="fas fa-calculator mr-2"></i> Calculate ROI
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section" id="faq">
+        <div class="container">
+          <div class="text-center mb-8 md:mb-12">
+            <span
+              class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
+            >
+              <i class="fas fa-question-circle mr-2"></i>COMMON QUESTIONS
+            </span>
+            <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+            <p class="section-subtitle fade-in">
+              Get answers to common questions about SwiftTill POS and how it can
+              help your business
+            </p>
+          </div>
+
+          <div class="faq-container">
+            <div class="faq-item fade-in">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <span class="faq-title">How long does installation take?</span>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-content">
+                <p class="faq-answer">
+                  Installation and setup typically takes 2-4 hours depending on
+                  your store setup and the number of products in your inventory.
+                  Our team handles everything, and you'll receive comprehensive
+                  on-site training as part of the package.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <span class="faq-title"
+                  >Is there any monthly or recurring fee?</span
+                >
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-content">
+                <p class="faq-answer">
+                  No! SwiftTill is a one-time payment of Ksh 20,000 for the
+                  complete software package. There are no monthly subscriptions,
+                  no hidden charges. You get free software updates for 1 year
+                  and 6 months of technical support included.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <span class="faq-title"
+                  >Can I use SwiftTill on multiple devices?</span
+                >
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-content">
+                <p class="faq-answer">
+                  Absolutely! SwiftTill POS is designed for multi-user access.
+                  You can have multiple terminals in your store all syncing in
+                  real-time. Plus, with our cloud sync feature, you can manage
+                  multiple locations from anywhere.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <span class="faq-title"
+                  >What payment methods does SwiftTill support?</span
+                >
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-content">
+                <p class="faq-answer">
+                  SwiftTill supports M-Pesa payments, card payments, cash,
+                  cheques, and custom payment methods. Automatic reconciliation
+                  means your finances are always up to date. Integration with
+                  QuickBooks makes accounting seamless.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <span class="faq-title"
+                  >What happens if I lose internet connection?</span
+                >
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-content">
+                <p class="faq-answer">
+                  SwiftTill works offline! You can continue processing sales,
+                  and data automatically syncs when your connection is restored.
+                  This ensures your business never stops, even during network
+                  outages.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <span class="faq-title"
+                  >Do you provide training and support?</span
+                >
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-content">
+                <p class="faq-answer">
+                  Yes! Training is included during installation. We also provide
+                  6 months of free technical support, video tutorials,
+                  documentation, and our support team is available
+                  Monday-Saturday. Extended support packages are available.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item fade-in">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <span class="faq-title">Is my business data secure?</span>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-content">
+                <p class="faq-answer">
+                  Security is our top priority. We use bank-grade encryption,
+                  PCI DSS compliance, automatic daily backups, and role-based
+                  access controls. Your data is protected with industry-leading
+                  security standards.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter Section -->
+      <section class="newsletter-section">
+        <div class="container">
+          <div class="max-w-4xl mx-auto text-center">
+            <div
+              class="bg-gradient-to-r from-blue-600 to-green-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden"
+            >
+              <div
+                class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"
+              ></div>
+              <div
+                class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"
+              ></div>
+
+              <div class="relative z-10">
+                <i
+                  class="fas fa-envelope-open-text text-4xl mb-4 text-blue-100"
+                ></i>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                  Stay Ahead of the Competition
+                </h2>
+                <p
+                  class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
+                >
+                  Get exclusive tips, industry insights, and early access to new
+                  features. Join 500+ business owners who trust SwiftTill.
+                </p>
+
+                <div class="max-w-md mx-auto">
+                  <div class="flex flex-col sm:flex-row gap-4">
+                    <input
+                      type="email"
+                      id="newsletterEmail"
+                      placeholder="Enter your email address"
+                      class="flex-1 px-6 py-4 rounded-xl border-0 focus:ring-2 focus:ring-white text-gray-900 text-lg"
+                    />
+                    <button
+                      id="newsletterSubscribe"
+                      class="btn-secondary bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 whitespace-nowrap"
+                    >
+                      <i class="fas fa-paper-plane mr-2"></i> Subscribe
+                    </button>
+                  </div>
+
+                  <div class="mt-4 text-sm text-blue-100">
+                    <i class="fas fa-shield-alt mr-1"></i>
+                    We respect your privacy. Unsubscribe at any time.
+                  </div>
+                </div>
+
+                <div
+                  class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center"
+                >
+                  <div>
+                    <div class="text-2xl font-bold mb-1">500+</div>
+                    <div class="text-blue-100">Business Owners</div>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold mb-1">Weekly</div>
+                    <div class="text-blue-100">Business Tips</div>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold mb-1">Free</div>
+                    <div class="text-blue-100">Forever</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials-section" id="testimonials">
+        <div class="container">
+          <div class="text-center mb-8 md:mb-12">
+            <span
+              class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
+            >
+              <i class="fas fa-comment-alt mr-2"></i>SUCCESS STORIES
+            </span>
+            <h2 class="section-title fade-in">Trusted by Kenyan Businesses</h2>
+            <p class="section-subtitle fade-in">
+              See what business owners across Kenya are saying about SwiftTill
+              POS.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="testimonial-card fade-in">
+              <div class="testimonial-avatar">JM</div>
+              <p class="text-gray-600 italic mb-4">
+                "SwiftTill has transformed our supermarket in Thika. Inventory
+                management that used to take hours now happens automatically.
+                Sales tracking is real-time!"
+              </p>
+              <div>
+                <h4 class="font-bold text-gray-900">John Mwangi</h4>
+                <p class="text-gray-500 text-sm">Owner, Thika Supermarket</p>
+              </div>
+              <div class="flex text-yellow-400 mt-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+              <div class="testimonial-avatar">SN</div>
+              <p class="text-gray-600 italic mb-4">
+                "As a restaurant owner in Nairobi, SwiftTill's table management
+                and kitchen display system have cut our order processing time by
+                50%. Customer satisfaction is up!"
+              </p>
+              <div>
+                <h4 class="font-bold text-gray-900">Sarah Njoroge</h4>
+                <p class="text-gray-500 text-sm">Manager, Nairobi Bistro</p>
+              </div>
+              <div class="flex text-yellow-400 mt-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+              <div class="testimonial-avatar">RK</div>
+              <p class="text-gray-600 italic mb-4">
+                "Managing my 3 electronics shops in Mombasa was challenging.
+                With SwiftTill's multi-store sync, I can monitor all locations
+                from my phone. The M-Pesa integration is perfect!"
+              </p>
+              <div>
+                <h4 class="font-bold text-gray-900">Robert Kamau</h4>
+                <p class="text-gray-500 text-sm">CEO, Coastal Electronics</p>
+              </div>
+              <div class="flex text-yellow-400 mt-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section" id="contact">
+        <div class="container text-center">
+          <h2 class="cta-title fade-in">Ready to Transform Your Business?</h2>
+          <p
+            class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-8 md:mb-10 fade-in"
           >
-            <i class="fas fa-comment-alt mr-2"></i>SUCCESS STORIES
-          </span>
-          <h2 class="section-title fade-in">Trusted by Kenyan Businesses</h2>
-          <p class="section-subtitle fade-in">
-            See what business owners across Kenya are saying about SwiftTill
-            POS.
+            Join hundreds of successful Kenyan businesses using SwiftTill POS to
+            streamline operations, increase sales, and gain valuable insights.
           </p>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="testimonial-card fade-in">
-            <div class="testimonial-avatar">JM</div>
-            <p class="text-gray-600 italic mb-4">
-              "SwiftTill has transformed our supermarket in Thika. Inventory
-              management that used to take hours now happens automatically.
-              Sales tracking is real-time!"
-            </p>
-            <div>
-              <h4 class="font-bold text-gray-900">John Mwangi</h4>
-              <p class="text-gray-500 text-sm">Owner, Thika Supermarket</p>
-            </div>
-            <div class="flex text-yellow-400 mt-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-
-          <div class="testimonial-card fade-in">
-            <div class="testimonial-avatar">SN</div>
-            <p class="text-gray-600 italic mb-4">
-              "As a restaurant owner in Nairobi, SwiftTill's table management
-              and kitchen display system have cut our order processing time by
-              50%. Customer satisfaction is up!"
-            </p>
-            <div>
-              <h4 class="font-bold text-gray-900">Sarah Njoroge</h4>
-              <p class="text-gray-500 text-sm">Manager, Nairobi Bistro</p>
-            </div>
-            <div class="flex text-yellow-400 mt-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-            </div>
-          </div>
-
-          <div class="testimonial-card fade-in">
-            <div class="testimonial-avatar">RK</div>
-            <p class="text-gray-600 italic mb-4">
-              "Managing my 3 electronics shops in Mombasa was challenging. With
-              SwiftTill's multi-store sync, I can monitor all locations from my
-              phone. The M-Pesa integration is perfect!"
-            </p>
-            <div>
-              <h4 class="font-bold text-gray-900">Robert Kamau</h4>
-              <p class="text-gray-500 text-sm">CEO, Coastal Electronics</p>
-            </div>
-            <div class="flex text-yellow-400 mt-4">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-      <div class="container text-center">
-        <h2 class="cta-title fade-in">Ready to Transform Your Business?</h2>
-        <p
-          class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-8 md:mb-10 fade-in"
-        >
-          Join hundreds of successful Kenyan businesses using SwiftTill POS to
-          streamline operations, increase sales, and gain valuable insights.
-        </p>
-
-        <div
-          class="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center fade-in"
-        >
-          <button
-            class="btn-secondary px-6 md:px-10 py-3 md:py-4 text-lg bg-transparent text-white border-2 border-white hover:bg-white/10"
-            onclick="openContactModal('cta_demo')"
+          <div
+            class="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center fade-in"
           >
-            <i class="fas fa-calendar-check mr-3"></i> Book SwiftTill Software
-          </button>
-          <button
-            class="btn-secondary px-6 md:px-10 py-3 md:py-4 text-lg bg-transparent text-white border-2 border-white hover:bg-white/10"
-            onclick="showContactInfo()"
-          >
-            <i class="fas fa-phone-alt mr-3"></i> Call Us Now
-          </button>
-          <button
-            class="btn-secondary px-6 md:px-10 py-3 md:py-4 text-lg bg-transparent text-white border-2 border-white hover:bg-white/10"
-            onclick="openWhatsApp()"
-          >
-            <i class="fab fa-whatsapp mr-3"></i> WhatsApp
-          </button>
-        </div>
-
-        <div
-          class="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-        >
-          <div class="fade-in">
-            <div class="text-3xl text-blue-200 mb-3">
-              <i class="fas fa-phone-alt"></i>
-            </div>
-            <h4 class="font-bold text-lg mb-2 text-white">Call Us</h4>
-            <a
-              href="tel:+254723795977"
-              class="text-blue-100 hover:text-white transition"
-              >+254 723 795 977</a
+            <button
+              class="btn-secondary px-6 md:px-10 py-3 md:py-4 text-lg bg-transparent text-white border-2 border-white hover:bg-white/10"
+              onclick="openContactModal('cta_demo')"
             >
-            <p class="text-blue-100 text-sm mt-1">
-              Mon-Sat, 9:00 AM - 6:00 PM EAT
-            </p>
-          </div>
-
-          <div class="fade-in">
-            <div class="text-3xl text-blue-200 mb-3">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <h4 class="font-bold text-lg mb-2 text-white">Email Us</h4>
-            <a
-              href="mailto:swifttilltechnologies@gmail.com"
-              class="text-blue-100 hover:text-white transition"
-              >swifttilltechnologies@gmail.com</a
+              <i class="fas fa-calendar-check mr-3"></i> Book SwiftTill Software
+            </button>
+            <button
+              class="btn-secondary px-6 md:px-10 py-3 md:py-4 text-lg bg-transparent text-white border-2 border-white hover:bg-white/10"
+              onclick="showContactInfo()"
             >
-            <p class="text-blue-100 text-sm mt-1">Response within 2 hours</p>
+              <i class="fas fa-phone-alt mr-3"></i> Call Us Now
+            </button>
+            <button
+              class="btn-secondary px-6 md:px-10 py-3 md:py-4 text-lg bg-transparent text-white border-2 border-white hover:bg-white/10"
+              onclick="openWhatsApp()"
+            >
+              <i class="fab fa-whatsapp mr-3"></i> WhatsApp
+            </button>
           </div>
 
-          <div class="fade-in">
-            <div class="text-3xl text-blue-200 mb-3">
-              <i class="fas fa-map-marker-alt"></i>
+          <div
+            class="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          >
+            <div class="fade-in">
+              <div class="text-3xl text-blue-200 mb-3">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2 text-white">Call Us</h4>
+              <a
+                href="tel:+254723795977"
+                class="text-blue-100 hover:text-white transition"
+                >+254 723 795 977</a
+              >
+              <p class="text-blue-100 text-sm mt-1">
+                Mon-Sat, 9:00 AM - 6:00 PM EAT
+              </p>
             </div>
-            <h4 class="font-bold text-lg mb-2 text-white">Location</h4>
-            <p class="text-blue-100">Nakuru, Kenya</p>
-            <p class="text-blue-100 text-sm mt-1">Serving all of Kenya</p>
+
+            <div class="fade-in">
+              <div class="text-3xl text-blue-200 mb-3">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2 text-white">Email Us</h4>
+              <a
+                href="mailto:swifttilltechnologies@gmail.com"
+                class="text-blue-100 hover:text-white transition"
+                >swifttilltechnologies@gmail.com</a
+              >
+              <p class="text-blue-100 text-sm mt-1">Response within 2 hours</p>
+            </div>
+
+            <div class="fade-in">
+              <div class="text-3xl text-blue-200 mb-3">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4 class="font-bold text-lg mb-2 text-white">Location</h4>
+              <p class="text-blue-100">Nakuru, Kenya</p>
+              <p class="text-blue-100 text-sm mt-1">Serving all of Kenya</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -5620,6 +5691,10 @@
                 <option value="salon">Salon/Spa</option>
                 <option value="other">Other</option>
               </select>
+              <div class="form-error" id="business_typeError">
+                <i class="fas fa-exclamation-circle mr-1"></i>Please select your
+                business type
+              </div>
             </div>
 
             <div class="form-group">
@@ -6735,14 +6810,18 @@
           parseFloat(document.getElementById("dailyTransactions").value) || 0;
         const transactionTime =
           parseFloat(document.getElementById("transactionTime").value) || 0;
-        const inventoryLoss =
-          parseFloat(document.getElementById("inventoryLoss").value) || 0;
+        const inventoryLossInput =
+          document.getElementById("inventoryLoss").value;
+        const inventoryLossValue = parseFloat(inventoryLossInput);
+        const inventoryLoss = Number.isFinite(inventoryLossValue)
+          ? inventoryLossValue
+          : NaN;
 
         if (
           !monthlyRevenue ||
           !dailyTransactions ||
           !transactionTime ||
-          inventoryLoss === ""
+          Number.isNaN(inventoryLoss)
         ) {
           document.getElementById("roiTip").textContent =
             "Please fill in all fields to see your savings.";
@@ -6930,5 +7009,6 @@
         }
       });
     </script>
+    <script src="resources/ServerStorageSync.js"></script>
   </body>
 </html>
