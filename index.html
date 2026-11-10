@@ -3,16 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      SwiftTill POS | All-in-One Business Management Solution for Kenya
-    </title>
+    <title>SwiftTill POS | Retail Point of Sale Software</title>
     <meta
       name="description"
-      content="SwiftTill POS - Complete business management system for retail stores, restaurants, and service businesses in Kenya. Streamline operations, boost sales, and gain insights with AI-powered analytics, M-Pesa integration, and real-time inventory tracking."
+      content="SwiftTill is a desktop point-of-sale system for Kenyan retailers, with fast checkout, product and stock management, sales history, purchasing, returns, and business reports."
     />
     <meta
       name="keywords"
-      content="POS system Kenya, business management, retail software, restaurant POS, inventory management, Kenyan businesses, M-Pesa payment, sales tracking, AI analytics, cloud sync, multi-store management"
+      content="POS system Kenya, retail point of sale, inventory management, stock take, sales reports, purchases, supplier management, customer accounts, SwiftTill"
     />
     <meta name="author" content="SwiftTill Technologies" />
     <meta name="robots" content="index, follow" />
@@ -29,7 +27,7 @@
     />
     <meta
       property="og:description"
-      content="All-in-one business management platform designed for Kenyan businesses. Streamline operations, boost sales, and gain valuable insights. 500+ trusted businesses."
+      content="A desktop point-of-sale system for everyday retail operations: checkout, inventory, purchasing, customers, and reports."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -43,7 +41,7 @@
     />
     <meta
       name="twitter:description"
-      content="Trusted POS system for 500+ Kenyan businesses. Real-time analytics, inventory management, M-Pesa integration."
+      content="SwiftTill POS brings checkout, stock control, purchasing, and sales reporting together in one desktop app."
     />
 
     <!-- Favicon -->
@@ -66,6 +64,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Syne:wght@500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- EmailJS -->
@@ -77,19 +79,9 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "SwiftTill POS",
-        "description": "All-in-one business management platform for Kenya with real-time sales tracking, inventory management, and M-Pesa integration",
+        "description": "Desktop point-of-sale software for retail sales, inventory, purchasing, customer accounts, and reports.",
         "url": "https://swifttill.com",
-        "applicationCategory": "BusinessApplication",
-        "offers": {
-          "@type": "Offer",
-          "price": "20000",
-          "priceCurrency": "KES"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "150"
-        }
+        "applicationCategory": "BusinessApplication"
       }
     </script>
 
@@ -811,7 +803,7 @@
       }
 
       .stat-number {
-        font-size: 2.5rem;
+        font-size: clamp(1.25rem, 2vw, 2rem);
         font-weight: 800;
         background: var(--gradient-blue);
         -webkit-background-clip: text;
@@ -1055,6 +1047,226 @@
         transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         font-size: 0.9rem;
         white-space: nowrap;
+      }
+
+      /* SwiftTill brand layer: warm, editorial contrast inspired by the companion site. */
+      :root {
+        --primary-blue: #0066aa;
+        --secondary-blue: #0099dd;
+        --accent-blue: #00d4ff;
+        --success-green: #00c9a7;
+        --warning-orange: #ff9800;
+        --text-primary: #1a1c1e;
+        --text-secondary: #4a5058;
+        --border-color: #d9e7ea;
+        --bg-secondary: #eef8f8;
+        --gradient-blue: linear-gradient(145deg, #003d52 0%, #0066aa 48%, #00c9a7 100%);
+        --gradient-vibrant: linear-gradient(145deg, #003d52 0%, #0066aa 48%, #00c9a7 100%);
+      }
+
+      body {
+        background: #fef8f0;
+        font-family: "Outfit", "Inter", system-ui, sans-serif;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .logo,
+      .splash-title {
+        font-family: "Syne", "Outfit", Georgia, serif;
+      }
+
+      .announcement-bar {
+        position: relative;
+        z-index: 1100;
+        background: linear-gradient(135deg, #003d52 0%, #0066aa 58%, #0099dd 100%);
+        color: #fff;
+        box-shadow: 0 10px 28px rgba(0, 61, 82, 0.16);
+      }
+
+      .announcement-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        min-height: 42px;
+        padding: 0.45rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        text-align: center;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .announcement-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.25rem 0.65rem;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        text-transform: uppercase;
+        font-size: 0.64rem;
+        white-space: nowrap;
+      }
+
+      .announcement-close {
+        width: 26px;
+        height: 26px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .announcement-close:hover {
+        background: rgba(255, 255, 255, 0.24);
+      }
+
+      .main-header {
+        top: 42px;
+        border-bottom: 1px solid rgba(0, 102, 170, 0.14);
+        box-shadow: 0 8px 24px rgba(0, 61, 82, 0.08);
+      }
+
+      .logo img.brand-logo {
+        border-radius: 14px;
+        border-color: rgba(0, 153, 221, 0.25);
+        box-shadow: 0 10px 24px rgba(0, 102, 170, 0.22);
+      }
+
+      .logo span {
+        background: linear-gradient(90deg, #003d52, #0066aa, #00c9a7);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .nav-link:hover {
+        color: #0066aa;
+      }
+
+      .nav-link::after {
+        background: linear-gradient(90deg, #0066aa, #00c9a7, #ff9800);
+      }
+
+      .hero-section {
+        min-height: calc(100vh - 4rem);
+        padding-top: 132px;
+        background:
+          radial-gradient(circle at 92% 8%, rgba(0, 212, 255, 0.16), transparent 28%),
+          radial-gradient(circle at 8% 84%, rgba(255, 152, 0, 0.1), transparent 24%),
+          linear-gradient(145deg, #fef8f0 0%, #e8f6f9 58%, #fdfdfc 100%);
+      }
+
+      .hero-title,
+      .section-title {
+        background: linear-gradient(145deg, #1a1c1e 0%, #0066aa 58%, #00a98f 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .hero-subtitle,
+      .section-subtitle {
+        color: #4a5058;
+      }
+
+      .hero-image-wrapper {
+        border-radius: 24px;
+        border-color: rgba(0, 153, 221, 0.2);
+        box-shadow: 0 26px 70px rgba(0, 102, 170, 0.18);
+      }
+
+      .features-section:nth-of-type(even),
+      .showcase-section {
+        background: #eef8f8;
+      }
+
+      .feature-card,
+      .integration-card,
+      .pricing-card {
+        border-radius: 14px;
+        border-color: #d9e7ea;
+        box-shadow: 0 10px 28px rgba(0, 102, 170, 0.09);
+      }
+
+      .feature-card:hover,
+      .integration-card:hover,
+      .pricing-card:hover {
+        border-color: rgba(0, 153, 221, 0.48);
+        box-shadow: 0 18px 38px rgba(0, 102, 170, 0.15);
+      }
+
+      .showcase-container {
+        border-radius: 18px;
+        border-color: rgba(0, 153, 221, 0.2);
+      }
+
+      .showcase-header {
+        background: linear-gradient(145deg, #003d52 0%, #0066aa 60%, #00a98f 100%);
+      }
+
+      .btn-primary {
+        background: linear-gradient(145deg, #0066aa 0%, #0099dd 58%, #00c9a7 100%);
+        box-shadow: 0 10px 24px rgba(0, 102, 170, 0.25);
+      }
+
+      .btn-primary:hover {
+        box-shadow: 0 16px 32px rgba(0, 102, 170, 0.34);
+      }
+
+      .btn-secondary {
+        color: #0066aa;
+        border-color: rgba(0, 102, 170, 0.3);
+      }
+
+      .btn-secondary:hover {
+        background: #e8f6f9;
+        border-color: #0099dd;
+      }
+
+      .hero-live-strip {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.7rem;
+        margin-top: 1.5rem;
+        color: #4a5058;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .hero-live-strip span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.45rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(0, 153, 221, 0.16);
+      }
+
+      .hero-live-strip i {
+        color: #00a98f;
+      }
+
+      @media (max-width: 768px) {
+        .main-header {
+          top: 42px;
+        }
+        .announcement-inner {
+          min-height: 48px;
+          padding: 0.4rem 0.75rem;
+          font-size: 0.68rem;
+        }
+        .hero-section {
+          padding-top: 128px;
+        }
       }
 
       .showcase-tab:hover {
@@ -2842,7 +3054,7 @@
 
         .pricing-card {
           padding: 2.5rem 2rem;
-          min-height: auto;
+          min-height: 0;
         }
 
         .pricing-grid .pricing-card.popular {
@@ -3213,6 +3425,150 @@
         font-size: 0.95rem;
       }
 
+      /* ==================== BUSINESS FIT FINDER ==================== */
+      .fit-section {
+        padding: clamp(3rem, 5vw, 6rem) 0;
+        background: #102a43;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .fit-section::after {
+        content: "";
+        position: absolute;
+        width: 420px;
+        height: 420px;
+        right: -180px;
+        top: -180px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        box-shadow: 0 0 0 42px rgba(255, 255, 255, 0.04), 0 0 0 84px rgba(255, 255, 255, 0.03);
+      }
+
+      .fit-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: 3rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .fit-kicker {
+        color: #9fe7d5;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .fit-title {
+        color: white;
+        font-family: "Syne", sans-serif;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1.05;
+        margin: 0.8rem 0 1rem;
+      }
+
+      .fit-copy {
+        color: #c9d8e8;
+        line-height: 1.7;
+        max-width: 32rem;
+      }
+
+      .fit-panel {
+        background: #f8fafc;
+        color: #102a43;
+        border-radius: 20px;
+        padding: clamp(1.25rem, 3vw, 2rem);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+      }
+
+      .fit-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.7rem;
+        margin: 1rem 0 1.25rem;
+      }
+
+      .fit-option {
+        border: 1px solid #d9e2ec;
+        background: white;
+        border-radius: 12px;
+        padding: 1rem 0.6rem;
+        color: #486581;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 700;
+        transition: 0.2s ease;
+      }
+
+      .fit-option i {
+        display: block;
+        color: #1d7a6b;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .fit-option:hover,
+      .fit-option.active {
+        background: #e8f7f2;
+        border-color: #2a9d8f;
+        color: #102a43;
+        transform: translateY(-2px);
+      }
+
+      .fit-result {
+        border-left: 4px solid #2a9d8f;
+        background: #e8f7f2;
+        padding: 1rem 1.1rem;
+        min-height: 7rem;
+      }
+
+      .fit-result h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.25rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .fit-result p {
+        color: #486581;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .theme-toggle {
+        border: 1px solid #d9e2ec;
+        background: white;
+        color: #102a43;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .theme-toggle:hover { transform: translateY(-2px); border-color: var(--primary-blue); }
+
+      body.high-contrast {
+        --text-secondary: #334e68;
+        --border-color: #9fb3c8;
+      }
+
+      body.high-contrast .theme-toggle { background: #102a43; color: white; border-color: #486581; }
+
+      @media (max-width: 800px) {
+        .fit-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+      }
+
+      @media (max-width: 480px) {
+        .fit-options { grid-template-columns: 1fr; }
+        .fit-option { display: flex; align-items: center; gap: 0.7rem; text-align: left; padding: 0.8rem; }
+        .fit-option i { margin: 0; }
+      }
+
       /* ==================== PRINT STYLES ==================== */
       @media print {
         .main-header,
@@ -3256,6 +3612,123 @@
       .icon-green-teal {
         color: #14b8a6;
       }
+
+      /* Final logo-matched blue and white theme */
+      :root {
+        --primary-blue: #0057b8;
+        --secondary-blue: #1677d2;
+        --accent-blue: #2f9bf4;
+        --light-blue: #eef7ff;
+        --success-green: #1687d9;
+        --warning-orange: #4d8fca;
+        --text-primary: #102a43;
+        --text-secondary: #486581;
+        --border-color: #d7e8f7;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f4f9fe;
+        --bg-tertiary: #e8f3fc;
+        --gradient-blue: linear-gradient(135deg, #003b78 0%, #0057b8 55%, #2f9bf4 100%);
+        --gradient-vibrant: linear-gradient(135deg, #003b78 0%, #0057b8 55%, #2f9bf4 100%);
+      }
+
+      body { background: #ffffff; color: #102a43; }
+      .announcement-bar,
+      .showcase-header,
+      .btn-primary,
+      .fit-section,
+      .cta-section {
+        background: linear-gradient(135deg, #003b78 0%, #0057b8 58%, #1677d2 100%);
+      }
+      .main-header { border-bottom-color: rgba(0, 87, 184, 0.16); }
+      .logo span,
+      .hero-title,
+      .section-title {
+        background: linear-gradient(135deg, #102a43 0%, #0057b8 68%, #2f9bf4 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+      .hero-section {
+        background:
+          radial-gradient(circle at 92% 8%, rgba(47, 155, 244, 0.16), transparent 28%),
+          radial-gradient(circle at 8% 84%, rgba(0, 87, 184, 0.08), transparent 24%),
+          linear-gradient(145deg, #ffffff 0%, #eef7ff 100%);
+      }
+      .features-section:nth-of-type(even),
+      .showcase-section,
+      .integrations-section,
+      .pricing-section,
+      .faq-section { background: #f4f9fe; }
+      .feature-card,
+      .integration-card,
+      .pricing-card,
+      .faq-item,
+      .trust-badge { border-color: #d7e8f7; background: #ffffff; }
+      .feature-card:hover,
+      .integration-card:hover,
+      .pricing-card:hover,
+      .faq-item:hover { border-color: #2f9bf4; }
+      .feature-card:nth-child(n) .feature-icon,
+      .faq-toggle,
+      #backToTop { background: linear-gradient(135deg, #0057b8, #2f9bf4); }
+      .fit-kicker { color: #91ceff; }
+      .fit-option i { color: #0057b8; }
+      .fit-option:hover,
+      .fit-option.active,
+      .fit-result { background: #eef7ff; border-color: #2f9bf4; }
+      .btn-secondary { color: #0057b8; border-color: rgba(0, 87, 184, 0.32); }
+      .btn-secondary:hover { background: #eef7ff; border-color: #1677d2; }
+      .icon-green,
+      .icon-orange,
+      .icon-blue,
+      .icon-green-teal,
+      .icon-purple { color: #1677d2; }
+      .hero-live-strip i { color: #1677d2; }
+      .quick-actions-toggle { background: #003b78; }
+
+      /* Keep utility-class accents inside the same brand family. */
+      .badge-green,
+      .badge-orange,
+      .bg-green-50,
+      .bg-green-100,
+      .bg-yellow-100,
+      .bg-purple-50,
+      .bg-gradient-to-r.from-blue-600.to-green-600,
+      .bg-gradient-to-br.from-green-500.to-green-600,
+      .bg-gradient-to-br.from-purple-500.to-purple-600,
+      .bg-gradient-to-r.from-blue-50.to-green-50,
+      .bg-gradient-to-r.from-green-50.to-emerald-50 {
+        background: #eef7ff !important;
+      }
+      .text-green-500,
+      .text-green-600,
+      .text-green-700,
+      .text-green-800,
+      .text-green-100,
+      .text-yellow-400,
+      .text-yellow-500,
+      .text-yellow-600,
+      .text-yellow-800,
+      .text-purple-500,
+      .text-purple-600,
+      .text-purple-700,
+      .text-purple-800,
+      .text-purple-100,
+      .icon-green,
+      .icon-orange,
+      .icon-green-teal,
+      .icon-purple,
+      .icon-pink { color: #1677d2 !important; }
+      .bg-green-500,
+      .bg-green-600,
+      .bg-purple-600,
+      .border-green-200,
+      .border-green-500 { border-color: #b9d9f5 !important; }
+      .bg-green-500,
+      .bg-green-600,
+      .bg-purple-600 { background: #1677d2 !important; }
+      .border-l-4.border-green-500 { border-left-color: #1677d2 !important; }
+      .badge-green { color: #0057b8 !important; border-color: #a9d3f4 !important; }
+      .badge-orange { color: #0057b8 !important; border-color: #a9d3f4 !important; }
       .icon-purple {
         color: #8b5cf6;
       }
@@ -3269,8 +3742,138 @@
         color: #6366f1;
       }
     </style>
+    <style>
+      :root {
+        --primary-blue: #1d63ed;
+        --secondary-blue: #1650b8;
+        --accent-blue: #3b82f6;
+        --light-blue: #eff6ff;
+        --bg-secondary: #f3f6fc;
+        --text-primary: #0f2240;
+        --text-secondary: #56688a;
+        --border-color: #dde5f1;
+        --shadow-sm: 0 1px 2px rgba(15, 34, 64, 0.06);
+        --shadow-md: 0 8px 24px rgba(15, 34, 64, 0.08);
+      }
+
+      body {
+        color: #0f2240;
+        background: #f3f6fc;
+      }
+
+      .hero-title,
+      .section-title,
+      .fit-title {
+        font-family: "Manrope", "Inter", sans-serif;
+        letter-spacing: -0.035em;
+      }
+
+      .main-header,
+      .main-header.scrolled {
+        background: rgba(255, 255, 255, 0.96);
+        border-bottom: 1px solid #dde5f1;
+        box-shadow: 0 4px 14px rgba(11, 31, 68, 0.06);
+      }
+
+      .logo span {
+        background: linear-gradient(90deg, #0f2f66, #1d63ed);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .hero-section {
+        background:
+          radial-gradient(ellipse at 82% 35%, rgba(147, 197, 253, 0.25), transparent 40%),
+          linear-gradient(135deg, #f3f6fc, #ffffff 68%);
+      }
+
+      .hero-title,
+      .section-title {
+        background: linear-gradient(100deg, #0b1f44, #1d63ed);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .hero-image-wrapper {
+        max-width: 680px;
+        border: 1px solid #dde5f1;
+        border-radius: 16px;
+        background: #0b1f44;
+        box-shadow: 0 24px 64px rgba(15, 34, 64, 0.18);
+      }
+
+      .hero-image-wrapper::before {
+        display: none;
+      }
+
+      .hero-product-video {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        background: #0b1f44;
+      }
+
+      .dashboard-preview {
+        display: none !important;
+      }
+
+      .showcase-section,
+      .roi-calculator-section,
+      .pricing-section,
+      .trust-section,
+      .case-studies-section,
+      .newsletter-section,
+      .testimonials-section {
+        display: none !important;
+      }
+
+      .feature-card,
+      .integration-card,
+      .pricing-card,
+      .case-study-card,
+      .faq-item {
+        border-color: #dde5f1;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(15, 34, 64, 0.06);
+      }
+
+      .feature-card:hover,
+      .integration-card:hover,
+      .pricing-card:hover {
+        border-color: #bfdbfe;
+        box-shadow: 0 14px 32px rgba(15, 34, 64, 0.1);
+      }
+
+      .btn-primary,
+      .plan-action {
+        background: linear-gradient(135deg, #1650b8, #1d63ed);
+        box-shadow: 0 8px 18px rgba(29, 99, 237, 0.2);
+      }
+
+      .fit-section,
+      .features-section,
+      .showcase-section,
+      .integrations-section,
+      .pricing-section,
+      .faq-section {
+        background-color: #f3f6fc;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-image-wrapper {
+          animation: none;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div class="announcement-bar" id="announcementBar" aria-live="polite">
+      <div class="announcement-inner">
+        <span class="announcement-tag"><i class="fas fa-bolt"></i> SwiftTill update</span>
+        <span>Checkout, stock control, and business reporting in one desktop workspace.</span>
+        <button class="announcement-close" type="button" aria-label="Dismiss update" onclick="closeAnnouncementBar()">&times;</button>
+      </div>
+    </div>
+
     <!-- Glowing Orbs -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -3303,10 +3906,10 @@
           </div>
           <div class="splash-feature">
             <i class="fas fa-mobile-alt"></i>
-            <span>M-Pesa Integration</span>
+            <span>Retail POS</span>
           </div>
           <div class="splash-feature">
-            <i class="fas fa-cloud"></i>
+            <i class="fas fa-desktop"></i>
             <span>Cloud Sync</span>
           </div>
         </div>
@@ -3350,13 +3953,20 @@
           <nav class="hidden md:flex space-x-8">
             <a href="#home" class="nav-link">Home</a>
             <a href="#features" class="nav-link">Features</a>
-            <a href="#showcase" class="nav-link">Showcase</a>
-            <a href="#integrations" class="nav-link">Integrations</a>
-            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#integrations" class="nav-link">Workspaces</a>
             <a href="#faq" class="nav-link">FAQ</a>
             <a href="#contact" class="nav-link">Contact</a>
           </nav>
           <div class="flex items-center space-x-4">
+            <button
+              class="theme-toggle hidden md:inline-flex items-center justify-center"
+              id="themeToggle"
+              type="button"
+              aria-label="Increase contrast"
+              title="Increase contrast"
+            >
+              <i class="fas fa-adjust"></i>
+            </button>
             <button
               class="btn-secondary hidden md:inline-flex"
               onclick="showContactInfo()"
@@ -3404,14 +4014,8 @@
           <a href="#features" class="nav-link" onclick="closeMobileMenu()"
             >Features</a
           >
-          <a href="#showcase" class="nav-link" onclick="closeMobileMenu()"
-            >Showcase</a
-          >
           <a href="#integrations" class="nav-link" onclick="closeMobileMenu()"
-            >Integrations</a
-          >
-          <a href="#pricing" class="nav-link" onclick="closeMobileMenu()"
-            >Pricing</a
+            >Workspaces</a
           >
           <a href="#faq" class="nav-link" onclick="closeMobileMenu()">FAQ</a>
           <a href="#contact" class="nav-link" onclick="closeMobileMenu()"
@@ -3463,19 +4067,17 @@
                   <i class="fas fa-bolt mr-1"></i> Made for Kenya
                 </span>
                 <span class="badge badge-blue">
-                  <i class="fas fa-check-circle mr-1"></i> Trusted by 500+
-                  Businesses
+                  <i class="fas fa-desktop mr-1"></i> Built for everyday retail
                 </span>
               </div>
 
               <h1 class="hero-title">
-                Transform Your Business Operations with SwiftTill POS
+                Every sale. Every shelf. Every shift.
               </h1>
               <p class="hero-subtitle">
-                The all-in-one business management platform designed to
-                streamline operations, boost sales, and provide actionable
-                insights for retail stores, restaurants, and service businesses
-                across Kenya.
+                SwiftTill brings checkout, product and stock management,
+                purchasing, customer accounts, and sales reports together in
+                one desktop point-of-sale system for Kenyan retailers.
               </p>
 
               <div class="flex flex-wrap gap-4 mt-8">
@@ -3486,35 +4088,49 @@
                   <i class="fas fa-calendar-check"></i>
                   <span>Book SwiftTill POS</span>
                 </button>
-                <button class="btn-secondary" onclick="scrollToPricing()">
+                <button class="btn-secondary" onclick="openContactModal('hero_pricing')">
                   <i class="fas fa-tag"></i>
-                  <span>View Pricing</span>
+                  <span>Request a demo</span>
                 </button>
               </div>
 
               <div class="hero-stats">
                 <div class="stat-item">
-                  <div class="stat-number">500+</div>
-                  <div class="stat-label">Kenyan Businesses</div>
+                  <div class="stat-number">POS</div>
+                  <div class="stat-label">Fast checkout</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-number">99.9%</div>
-                  <div class="stat-label">Uptime</div>
+                  <div class="stat-number">Stock</div>
+                  <div class="stat-label">Inventory control</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-number">24/7</div>
-                  <div class="stat-label">Support</div>
+                  <div class="stat-number">Reports</div>
+                  <div class="stat-label">Business insights</div>
                 </div>
+              </div>
+              <div class="hero-live-strip" aria-label="SwiftTill service status">
+                <span><i class="fas fa-cash-register"></i> Point-of-sale checkout</span>
+                <span><i class="fas fa-boxes-stacked"></i> Stock and purchasing</span>
+                <span><i class="fas fa-chart-line"></i> Sales and reports</span>
               </div>
             </div>
 
             <div class="fade-in">
               <div class="hero-image-wrapper mb-8">
-                <img
-                  src="./logoo.png"
-                  alt="SwiftTill POS product preview"
-                  class="hero-image"
-                />
+                <video
+                  class="hero-image hero-product-video"
+                  controls
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="./images/swifttill-pos-poster.jpg"
+                  aria-label="SwiftTill point-of-sale app demonstration"
+                >
+                  <source src="./images/swifttill-pos-demo.mp4" type="video/mp4" />
+                  Your browser does not support embedded video.
+                </video>
               </div>
               <div class="dashboard-preview">
                 <div class="dashboard-header">
@@ -3523,12 +4139,12 @@
                     <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                     <span class="text-sm font-medium text-gray-600 ml-2"
-                      >Live Dashboard</span
+                      >Sample dashboard</span
                     >
                   </div>
                   <div class="text-sm text-gray-500">
-                    <i class="fas fa-circle text-green-500 mr-1"></i> Real-time
-                    Data
+                    <i class="fas fa-circle text-green-500 mr-1"></i> Example
+                    figures
                   </div>
                 </div>
                 <div class="p-4 md:p-6">
@@ -3617,6 +4233,32 @@
         </div>
       </section>
 
+      <!-- Business Fit Finder -->
+      <section class="fit-section" id="fit-finder">
+        <div class="container">
+          <div class="fit-layout">
+            <div class="fade-in">
+              <span class="fit-kicker">Start with your workflow</span>
+              <h2 class="fit-title">A better counter begins with the right setup.</h2>
+              <p class="fit-copy">Choose the way you sell and SwiftTill will point you to the tools that matter most. No sales pitch, just a faster route to the right demo.</p>
+            </div>
+            <div class="fit-panel fade-in">
+              <p class="text-sm font-bold text-gray-500">What do you want to manage?</p>
+              <div class="fit-options" role="group" aria-label="Store workflow">
+                <button class="fit-option active" type="button" data-fit="checkout"><i class="fas fa-cash-register"></i>Checkout</button>
+                <button class="fit-option" type="button" data-fit="stock"><i class="fas fa-boxes-stacked"></i>Stock</button>
+                <button class="fit-option" type="button" data-fit="reports"><i class="fas fa-chart-line"></i>Reports</button>
+              </div>
+              <div class="fit-result" aria-live="polite">
+                <h3 id="fitResultTitle">A smoother checkout</h3>
+                <p id="fitResultText">Find products, record sales, and keep the till moving from one focused screen.</p>
+              </div>
+              <button class="btn-primary mt-5" type="button" onclick="openContactModal('fit_finder')"><i class="fas fa-arrow-right"></i> See it in a live demo</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Feature Highlights -->
       <section class="features-section" id="features">
         <div class="container">
@@ -3624,14 +4266,14 @@
             <span
               class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
             >
-              <i class="fas fa-star mr-2"></i>REVOLUTIONARY FEATURES
+              <i class="fas fa-list-check mr-2"></i>MADE FOR DAILY RETAIL
             </span>
             <h2 class="section-title fade-in">
-              Everything You Need to Grow Your Business
+              The tools your store uses every day
             </h2>
             <p class="section-subtitle fade-in">
-              SwiftTill POS combines cutting-edge technology with intuitive
-              design to deliver unparalleled business management capabilities.
+              From a quick sale to a stock take or end-of-day report, each
+              workspace is built around a real retail task.
             </p>
           </div>
 
@@ -3641,24 +4283,23 @@
               <div class="feature-icon">
                 <i class="fas fa-bolt"></i>
               </div>
-              <h3 class="feature-title">Lightning-Fast Transactions</h3>
+              <h3 class="feature-title">Point-of-sale checkout</h3>
               <p class="text-gray-600">
-                Process sales in seconds with our optimized checkout system.
-                Support for barcode scanning, touch screen, and keyboard
-                shortcuts.
+                Ring up products, apply discounts, and record payments in a
+                focused selling screen.
               </p>
               <ul class="mt-4 space-y-2">
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>One-touch product lookup</span>
+                  <span>Search or scan products</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Split payments & discounts</span>
+                  <span>Discounts and payment methods</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Customer loyalty programs</span>
+                  <span>Link sales to customers</span>
                 </li>
               </ul>
             </div>
@@ -3668,23 +4309,23 @@
               <div class="feature-icon">
                 <i class="fas fa-chart-network"></i>
               </div>
-              <h3 class="feature-title">Advanced Analytics Dashboard</h3>
+              <h3 class="feature-title">Sales and business reports</h3>
               <p class="text-gray-600">
-                Gain deep insights into your business performance with real-time
-                analytics, predictive trends, and customizable reports.
+                Review sales, profit, expenses, VAT, and payment breakdowns for
+                a selected period.
               </p>
               <ul class="mt-4 space-y-2">
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Real-time sales tracking</span>
+                  <span>Sales and profit summaries</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Inventory forecasting</span>
+                  <span>VAT and expense reports</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Customer behavior analysis</span>
+                  <span>Breakdowns by product and cashier</span>
                 </li>
               </ul>
             </div>
@@ -3692,25 +4333,25 @@
             <!-- Feature 3 -->
             <div class="feature-card fade-in">
               <div class="feature-icon">
-                <i class="fas fa-cloud-upload-alt"></i>
+                <i class="fas fa-boxes-stacked"></i>
               </div>
-              <h3 class="feature-title">Smart Cloud Sync</h3>
+              <h3 class="feature-title">Inventory and stock take</h3>
               <p class="text-gray-600">
-                Access your business data from anywhere with secure cloud
-                synchronization. Multi-store management and automatic backups.
+                See what is in stock, spot low or expiring items, and record
+                stock corrections with a reason.
               </p>
               <ul class="mt-4 space-y-2">
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Multi-store synchronization</span>
+                  <span>Low, out-of-stock, and expiry alerts</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Automatic daily backups</span>
+                  <span>Stock movement history</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Mobile app access</span>
+                  <span>Guided stock-take workflow</span>
                 </li>
               </ul>
             </div>
@@ -3718,25 +4359,25 @@
             <!-- Feature 4 -->
             <div class="feature-card fade-in">
               <div class="feature-icon">
-                <i class="fas fa-robot"></i>
+                <i class="fas fa-truck-ramp-box"></i>
               </div>
-              <h3 class="feature-title">AI-Powered Insights</h3>
+              <h3 class="feature-title">Purchases and suppliers</h3>
               <p class="text-gray-600">
-                Leverage artificial intelligence to predict sales trends,
-                optimize inventory, and personalize customer experiences.
+                Keep supplier details and incoming stock purchases alongside
+                the products they replenish.
               </p>
               <ul class="mt-4 space-y-2">
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Predictive inventory management</span>
+                  <span>Record supplier purchases</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Personalized recommendations</span>
+                  <span>Track purchase costs and quantities</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Automated reordering</span>
+                  <span>Update stock from deliveries</span>
                 </li>
               </ul>
             </div>
@@ -3744,25 +4385,25 @@
             <!-- Feature 5 -->
             <div class="feature-card fade-in">
               <div class="feature-icon">
-                <i class="fas fa-shield-alt"></i>
+                <i class="fas fa-users"></i>
               </div>
-              <h3 class="feature-title">Enterprise-Grade Security</h3>
+              <h3 class="feature-title">Customers and credit sales</h3>
               <p class="text-gray-600">
-                Protect your business data with bank-level encryption,
-                role-based access controls, and comprehensive audit trails.
+                Keep customer details and sales history together, and follow up
+                on credit balances from a dedicated workspace.
               </p>
               <ul class="mt-4 space-y-2">
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>End-to-end encryption</span>
+                  <span>Customer records and purchase history</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Role-based permissions</span>
+                  <span>Credit sales and balances</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>PCI DSS compliance</span>
+                  <span>Customer-linked transactions</span>
                 </li>
               </ul>
             </div>
@@ -3772,24 +4413,23 @@
               <div class="feature-icon">
                 <i class="fas fa-cogs"></i>
               </div>
-              <h3 class="feature-title">Customizable Workflows</h3>
+              <h3 class="feature-title">Purchases, orders, and sales history</h3>
               <p class="text-gray-600">
-                Tailor SwiftTill to your specific business needs with
-                customizable workflows, receipt templates, and reporting
-                formats.
+                Find past transactions, review orders, and keep a clear record
+                of what happened at the till.
               </p>
               <ul class="mt-4 space-y-2">
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Custom receipt templates</span>
+                  <span>Search and review sales</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Adaptable workflow designer</span>
+                  <span>View order details</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Branded communications</span>
+                  <span>Reprint receipts when needed</span>
                 </li>
               </ul>
             </div>
@@ -3797,25 +4437,25 @@
             <!-- Feature 7 -->
             <div class="feature-card fade-in">
               <div class="feature-icon">
-                <i class="fas fa-gift"></i>
+                <i class="fas fa-rotate-left"></i>
               </div>
-              <h3 class="feature-title">Smart Loyalty & Rewards</h3>
+              <h3 class="feature-title">Returns and promotions</h3>
               <p class="text-gray-600">
-                Keep customers coming back with built-in loyalty programs,
-                points management, and instant rewards.
+                Handle returned items and manage product promotions from the
+                same workspace as your daily operations.
               </p>
               <ul class="mt-4 space-y-2">
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Reward repeat customers automatically</span>
+                  <span>Record and review returns</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Build offers from purchase history</span>
+                  <span>Manage product promotions</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Track loyal customer growth</span>
+                  <span>Keep transaction records together</span>
                 </li>
               </ul>
             </div>
@@ -3823,25 +4463,25 @@
             <!-- Feature 8 -->
             <div class="feature-card fade-in">
               <div class="feature-icon">
-                <i class="fas fa-wifi"></i>
+                <i class="fas fa-user-clock"></i>
               </div>
-              <h3 class="feature-title">Offline-First Reliability</h3>
+              <h3 class="feature-title">Staff and shift visibility</h3>
               <p class="text-gray-600">
-                Continue selling even when internet drops. SwiftTill syncs data
-                automatically once your connection returns.
+                Keep an eye on team activity with staff tools, clock-ins, and
+                user logs.
               </p>
               <ul class="mt-4 space-y-2">
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Offline sales processing</span>
+                  <span>Staff accounts and roles</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Automatic sync when online</span>
+                  <span>Clock-in and clock-out</span>
                 </li>
                 <li class="flex items-center text-gray-600">
                   <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                  <span>Zero lost sales during outages</span>
+                  <span>Review user activity logs</span>
                 </li>
               </ul>
             </div>
@@ -3850,7 +4490,7 @@
       </section>
 
       <!-- Visual Showcase -->
-      <section class="showcase-section" id="showcase">
+      <section class="showcase-section" id="legacy-showcase">
         <div class="container">
           <div class="text-center mb-8 md:mb-12">
             <span
@@ -4243,21 +4883,20 @@
         </div>
       </section>
 
-      <!-- Integrations -->
       <section class="integrations-section" id="integrations">
         <div class="container">
           <div class="text-center mb-8 md:mb-12">
             <span
               class="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4"
             >
-              <i class="fas fa-plug mr-2"></i>SEAMLESS INTEGRATIONS
+              <i class="fas fa-layer-group mr-2"></i>ONE RETAIL WORKSPACE
             </span>
             <h2 class="section-title fade-in">
-              Connect With Your Favorite Tools
+              Every task has a place
             </h2>
             <p class="section-subtitle fade-in">
-              SwiftTill connects with the tools you already use to create a
-              unified business ecosystem.
+              Move between checkout, stock, purchases, customers, and reports
+              without leaving the app.
             </p>
           </div>
 
@@ -4266,10 +4905,10 @@
               <div class="integration-icon">
                 <i class="fas fa-mobile-alt icon-green"></i>
               </div>
-              <h4 class="font-bold mb-2 text-gray-900">M-Pesa Integration</h4>
+              <h4 class="font-bold mb-2 text-gray-900">Point-of-sale</h4>
               <p class="text-gray-600 text-sm">
-                Accept secure mobile payments via Safaricom M-Pesa with instant
-                reconciliation and automated transaction tracking.
+                Ring up sales, look up products, apply discounts, and record
+                payments from the selling screen.
               </p>
             </div>
 
@@ -4277,10 +4916,10 @@
               <div class="integration-icon">
                 <i class="fas fa-sms icon-orange"></i>
               </div>
-              <h4 class="font-bold mb-2 text-gray-900">SMS Marketing</h4>
+              <h4 class="font-bold mb-2 text-gray-900">Sales history</h4>
               <p class="text-gray-600 text-sm">
-                Send targeted bulk SMS campaigns, automated order alerts, and
-                personalized customer notifications to boost engagement.
+                Search past sales, review transaction details, and reprint
+                receipts when needed.
               </p>
             </div>
 
@@ -4288,10 +4927,10 @@
               <div class="integration-icon">
                 <i class="fas fa-file-invoice-dollar icon-blue"></i>
               </div>
-              <h4 class="font-bold mb-2 text-gray-900">QuickBooks Online</h4>
+              <h4 class="font-bold mb-2 text-gray-900">Inventory</h4>
               <p class="text-gray-600 text-sm">
-                Seamlessly sync sales data, expenses, inventory levels, and
-                financial reports with QuickBooks for effortless accounting.
+                Check stock levels, spot items that need attention, and record
+                adjustments or stock takes.
               </p>
             </div>
 
@@ -4299,10 +4938,9 @@
               <div class="integration-icon">
                 <i class="fas fa-truck icon-green-teal"></i>
               </div>
-              <h4 class="font-bold mb-2 text-gray-900">Delivery Services</h4>
+              <h4 class="font-bold mb-2 text-gray-900">Purchases and suppliers</h4>
               <p class="text-gray-600 text-sm">
-                Connect with popular local delivery services like Glovo, Uber
-                Eats, and local couriers for streamlined order fulfillment.
+                Maintain supplier records and track purchases as stock arrives.
               </p>
             </div>
 
@@ -4310,10 +4948,10 @@
               <div class="integration-icon">
                 <i class="fab fa-whatsapp icon-green"></i>
               </div>
-              <h4 class="font-bold mb-2 text-gray-900">WhatsApp Commerce</h4>
+              <h4 class="font-bold mb-2 text-gray-900">Customers and credit</h4>
               <p class="text-gray-600 text-sm">
-                Automate order confirmations, payment reminders, delivery
-                updates, and customer support through WhatsApp Business API.
+                Keep customer records and manage credit sales and balances in
+                dedicated workspaces.
               </p>
             </div>
 
@@ -4321,11 +4959,43 @@
               <div class="integration-icon">
                 <i class="fas fa-credit-card icon-purple"></i>
               </div>
-              <h4 class="font-bold mb-2 text-gray-900">Payment Gateways</h4>
+              <h4 class="font-bold mb-2 text-gray-900">Reports and expenses</h4>
               <p class="text-gray-600 text-sm">
-                Integrate with multiple payment processors including card
-                payments, bank transfers, and digital wallets for maximum
-                flexibility.
+                Review sales, profit, VAT, expenses, and payment summaries by
+                period.
+              </p>
+            </div>
+
+            <div class="integration-card fade-in">
+              <div class="integration-icon">
+                <i class="fas fa-clipboard-list icon-blue"></i>
+              </div>
+              <h4 class="font-bold mb-2 text-gray-900">Orders and returns</h4>
+              <p class="text-gray-600 text-sm">
+                Review orders, process returns, and keep sales records easy to
+                find.
+              </p>
+            </div>
+
+            <div class="integration-card fade-in">
+              <div class="integration-icon">
+                <i class="fas fa-user-shield icon-purple"></i>
+              </div>
+              <h4 class="font-bold mb-2 text-gray-900">Staff and settings</h4>
+              <p class="text-gray-600 text-sm">
+                Manage staff access, review user activity, and configure
+                business and receipt settings.
+              </p>
+            </div>
+
+            <div class="integration-card fade-in">
+              <div class="integration-icon">
+                <i class="fas fa-server icon-green-teal"></i>
+              </div>
+              <h4 class="font-bold mb-2 text-gray-900">Notifications and sync</h4>
+              <p class="text-gray-600 text-sm">
+                Check app notifications and monitor server connection and sync
+                status.
               </p>
             </div>
           </div>
@@ -4606,7 +5276,7 @@
                   monthly software fees.
                 </p>
               </div>
-              <div class="price mb-3 text-center">Ksh 20,000<span>*</span></div>
+              <div class="price mb-3 text-center">Ask us<span> for pricing</span></div>
               <p class="price-note text-center text-sm mb-8">
                 *One-time payment. No recurring software fees. Hardware
                 available separately.
@@ -5105,10 +5775,9 @@
               </div>
               <div class="faq-content">
                 <p class="faq-answer">
-                  Installation and setup typically takes 2-4 hours depending on
-                  your store setup and the number of products in your inventory.
-                  Our team handles everything, and you'll receive comprehensive
-                  on-site training as part of the package.
+                  SwiftTill is a desktop POS app. Setup and product-import
+                  options depend on your store and equipment; contact our team
+                  to discuss what you need.
                 </p>
               </div>
             </div>
@@ -5124,10 +5793,9 @@
               </div>
               <div class="faq-content">
                 <p class="faq-answer">
-                  No! SwiftTill is a one-time payment of Ksh 20,000 for the
-                  complete software package. There are no monthly subscriptions,
-                  no hidden charges. You get free software updates for 1 year
-                  and 6 months of technical support included.
+                  Licensing and hardware options can change. Contact our team
+                  for current pricing and to confirm what is included for your
+                  setup.
                 </p>
               </div>
             </div>
@@ -5143,10 +5811,9 @@
               </div>
               <div class="faq-content">
                 <p class="faq-answer">
-                  Absolutely! SwiftTill POS is designed for multi-user access.
-                  You can have multiple terminals in your store all syncing in
-                  real-time. Plus, with our cloud sync feature, you can manage
-                  multiple locations from anywhere.
+                  SwiftTill includes staff accounts and server connection and
+                  sync tools. Contact us to confirm the right setup for your
+                  devices and store.
                 </p>
               </div>
             </div>
@@ -5162,10 +5829,9 @@
               </div>
               <div class="faq-content">
                 <p class="faq-answer">
-                  SwiftTill supports M-Pesa payments, card payments, cash,
-                  cheques, and custom payment methods. Automatic reconciliation
-                  means your finances are always up to date. Integration with
-                  QuickBooks makes accounting seamless.
+                  SwiftTill records payments with each sale. Ask our team about
+                  the payment methods and integrations available for your
+                  installation.
                 </p>
               </div>
             </div>
@@ -5181,10 +5847,9 @@
               </div>
               <div class="faq-content">
                 <p class="faq-answer">
-                  SwiftTill works offline! You can continue processing sales,
-                  and data automatically syncs when your connection is restored.
-                  This ensures your business never stops, even during network
-                  outages.
+                  SwiftTill is a desktop app with local data storage and
+                  connection and sync tools. Ask our team how syncing works for
+                  your setup and network.
                 </p>
               </div>
             </div>
@@ -5200,10 +5865,8 @@
               </div>
               <div class="faq-content">
                 <p class="faq-answer">
-                  Yes! Training is included during installation. We also provide
-                  6 months of free technical support, video tutorials,
-                  documentation, and our support team is available
-                  Monday-Saturday. Extended support packages are available.
+                  Contact us to discuss onboarding and support options for your
+                  installation.
                 </p>
               </div>
             </div>
@@ -5217,10 +5880,9 @@
               </div>
               <div class="faq-content">
                 <p class="faq-answer">
-                  Security is our top priority. We use bank-grade encryption,
-                  PCI DSS compliance, automatic daily backups, and role-based
-                  access controls. Your data is protected with industry-leading
-                  security standards.
+                  SwiftTill provides staff accounts and role-based permissions.
+                  Contact us for details about data handling, backups, and
+                  security for your installation.
                 </p>
               </div>
             </div>
@@ -5442,7 +6104,7 @@
                 class="text-blue-100 hover:text-white transition"
                 >swifttilltechnologies@gmail.com</a
               >
-              <p class="text-blue-100 text-sm mt-1">Response within 2 hours</p>
+              <p class="text-blue-100 text-sm mt-1">Ask us about SwiftTill POS</p>
             </div>
 
             <div class="fade-in">
@@ -5465,8 +6127,8 @@
           <div>
             <div class="logo text-2xl mb-4 text-white">SwiftTill POS</div>
             <p class="text-gray-400 mb-6">
-              The ultimate business management solution for modern retailers,
-              restaurants, and service providers across Kenya.
+              A desktop point-of-sale system for everyday retail operations in
+              Kenya.
             </p>
             <div class="flex space-x-4">
               <a
@@ -5510,10 +6172,9 @@
           <div>
             <h4 class="text-white text-lg font-bold mb-6">Product</h4>
             <div class="footer-links">
-              <a href="#features">Features</a>
-              <a href="#showcase">Showcase</a>
-              <a href="#integrations">Integrations</a>
-              <a href="#pricing">Pricing</a>
+            <a href="#features">Features</a>
+            <a href="#integrations">Workspaces</a>
+            <a href="#contact">Request a demo</a>
               <a href="#faq">FAQ</a>
               <a href="#" onclick="openContactModal('footer_demo')"
                 >Request Software</a
@@ -5590,8 +6251,8 @@
             <i class="fas fa-rocket mr-2 text-blue-600"></i>Get SwiftTill POS
           </h3>
           <p class="modal-subtitle">
-            Fill out the form below and we'll contact you within 24 hours to
-            discuss your business needs and schedule installation.
+            Tell us about your store and our team will follow up to discuss
+            SwiftTill and the right setup.
           </p>
           <div id="modalSourceChip" class="modal-source-chip">
             <i class="fas fa-info-circle"></i> Requested from: Get Started
@@ -5682,7 +6343,7 @@
                 </option>
                 <option value="retail">Retail Store/Shop</option>
                 <option value="supermarket">Supermarket</option>
-                <option value="restaurant">Restaurant/Cafe/Hotel</option>
+                <option value="other-retail">Other retail business</option>
                 <option value="pharmacy">Pharmacy/Chemist</option>
                 <option value="hardware">Hardware Store</option>
                 <option value="clothing">Clothing/Fashion Store</option>
@@ -5803,7 +6464,7 @@
                 information is secure and confidential
               </p>
               <p class="text-gray-500 text-sm mt-2">
-                We'll contact you within 24 hours to discuss your needs
+                Our team will follow up to discuss your needs
               </p>
             </div>
           </form>
@@ -5856,7 +6517,7 @@
                     <li class="flex items-center">
                       <i class="fas fa-check text-green-500 mr-2 text-xs"></i>
                       <span
-                        >We call you within 24 hours to discuss your needs</span
+                        >We follow up to discuss your needs</span
                       >
                     </li>
                     <li class="flex items-center">
@@ -6192,6 +6853,7 @@
           hardware_complete: "Hardware Order - Complete",
           hardware_custom: "Custom Hardware",
           view_products: "Product Preview",
+          fit_finder: "Business Fit Finder",
         };
         return labels[source] || "Get Started";
       }
@@ -6236,7 +6898,7 @@
         };
         return (
           subtitles[source] ||
-          "Fill out the form below and we'll contact you within 24 hours to discuss your business needs and schedule installation."
+          "Tell us about your store and our team will follow up to discuss SwiftTill and the right setup."
         );
       }
 
@@ -6289,7 +6951,7 @@
               Your request for <strong>${sourceLabel}</strong> with <strong>${packageLabel}</strong> has been received.
             </p>
             <p class="text-sm text-gray-700">
-              We will contact you within 24 hours to confirm the next step and answer any questions.
+              Our team will follow up to discuss the next step and answer any questions.
             </p>
           `;
         }
@@ -6328,6 +6990,23 @@
         );
       }
 
+      function closeAnnouncementBar() {
+        const announcementBar = document.getElementById("announcementBar");
+        if (!announcementBar) return;
+        announcementBar.hidden = true;
+        window.localStorage.setItem("swifttillAnnouncementDismissed", "true");
+        elements.header.style.top = "0";
+      }
+
+      function initAnnouncementBar() {
+        const announcementBar = document.getElementById("announcementBar");
+        if (!announcementBar) return;
+        if (window.localStorage.getItem("swifttillAnnouncementDismissed") === "true") {
+          announcementBar.hidden = true;
+          elements.header.style.top = "0";
+        }
+      }
+
       function openWhatsApp() {
         const url = `https://wa.me/${
           CONFIG.whatsappNumber
@@ -6354,12 +7033,45 @@
         faqItem.classList.toggle("open");
       }
 
+      function initBusinessFitFinder() {
+        const fitData = {
+          checkout: { title: "A smoother checkout", text: "Find products, record sales, and keep the till moving from one focused screen." },
+          stock: { title: "Stock with more visibility", text: "See low or expiring items, record stock movements, and run a stock take." },
+          reports: { title: "Useful reports for your store", text: "Review sales, profit, VAT, expenses, and payment summaries by period." },
+        };
+        const title = document.getElementById("fitResultTitle");
+        const text = document.getElementById("fitResultText");
+        document.querySelectorAll(".fit-option").forEach((option) => {
+          option.addEventListener("click", () => {
+            const result = fitData[option.dataset.fit];
+            document.querySelectorAll(".fit-option").forEach((item) => item.classList.remove("active"));
+            option.classList.add("active");
+            title.textContent = result.title;
+            text.textContent = result.text;
+          });
+        });
+      }
+
+      function initThemeToggle() {
+        const toggle = document.getElementById("themeToggle");
+        if (!toggle) return;
+        const savedContrast = window.localStorage.getItem("swifttillHighContrast") === "true";
+        document.body.classList.toggle("high-contrast", savedContrast);
+        toggle.setAttribute("aria-pressed", String(savedContrast));
+        toggle.addEventListener("click", () => {
+          const enabled = document.body.classList.toggle("high-contrast");
+          window.localStorage.setItem("swifttillHighContrast", String(enabled));
+          toggle.setAttribute("aria-pressed", String(enabled));
+          toggle.setAttribute("aria-label", enabled ? "Turn off increased contrast" : "Increase contrast");
+        });
+      }
+
       function scrollToFeatures() {
         scrollToSection("features");
       }
 
       function scrollToPricing() {
-        scrollToSection("pricing");
+        scrollToSection("contact");
       }
 
       function scrollToContact() {
@@ -6712,6 +7424,9 @@
         updateHeader();
         checkFadeIn();
         initEventListeners();
+        initAnnouncementBar();
+        initBusinessFitFinder();
+        initThemeToggle();
 
         // Trigger initial fade-in check
         setTimeout(checkFadeIn, 100);
@@ -6746,6 +7461,7 @@
         const stats = document.querySelectorAll(".stat-number");
         stats.forEach((stat) => {
           const target = parseInt(stat.textContent);
+          if (!Number.isFinite(target)) return;
           let current = 0;
           const increment = target / 50;
           const timer = setInterval(() => {
@@ -6791,6 +7507,7 @@
       window.closeContactModal = closeContactModal;
       window.closeSuccessModal = closeSuccessModal;
       window.showContactInfo = showContactInfo;
+      window.closeAnnouncementBar = closeAnnouncementBar;
       window.openWhatsApp = openWhatsApp;
       window.scrollToFeatures = scrollToFeatures;
       window.scrollToPricing = scrollToPricing;
